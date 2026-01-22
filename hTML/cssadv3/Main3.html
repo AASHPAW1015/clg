@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Nature Gallery</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            color: #fff;
+            background: url('https://images.pexels.com/photos/34950/pexels-photo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        aside {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255, 0, 150, 0.3), rgba(0, 200, 255, 0.3));
+            opacity: 0.4;
+            transition: opacity 0.5s;
+        }
+
+        .card:hover::after {
+            opacity: 0.7;
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .card p {
+            padding: 10px;
+            font-weight: bold;
+            text-shadow: 1px1px2px rgba(0, 0, 0, 0.6);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Animated gradient background overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 0, 150, 0.2), rgba(0, 200, 255, 0.2));
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Interactive Nature Gallery</h1>
+        <p>Engage your senses while learning CSS Grid!</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Landscapes</a>
+        <a href="#">Forests</a>
+        <a href="#">Mountains</a>
+        <a href="#">Water</a>
+    </nav>
+
+    <main>
+        <aside>
+            <h3>Filters</h3>
+            <ul>
+                <li><input type="checkbox"> Forest</li>
+                <li><input type="checkbox"> Mountains</li>
+                <li><input type="checkbox"> Water</li>
+            </ul>
+            <h4>Why this is perfect for Grid class:</h4>
+            <ul>
+                <li>Main is a 2-column grid (sidebar + gallery).</li>
+                <li>.gallery is a responsive scrollable grid of cards.</li>
+                <li>Hover effects & animated gradients make UI interactive.</li>
+                <li>Students can change images & practice grid-template-columns, gaps, and alignment.</li>
+            </ul>
+        </aside>
+
+        <section class="gallery">
+            <div class="card">
+                <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" alt="Forest Path">
+                <p>Forest Path</p>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" alt="Mountain Lake">
+                <p>Mountain Lake</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/road-1868720_1280.jpg" alt="Sunset Road">
+                <p>Sunset Road</p>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/355747/pexels-photo-355747.jpeg" alt="Waterfall">
+                <p>Waterfall View</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2015/03/26/10/14/forest-690178_1280.jpg" alt="Green Forest">
+                <p>Green Forest</p>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/2113566/pexels-photo-2113566.jpeg" alt="Sunset Beach">
+                <p>Sunset Beach</p>
+            </div>
+        </section>
+        <section class="gallery">
+            <div class="card">
+                <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" alt="Forest Path">
+                <p>Forest Path</p>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" alt="Mountain Lake">
+                <p>Mountain Lake</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/road-1868720_1280.jpg" alt="Sunset Road">
+                <p>Sunset Road</p>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/355747/pexels-photo-355747.jpeg" alt="Waterfall">
+                <p>Waterfall View</p>
+            </div>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2015/03/26/10/14/forest-690178_1280.jpg" alt="Green Forest">
+                <p>Green Forest</p>
+            </div>
+            <div class="card">
+                <img src="https://images.pexels.com/photos/2113566/pexels-photo-2113566.jpeg" alt="Sunset Beach">
+                <p>Sunset Beach</p>
+            </div>
+        </section>
+        <aside>
+                <h4>Why this is perfect for Grid class:</h4>
+                <ul>
+                    <li>Main is a 2-column grid (sidebar + gallery).</li>
+                    <li>.gallery is a responsive scrollable grid of cards.</li>
+                    <li>Hover effects & animated gradients make UI interactive.</li>
+                    <li>Students can change images & practice grid-template-columns, gaps, and alignment.</li>
+                </ul>
+
+                <section class="gallery">
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" alt="Forest Path">
+                        <p>Forest Path</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" alt="Mountain Lake">
+                        <p>Mountain Lake</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/road-1868720_1280.jpg" alt="Sunset Road">
+                        <p>Sunset Road</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/355747/pexels-photo-355747.jpeg" alt="Waterfall">
+                        <p>Waterfall View</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://cdn.pixabay.com/photo/2015/03/26/10/14/forest-690178_1280.jpg" alt="Green Forest">
+                        <p>Green Forest</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/2113566/pexels-photo-2113566.jpeg" alt="Sunset Beach">
+                        <p>Sunset Beach</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/34950/pexels-photo.jpg" alt="Forest Path">
+                        <p>Forest Path</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg" alt="Mountain Lake">
+                        <p>Mountain Lake</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/road-1868720_1280.jpg" alt="Sunset Road">
+                        <p>Sunset Road</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/355747/pexels-photo-355747.jpeg" alt="Waterfall">
+                        <p>Waterfall View</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://cdn.pixabay.com/photo/2015/03/26/10/14/forest-690178_1280.jpg" alt="Green Forest">
+                        <p>Green Forest</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pexels.com/photos/2113566/pexels-photo-2113566.jpeg" alt="Sunset Beach">
+                        <p>Sunset Beach</p>
+                    </div>
+                </section>
+            </aside>
+    
+    </main>
+
+    <footer>
+        <p>© 2026 Interactive Nature Gallery — CSS Grid Practice!</p>
+    </footer>
+
+</body>
+
+</html>
