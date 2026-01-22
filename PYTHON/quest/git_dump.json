@@ -1,0 +1,482 @@
+[
+  {
+    "number": 1,
+    "text": "1. LinkedIn post impressions mean\nA. Number of likes only\nB. Number of times post was displayed\nC. Age of viewers\nD. Salary"
+  },
+  {
+    "number": 2,
+    "text": "2. git branch -m\nA. Makes duplicate branch\nB. Renames branch\nC. Deletes repo\nD. Clears cache"
+  },
+  {
+    "number": 3,
+    "text": "3. LinkedIn profile photo should be\nA. Group photo\nB. Clear professional face photo\nC. Blur\nD. Sunglasses selfie"
+  },
+  {
+    "number": 4,
+    "text": "4. GitHub Contribution graph displays\nA. Daily steps\nB. Contribution heatmap\nC. Call logs\nD. Reels"
+  },
+  {
+    "number": 5,
+    "text": "5. Stash in Git\nA. Deletes permanently\nB. Temporarily hides changes\nC. Uploads 4K video\nD. Records sound"
+  },
+  {
+    "number": 6,
+    "text": "6. GitHub Release refers to\nA. Sports update\nB. Publishing packaged software\nC. Push notification\nD. Cloud backup"
+  },
+  {
+    "number": 7,
+    "text": "7. git revert\nA. Undo a commit safely\nB. Restart PC\n\nC. Delete branch\nD. Recover password"
+  },
+  {
+    "number": 8,
+    "text": "8. LinkedIn hashtags categorize\nA. Movie taste\nB. Content topics\nC. Bank accounts\nD. Birthday list"
+  },
+  {
+    "number": 9,
+    "text": "9. git log shows\nA. Browser history\nB. Commit history\nC. RAM space\nD. IP address"
+  },
+  {
+    "number": 10,
+    "text": "10. GitHub default branch in new repos\nA. Test\nB. main\nC. first\nD. root"
+  },
+  {
+    "number": 11,
+    "text": "11. GitHub Pages hosts\nA. Mobile apps\nB. Static websites\nC. Movies\nD. PDFs only"
+  },
+  {
+    "number": 12,
+    "text": "12. GitHub Gist stores\nA. Food recipes\nB. Short code snippets\nC. Videos\nD. Music"
+  },
+  {
+    "number": 13,
+    "text": "13. LinkedIn Easy Apply allows\nA. One-click job applications\nB. Add reels\nC. Play games\nD. Send emails only"
+  },
+  {
+    "number": 14,
+    "text": "14. git push origin main\nA. Save images\nB. Upload commits to main branch\nC. Sync contacts\nD. Open camera"
+  },
+  {
+    "number": 15,
+    "text": "15. GitHub Organization refers to\nA. Restaurant\nB. Group of developers\n\nC. Bank\nD. Gym"
+  },
+  {
+    "number": 16,
+    "text": "16. Job networking on LinkedIn improves by\nA. Sending same message to all\nB. Personalized conversation\nC. Shouting comments\nD. Spamming groups"
+  },
+  {
+    "number": 17,
+    "text": "17. LinkedIn shared post analytics include\nA. Eye color\nB. Engagement & audience\nC. Home address\nD. Contact number"
+  },
+  {
+    "number": 18,
+    "text": "18. git checkout is used to\nA. Increase volume\nB. Switch branches\nC. Install OS\nD. Delete repo"
+  },
+  {
+    "number": 19,
+    "text": "19. Main branch in Git is\nA. Temporary\nB. Default primary branch\nC. Secret folder\nD. Auto backup"
+  },
+  {
+    "number": 20,
+    "text": "20. LinkedIn resume can be uploaded in\nA. SMS inbox\nB. Easy Apply\nC. Ringtone folder\nD. Google maps"
+  },
+  {
+    "number": 21,
+    "text": "21. GitHub Notifications alert about\nA. IPL score\nB. Repo activities\nC. Bank account\nD. Bluetooth"
+  },
+  {
+    "number": 22,
+    "text": "22. git fetch + git merge together are equal to\nA. git reset\nB. git pull\nC. git clean\nD. git mv"
+  },
+  {
+    "number": 23,
+    "text": "23. LinkedIn job alerts track\nA. Food delivery\nB. Relevant job openings\n\nC. Electricity bills\nD. Photos"
+  },
+  {
+    "number": 24,
+    "text": "24. git commit -m includes\nA. Audio file\nB. Commit message\nC. Folder name\nD. Password"
+  },
+  {
+    "number": 25,
+    "text": "25. LinkedIn algorithms reward\nA. Spamming\nB. Consistent useful content\nC. Inactive days\nD. Ignoring comments"
+  },
+  {
+    "number": 26,
+    "text": "26. git restore recovers\nA. Cookies\nB. Staged/unstaged lost changes\nC. Passwords\nD. Images"
+  },
+  {
+    "number": 27,
+    "text": "27. GitHub Projects board is used for\nA. Task management\nB. Food delivery\nC. Music playlist\nD. Banking"
+  },
+  {
+    "number": 28,
+    "text": "28. LinkedIn Group members share\nA. Wallpapers\nB. Profession-based resources\nC. Cricket memes\nD. Voice notes"
+  },
+  {
+    "number": 29,
+    "text": "29. Program documentation in GitHub can go into\nA. SMS\nB. Wiki\nC. Calendar\nD. Games"
+  },
+  {
+    "number": 30,
+    "text": "30. LinkedIn premium provides\nA. Laundry bills\nB. InMail credits & analytics\nC. Car insurance\nD. WiFi"
+  },
+  {
+    "number": 31,
+    "text": "31. Repository contains\nA. Singing tips\nB. Branches and files\n\nC. USB driver\nD. Antivirus"
+  },
+  {
+    "number": 32,
+    "text": "32. git show displays\nA. Images\nB. Details of commit\nC. Weather\nD. Notifications"
+  },
+  {
+    "number": 33,
+    "text": "33. GitHub stars are for\nA. Appreciation of repo\nB. Block users\nC. Data deletion\nD. Video upload"
+  },
+  {
+    "number": 34,
+    "text": "34. git diff shows\nA. Phone contacts\nB. Code differences\nC. Calendar events\nD. WiFi speed"
+  },
+  {
+    "number": 35,
+    "text": "35. LinkedIn banner strengthens\nA. Game ranking\nB. Personal brand\nC. WiFi network\nD. RAM"
+  },
+  {
+    "number": 36,
+    "text": "36. LinkedIn connection request is used to\nA. Block\nB. Add professionals\nC. Find restaurants\nD. Send payments"
+  },
+  {
+    "number": 37,
+    "text": "37. git branch -d means\nA. Add task\nB. Delete branch\nC. Pause music\nD. Reboot"
+  },
+  {
+    "number": 38,
+    "text": "38. SSH Key in GitHub is for\nA. Video sharing\nB. Secure authentication\nC. Free storage\nD. Bluetooth"
+  },
+  {
+    "number": 39,
+    "text": "39. GitHub Contribution streak resets when\nA. Rain comes\nB. Day passes without contribution\n\nC. Battery low\nD. Saturday"
+  },
+  {
+    "number": 40,
+    "text": "40. Git is mainly used for\nA. Antivirus\nB. Version control\nC. Cleaning RAM\nD. Sharing location"
+  },
+  {
+    "number": 41,
+    "text": "41. LinkedIn endorsements validate\nA. Blood group\nB. Skills\nC. Birth year\nD. Salary"
+  },
+  {
+    "number": 42,
+    "text": "42. LinkedIn Profile views display\nA. Calories burnt\nB. People who visited your profile\nC. Weather\nD. Ringtones"
+  },
+  {
+    "number": 43,
+    "text": "43. git push\nA. Sends commits to remote repo\nB. Closes terminal\nC. Deletes RAM\nD. Installs Python"
+  },
+  {
+    "number": 44,
+    "text": "44. GitHub Issues are for\nA. Playing quizzes\nB. Tracking tasks/bugs\nC. Blocking users\nD. Banking"
+  },
+  {
+    "number": 45,
+    "text": "45. Merge in Git combines\nA. Apps\nB. Branches\nC. Antivirus\nD. Bluetooth"
+  },
+  {
+    "number": 46,
+    "text": "46. LinkedIn DM means\nA. Download Manager\nB. Direct Message\nC. Data Mining\nD. Device Memory"
+  },
+  {
+    "number": 47,
+    "text": "47. git status shows\nA. Internet speed\nB. Staged/unstaged file state\n\nC. CPU usage\nD. Time"
+  },
+  {
+    "number": 48,
+    "text": "48. GitHub Pull Request review means\nA. Send money\nB. Approve or comment on changes\nC. Share music\nD. Share location"
+  },
+  {
+    "number": 49,
+    "text": "49. LinkedIn hashtags help\nA. Switch languages\nB. Increase discoverability\nC. Report abuse\nD. Block ads"
+  },
+  {
+    "number": 50,
+    "text": "50. GitHub Wiki is for\nA. Bike rental\nB. Documentation & notes\nC. Password recovery\nD. Online shopping"
+  },
+  {
+    "number": 51,
+    "text": "51. git revert\nA. Undo a commit safely\nB. Restart PC\nC. Delete branch\nD. Recover password"
+  },
+  {
+    "number": 52,
+    "text": "52. Merge conflicts occur when\nA. Battery low\nB. Same lines modified in branches\nC. RAM full\nD. WiFi slow"
+  },
+  {
+    "number": 53,
+    "text": "53. Fast-forward merge occurs when\nA. Internet fast\nB. Linear commit history\nC. Branch deleted\nD. Repo hidden"
+  },
+  {
+    "number": 54,
+    "text": "54. LinkedIn premium offers\nA. Free food\nB. Advanced career tools\nC. Furniture deals\nD. Bike rental"
+  },
+  {
+    "number": 55,
+    "text": "55. git fetch\nA. Deletes repo\nB. Downloads commits without merge\n\nC. Installs fonts\nD. Sends emails"
+  },
+  {
+    "number": 56,
+    "text": "56. GitHub is mainly used for\nA. Messaging\nB. Hosting Git repositories\nC. Playing games\nD. 3D modeling"
+  },
+  {
+    "number": 57,
+    "text": "57. LinkedIn Salary insights show\nA. Vehicle number\nB. Average pay for job roles\nC. Blood pressure\nD. Weather"
+  },
+  {
+    "number": 58,
+    "text": "58. Local repository contains\nA. Mobile games\nB. Code & commit history\nC. Laptop battery\nD. Music"
+  },
+  {
+    "number": 59,
+    "text": "59. GitHub Classroom is mainly for\nA. Farmers\nB. Teachers & students\nC. Doctors\nD. Drivers"
+  },
+  {
+    "number": 60,
+    "text": "60. GitHub Sponsors support\nA. Movie actors\nB. Open-source developers\nC. Banks\nD. Hospitals"
+  },
+  {
+    "number": 61,
+    "text": "61. git config user.name is used to\nA. Connect WiFi\nB. Set username\nC. Change brightness\nD. Lock folder"
+  },
+  {
+    "number": 62,
+    "text": "62. LinkedIn \u201cOpen to work\u201d means\nA. Not available\nB. Looking for jobs\nC. Account banned\nD. Studying only"
+  },
+  {
+    "number": 63,
+    "text": "63. Repository on GitHub contains\nA. Movies\nB. Wallpapers\n\nC. Code files\nD. Music"
+  },
+  {
+    "number": 64,
+    "text": "64. GitHub README contains\nA. Phone contacts\nB. Project description & usage\nC. Selfie filter\nD. Mobile apps"
+  },
+  {
+    "number": 65,
+    "text": "65. GitHub Desktop is\nA. Web browser\nB. GUI for Git\nC. Game launcher\nD. Editor"
+  },
+  {
+    "number": 66,
+    "text": "66. GitHub badge icons display\nA. Age\nB. License, topics etc.\nC. OTP\nD. Playlist"
+  },
+  {
+    "number": 67,
+    "text": "67. LinkedIn jobs is used for\nA. Grocery shopping\nB. Finding job opportunities\nC. Sending SMS\nD. Gaming"
+  },
+  {
+    "number": 68,
+    "text": "68. git add . adds\nA. PDFs only\nB. All tracked files\nC. No files\nD. Few random files"
+  },
+  {
+    "number": 69,
+    "text": "69. Working directory contains\nA. Files being edited\nB. Deleted files\nC. Shopping list\nD. Temporary RAM"
+  },
+  {
+    "number": 70,
+    "text": "70. GitHub Organization refers to\nA. Restaurant\nB. Group of developers\nC. Bank\nD. Gym"
+  },
+  {
+    "number": 71,
+    "text": "71. GitHub Pull Request in draft means\nA. PR ready\nB. Still in progress\n\nC. Deleted\nD. Merged"
+  },
+  {
+    "number": 72,
+    "text": "72. GitHub Actions automate\nA. Attendance\nB. CI/CD workflows\nC. Color theme\nD. Phone lock"
+  },
+  {
+    "number": 73,
+    "text": "73. git reset does\nA. Reboot laptop\nB. Hard delete/rollback changes\nC. Play audio\nD. Zoom screen"
+  },
+  {
+    "number": 74,
+    "text": "74. LinkedIn Follow is ideal for\nA. Celebrities/influencers\nB. Strangers only\nC. Phonebook sync\nD. Maps"
+  },
+  {
+    "number": 75,
+    "text": "75. LinkedIn post scheduling means\nA. Delete CV\nB. Publish content at specific time\nC. Block recruiters\nD. Mute profile"
+  },
+  {
+    "number": 76,
+    "text": "76. LinkedIn post helps users\nA. Play games\nB. Share professional content\nC. Track calories\nD. Watch memes"
+  },
+  {
+    "number": 77,
+    "text": "77. LinkedIn networking success depends on\nA. Spamming\nB. Meaningful engagement\nC. Fake resumes\nD. Blank profiles"
+  },
+  {
+    "number": 78,
+    "text": "78. Forking a repository creates\nA. Email draft\nB. A duplicate repo under your account\nC. Antivirus\nD. Screenshot"
+  },
+  {
+    "number": 79,
+    "text": "79. git mv is used to\nA. Move/rename files\nB. Compress photos\n\nC. Increase brightness\nD. Change wallpaper"
+  },
+  {
+    "number": 80,
+    "text": "80. .gitignore is used to\nA. Change wallpaper\nB. Ignore unwanted files\nC. Play sound\nD. Restart PC"
+  },
+  {
+    "number": 81,
+    "text": "81. GitHub Pages hosts\nA. Mobile apps\nB. Static websites\nC. Movies\nD. PDFs only"
+  },
+  {
+    "number": 82,
+    "text": "82. git clone means\nA. Duplicate locally\nB. Upload photos\nC. Print invoices\nD. Update antivirus"
+  },
+  {
+    "number": 83,
+    "text": "83. LinkedIn headline summarizes\nA. Hobbies only\nB. Career identity and skills\nC. Bank details\nD. Movies"
+  },
+  {
+    "number": 84,
+    "text": "84. GitHub Repository visibility can be changed in\nA. Netflix\nB. Repo settings\nC. Wallpapers\nD. WiFi"
+  },
+  {
+    "number": 85,
+    "text": "85. Staging area is also called\nA. Recycle bin\nB. Index\nC. Gallery\nD. Memory card"
+  },
+  {
+    "number": 86,
+    "text": "86. git pull does\nA. Upload changes\nB. Download & merge changes\nC. Delete repo\nD. Create branch"
+  },
+  {
+    "number": 87,
+    "text": "87. Git helps in\nA. Hacking passwords\nB. Tracking source code changes\n\nC. Cooking\nD. 3D animation"
+  },
+  {
+    "number": 88,
+    "text": "88. LinkedIn creator mode is used for\nA. Games\nB. Content creation focus\nC. Travel booking\nD. Music"
+  },
+  {
+    "number": 89,
+    "text": "89. git show displays\nA. Images\nB. Details of commit\nC. Weather\nD. Notifications"
+  },
+  {
+    "number": 90,
+    "text": "90. Distributed VCS means\nA. One central server\nB. Each user has full repo copy\nC. No commit history\nD. Offline only"
+  },
+  {
+    "number": 91,
+    "text": "91. Merge button appears after\nA. Blue tick\nB. PR approval\nC. Password reset\nD. Commit deletion"
+  },
+  {
+    "number": 92,
+    "text": "92. GitHub Contribution streak resets when\nA. Rain comes\nB. Day passes without contribution\nC. Battery low\nD. Saturday"
+  },
+  {
+    "number": 93,
+    "text": "93. git commit records\nA. Contact list\nB. Code snapshots\nC. Phone calls\nD. Fitness data"
+  },
+  {
+    "number": 94,
+    "text": "94. LinkedIn connection limit improves\nA. Audio\nB. Networking reach\nC. Car mileage\nD. WiFi"
+  },
+  {
+    "number": 95,
+    "text": "95. Repository contains\nA. Singing tips\nB. Branches and files\n\nC. USB driver\nD. Antivirus"
+  },
+  {
+    "number": 96,
+    "text": "96. Git Bash is a\nA. Camera app\nB. Terminal/emulator\nC. Keyboard\nD. Antivirus"
+  },
+  {
+    "number": 97,
+    "text": "97. LinkedIn Cover image includes\nA. Random memes\nB. Career theme & achievements\nC. Selfies only\nD. Songs"
+  },
+  {
+    "number": 98,
+    "text": "98. Tagging someone on LinkedIn\nA. Orders food\nB. Mentions people in posts\nC. Downloads MP3\nD. Changes font"
+  },
+  {
+    "number": 99,
+    "text": "99. Commit hash (SHA-1) refers to\nA. Font style\nB. Unique commit ID\nC. Image size\nD. Password"
+  },
+  {
+    "number": 100,
+    "text": "100. LinkedIn recommendations are\nA. Shopping list\nB. Written appreciation\nC. Video playlist\nD. Junk folder"
+  },
+  {
+    "number": 101,
+    "text": "101. GitHub Contribution streak counts\nA. Instagram posts\nB. GitHub contributions\nC. SMS sent\nD. RAM"
+  },
+  {
+    "number": 102,
+    "text": "102. LinkedIn search uses\nA. GPS\nB. Keywords & skills\nC. PUBG ID\nD. Music"
+  },
+  {
+    "number": 103,
+    "text": "103. A pull request means\nA. Request for money\nB. Request to merge changes\n\nC. Shipment request\nD. Delete branch"
+  },
+  {
+    "number": 104,
+    "text": "104. LinkedIn groups are for\nA. Selling courses\nB. Topic-based professional discussions\nC. Watch anime\nD. Car loans"
+  },
+  {
+    "number": 105,
+    "text": "105. LinkedIn About section tells\nA. Height\nB. Horoscope\nC. Professional summary\nD. Tattoos"
+  },
+  {
+    "number": 106,
+    "text": "106. GitHub star is for\nA. Appreciation of repo\nB. Block users\nC. Data deletion\nD. Video upload"
+  },
+  {
+    "number": 107,
+    "text": "107. GitHub Organization refers to\nA. Restaurant\nB. Group of developers\nC. Bank\nD. Gym"
+  },
+  {
+    "number": 108,
+    "text": "108. LinkedIn profile visibility shows\nA. TV shows\nB. People who viewed profile\nC. Phone apps\nD. SMS backups"
+  },
+  {
+    "number": 109,
+    "text": "109. Job alerts notify\nA. Weather\nB. New job updates\nC. Train status\nD. Traffic"
+  },
+  {
+    "number": 110,
+    "text": "110. GitHub Notification alerts\nA. IPL score\nB. Repo activities\nC. Bank account\nD. Bluetooth"
+  },
+  {
+    "number": 111,
+    "text": "111. LinkedIn Learning provides\nA. Cooking lessons\nB. Professional online courses\n\nC. Live cricket\nD. TV shows"
+  },
+  {
+    "number": 112,
+    "text": "112. GitHub Activities streak counts\nA. Instagram posts\nB. GitHub contributions\nC. SMS sent\nD. RAM"
+  },
+  {
+    "number": 113,
+    "text": "113. Git was created by\nA. Bill Gates\nB. Linus Torvalds\nC. Tim Cook\nD. Jeff Bezos"
+  },
+  {
+    "number": 114,
+    "text": "114. git clean removes\nA. Untracked files\nB. Commits\nC. Emails\nD. Reels"
+  },
+  {
+    "number": 115,
+    "text": "115. GitHub trending shows\nA. Popular repositories\nB. Weather\nC. IPL scores\nD. Passwords"
+  },
+  {
+    "number": 116,
+    "text": "116. LinkedIn poll post collects\nA. Votes & opinions\nB. WhatsApp numbers\nC. Passwords\nD. Location"
+  },
+  {
+    "number": 117,
+    "text": "117. git archive creates\nA. Tar/zip snapshot\nB. Delete branch\nC. Exit terminal\nD. Broadcast"
+  },
+  {
+    "number": 118,
+    "text": "118. GitHub branch protection blocks\nA. Force pushes\nB. Likes\nC. Emails\nD. Stickers"
+  },
+  {
+    "number": 119,
+    "text": "119. git stash pop does\nA. Apply & remove stash\nB. Delete repo\n\nC. Move folder\nD. Increase brightness"
+  },
+  {
+    "number": 120,
+    "text": "120. git cherry-pick does\nA. Apply specific commit\nB. Change URL\nC. Increase WiFi\nD. Backup phone"
+  }
+]

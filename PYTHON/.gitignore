@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / compiled files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Editors / IDEs
+.vscode/        # VS Code settings
+.idea/          # IntelliJ IDEA settings
+*.swp           # Vim swap files
+*.swo           # Vim swap files
+
+# OS-specific
+.DS_Store       # macOS
+Thumbs.db       # Windows
+
+# Testing
+.pytest_cache/
+.coverage
+
+# Miscellaneous
+.env            # Environment variables

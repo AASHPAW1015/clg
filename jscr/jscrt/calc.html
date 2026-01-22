@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator Without eval</title>
+<style>
+body {
+font-family: Arial;
+text-align: center;
+margin-top: 50px;
+}
+input {
+width: 170px;
+height: 40px;
+font-size: 18px;
+text-align: right;
+margin-bottom: 10px;
+}
+button {
+width: 40px;
+height: 40px;
+font-size: 18px;
+margin: 3px;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Simple Calculator</h2>
+
+<input type="text" id="display" disabled>
+<br>. <!-- enter a new line -->
+
+<button onclick="pressNumber(1)">1</button>
+<button onclick="pressNumber(2)">2</button>
+<button onclick="pressNumber(3)">3</button>
+<button onclick="setOperator('+')">+</button>
+
+<br>
+
+<button onclick="pressNumber(4)">4</button>
+<button onclick="pressNumber(5)">5</button>
+<button onclick="pressNumber(6)">6</button>
+<button onclick="setOperator('-')">-</button>
+
+<br>
+
+<button onclick="pressNumber(7)">7</button>
+<button onclick="pressNumber(8)">8</button>
+<button onclick="pressNumber(9)">9</button>
+<button onclick="setOperator('*')">×</button>
+
+<br>
+
+<button onclick="clearAll()">C</button>
+<button onclick="pressNumber(0)">0</button>
+<button onclick="calculate()">=</button>
+<button onclick="setOperator('/')">÷</button>
+
+<script src="calc.js"></script>
+

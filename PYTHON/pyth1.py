@@ -1,0 +1,14 @@
+a=1
+print(type(a))
+b=2.5
+print(type(b))
+c="ehe"
+print(type(c))
+d=False 
+print(type(d))
+e=[1,2,3]
+print(type(e))
+f=(1,2,3)
+print(type(f))
+g={a:1,b:2}
+print(type(g))

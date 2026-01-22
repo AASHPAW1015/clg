@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fun Nature Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <h1>Fun Nature Gallery</h1>
+    <p>Explore beautiful free nature photos while learning CSS Grid!</p>
+  </header>
+
+  <nav class="nav">
+    <ul>
+      <li>Home</li>
+      <li>Landscapes</li>
+      <li>Forests</li>
+      <li>Mountains</li>
+      <li>Water</li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <aside class="sidebar">
+      <h2>Filter Nature</h2>
+
+      <p>Try selecting:</p>
+
+      <ul class="filter-list">
+        <li><input type="checkbox"> Forest</li>
+        <li><input type="checkbox"> Mountains</li>
+        <li><input type="checkbox"> Water</li>
+      </ul>
+
+      <h3>Why this is perfect for Grid class:</h3>
+
+      <ul class="info-list">
+        <li><strong>main is already a 2-column grid (sidebar + gallery).</strong></li>
+        <li>
+          <strong>.gallery</strong> is a responsive grid of cards, perfect for practicing:
+          <ul class="sub-list">
+            <li>grid-template-columns</li>
+            <li>grid-gap / gap</li>
+            <li>justify-items / align-items</li>
+          </ul>
+        </li>
+        <li>Hover effects make it interactive and fun.</li>
+        <li>Students can add their favorite nature images and experiment.</li>
+        <li>Sidebar filters give a “real gallery feel”.</li>
+      </ul>
+    </aside>
+
+    <section class="content">
+      <div class="card">
+        <img src="assets/forest.jpg" alt="forest path">
+        <p>Forest Path</p>
+      </div>
+      <div class="card">
+            <img src="assets/mountain.jpg" alt="mountain lake">
+            <p>Mountain Lake</p>
+      </div>
+      <div class="card">
+            <img src="assets/sunset.jpg" alt="sunset Road">
+            <p>Sunset Road</p>
+
+      </div>
+      <div class="card">
+            <img src="assets/waterfall.jpg" alt="waterfall view">
+            <p>Waterfall View</p>
+      </div>
+      <div class="card">
+            <img src="assets/path.jpg" alt="green Forestt ">
+            <p>Green Forest</p>
+      </div>
+      <div class="card">
+            <img src="assets/beach.jpg" alt="sunset beach">
+            <p>Sunset Beach</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    © 2026 Nature Gallery — CSS Grid Practice!
+  </footer>
+
+</div>
+
+</body>
+</html>
+

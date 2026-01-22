@@ -1,0 +1,962 @@
+[
+  {
+    "number": 1,
+    "text": "Que 1: What is Scratch mainly used for? (A)\u200bText-based programming (B)\u200bCreating animations, games, and stories (C)\u200bDatabase management (D)\u200bWeb hosting"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: Scratch is developed by which organization? (A)\u200bGoogle (B)\u200bMIT Media Lab (C)\u200bMicrosoft (D)\u200bApple"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: Block-based coding helps beginners because it: (A)\u200bNeeds typing speed (B)\u200bAvoids syntax errors (C)\u200bUses numbers only (D)\u200bIs memory-based"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: The area where sprites perform actions is called: (A)\u200b Script Area (B)\u200bStage (C)\u200bBlocks Palette (D)\u200bToolbar"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: Which component holds coding blocks? (A)\u200bStage (B)\u200bSprite List (C)\u200bBlocks Palette (D)\u200bBackdrop Area"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: Default sprite in Scratch is: (A)\u200bDog (B)\u200bRobot (C)\u200bCat (D)\u200bBall"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: Which block starts a program? (A)\u200b Forever (B)\u200bWhen green flag clicked (C)\u200b Repeat (D)\u200bWait"
+  },
+  {
+    "number": 8,
+    "text": "Que 8. What is a sprite in Scratch? (A)\u200bBackground image (B)\u200bCharacter/object that performs actions (C)\u200bSound file (D)\u200bCode block"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: Backdrops are related to: (A)\u200bSprite movement (B)\u200bSounds (C)\u200bStage background (D)\u200bCoding blocks"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: Which toolbar option saves a project? (A)\u200bFile (B)\u200bEdit (C)\u200bHelp (D)\u200bTutorials"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: Scratch blocks fit together like: (A)\u200bPuzzle pieces (B)\u200bText lines (C)\u200bNumbers (D)\u200bCharts"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: How many sprites can a Scratch project have? (A)\u200bOnly one (B)\u200bOnly ten (C)\u200b Unlimited (D)\u200bFixed number"
+  },
+  {
+    "number": 13,
+    "text": "Que 13:  Which area shows all sprites used in the project? (A)\u200bStage (B)\u200bSprite List (C)\u200bBlock Palette (D)\u200bMenu Bar"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: Which block category controls sprite appearance? (A)\u200bMotion (B)\u200bLooks (C)\u200bControl (D)\u200bEvents"
+  },
+  {
+    "number": 15,
+    "text": "Que 15:  Which button runs the Scratch program? (A)\u200bRed stop (B)\u200bBlue arrow (C)\u200bGreen flag (D)\u200bFolder icon"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: Scratch works mainly using: (A)\u200bCommands (B)\u200bBlocks (C)\u200bText editor (D)\u200bCompiler"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: Scratch projects are saved with extension: (A)\u200b.exe (B)\u200b.sb3 (C)\u200b.py (D)\u200b .java"
+  },
+  {
+    "number": 18,
+    "text": "Que 18. Which is NOT a Scratch component? (A)\u200b Sprite (B)\u200bCompiler (C)\u200bStage (D)\u200bBackdrop"
+  },
+  {
+    "number": 19,
+    "text": "19. Scratch programming is best suitable for: (A)\u200bBeginners (B)\u200bExperts only (C)\u200bHardware engineers (D)\u200bDatabase admins"
+  },
+  {
+    "number": 20,
+    "text": "20. Which tab is used to draw your own sprite? (A)\u200bCode (B)\u200bCostumes (C)\u200bSounds (D)\u200bEvents"
+  },
+  {
+    "number": 1,
+    "text": "Que 1: Motion blocks are used to: (A)\u200bChange color (B)\u200bMove sprites (C)\u200bAdd sound (D)\u200bStop game"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: The x-axis controls movement in which direction? (A)\u200bUp\u2013Down (B)\u200bLeft\u2013Right (C)\u200bDiagonal (D)\u200bCircular"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: The y-axis controls movement in: (A)\u200bLeft\u2013Right (B)\u200bUp\u2013Down (C)\u200bZigzag (D)\u200bRotation"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: Which block rotates a sprite? (A)\u200bMove (B)\u200bTurn (C)\u200bGlide (D)\u200bGo to"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: Looks blocks mainly affect: (A)\u200bSpeed (B)\u200bDialogue & costumes (C)\u200bDirection (D)\u200bSensors"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: Animation means: (A)\u200bStatic image (B)\u200bMultiple images creating motion (C)\u200bSound only (D)\u200bCode compilation"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: Which block makes the sprite say text? (A)\u200bThink (B)\u200bSay (C)\u200bSpeak (D)\u200bShow"
+  },
+  {
+    "number": 8,
+    "text": "Que 8: Costume change is used to: (A)\u200bMove fast (B)\u200bCreate animation effect (C)\u200bAdd sound (D)\u200bStop sprite"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: Which block moves sprite smoothly? (A)\u200bMove (B)\u200bTurn (C)\u200bGlide (D)\u200bBounce"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: Which block hides a sprite? (A)\u200bShow (B)\u200bHide (C)\u200bStop (D)\u200bRemove"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: A sprite position (x, y) = (0,0) means: (A)\u200bTop-left (B)\u200bCenter (C)\u200bBottom-right (D)\u200bOutside screen"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: Which block makes the sprite bounce from the edge? (A)\u200bTurn (B)\u200bIf edge bounce (C)\u200bGlide (D)\u200bStop"
+  },
+  {
+    "number": 13,
+    "text": "Que 13: Which block is used for changing size? (A)\u200bSet size (B)\u200bGrow (C)\u200bResize (D)\u200bScale"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: Animation requires: (A)\u200bOnly sounds (B)\u200bCostumes and motion (C)\u200bVariables only (D)\u200bNumbers"
+  },
+  {
+    "number": 15,
+    "text": "Que 15: Which block resets direction? (A)\u200bTurn (B)\u200bPoint in direction (C)\u200bGlide (D)\u200bRotate"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: Looks blocks color is: (A)\u200bBlue (B)\u200bPurple (C)\u200bGreen (D)\u200bYellow"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: Motion blocks color is: (A)\u200bOrange (B)\u200bBlue (C)\u200bPurple (D)\u200bRed"
+  },
+  {
+    "number": 18,
+    "text": "Que 18: Sprite dialogue stays on screen for: (A)\u200bForever (B)\u200bSet time (C)\u200b10 seconds fixed (D)\u200bNo time"
+  },
+  {
+    "number": 19,
+    "text": "Que 19: Which block layer changes front/back order? (A)\u200bGo to front (B)\u200bMove (C)\u200bTurn (D)\u200bStop"
+  },
+  {
+    "number": 20,
+    "text": "Que 20: Animation frame means: (A)\u200bOne image (B)\u200bOne second (C)\u200bOne block (D)\u200bOne sound"
+  },
+  {
+    "number": 1,
+    "text": "Que 1: Events blocks are used to: (A)\u200bMove sprite (B)\u200bStart actions (C)\u200bChange color (D)\u200bStore values"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: Which block repeats actions forever? (A)\u200bRepeat (B)\u200bLoop (C)\u200bForever (D)\u200bWhile"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: Repeat block executes code: (A)\u200bOnce (B)\u200bFixed number of times (C)\u200bForever (D)\u200bRandom"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: Wait block is used to: (A)\u200bStop project (B)\u200bDelay action (C)\u200bLoop code (D)\u200bMove sprite"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: If-else block is used for: (A)\u200bSound (B)\u200bDecision making (C)\u200bDrawing (D)\u200bMotion"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: Which block stops all scripts? (A)\u200bEnd (B)\u200bStop all (C)\u200bExit (D)\u200bQuit"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: Broadcast block is used for: (A)\u200bSound (B)\u200bSprite communication (C)\u200bMotion (D)\u200bDrawing"
+  },
+  {
+    "number": 8,
+    "text": "Que 8: When key pressed block is an example of: (A)\u200bControl (B)\u200bMotion (C)\u200bEvent (D)\u200bSound"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: Control blocks color is: (A)\u200bBlue (B)\u200bYellow (C)\u200bOrange (D)\u200bGreen"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: Forever loop stops when: (A)\u200bTime ends (B)\u200bProgram stopped (C)\u200bSprite hides (D)\u200bCondition false"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: Conditional logic checks: (A)\u200bSound (B)\u200bPosition (C)\u200bTrue or false (D)\u200bCostume"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: Which block waits until the condition is true? (A)\u200bIf (B)\u200bRepeat (C)\u200bWait until (D)\u200bForever"
+  },
+  {
+    "number": 13,
+    "text": "Que 13: Nested blocks mean: (A)\u200bSame blocks (B)\u200bBlocks inside blocks (C)\u200bBroken blocks (D)\u200bUnused blocks"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: Which block starts when the sprite clicked? (A)\u200bWhen flag clicked (B)\u200bWhen sprite clicked (C)\u200bWhen key pressed (D)\u200bForever"
+  },
+  {
+    "number": 15,
+    "text": "Que 15: Events help in: (A)\u200bStory flow (B)\u200bDrawing (C)\u200bRotation (D)\u200bScaling"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: Loops improve: (A)\u200bRepetition handling (B)\u200bSound quality (C)\u200bSprite shape (D)\u200bColor"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: Stop other scripts means: (A)\u200bPause sound (B)\u200bStop selected scripts (C)\u200bStop entire project (D)\u200bRestart project"
+  },
+  {
+    "number": 18,
+    "text": "Que 18: Broadcasting sends message to: (A)\u200bOne sprite (B)\u200bAll listening sprites (C)\u200bStage only (D)\u200bSound editor"
+  },
+  {
+    "number": 19,
+    "text": "Que 19: Logical thinking is required in: (A)\u200bControl blocks (B)\u200bBackdrops (C)\u200bCostumes (D)\u200bSounds"
+  },
+  {
+    "number": 20,
+    "text": "Que 20: Event blocks color is: (A)\u200bYellow (B)\u200bBlue (C)\u200bOrange (D)\u200bGreen"
+  },
+  {
+    "number": 1,
+    "text": "Que 1: A game must have: (A)\u200bGoals (B)\u200bRules (C)\u200bInteraction (D)\u200bAll of the above"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: Which block checks touching an object? (A)\u200bMotion (B)\u200bSensing (C)\u200bControl (D)\u200bLooks"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: Game score is stored using: (A)\u200bCostume (B)\u200bVariable (C)\u200bEvent (D)\u200bSound"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: Lives in a game are managed using: (A)\u200bEvents (B)\u200bSounds (C)\u200bVariables (D)\u200bBackdrops"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: Sensing blocks are colored: (A)\u200bGreen (B)\u200bLight blue (C)\u200bYellow (D)\u200bPurple"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: Touching edge detection is used for: (A)\u200bCollision (B)\u200bAnimation (C)\u200bSound (D)\u200bDrawing"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: Which block pauses game flow? (A)\u200bWait (B)\u200bStop (C)\u200bForever (D)\u200bRepeat"
+  },
+  {
+    "number": 8,
+    "text": "Que 8: Game over screen is usually shown using: (A)\u200bNew sprite (B)\u200bBackdrop change (C)\u200bSound (D)\u200bScore"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: Player controls are handled using: (A)\u200bLooks (B)\u200bMotion + Events (C)\u200bSound (D)\u200bVariables"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: Which block helps in enemy movement repeatedly? (A)\u200bRepeat (B)\u200bForever (C)\u200bIf (D)\u200bStop"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: Collision logic is part of: (A)\u200bLooks (B)\u200bMotion (C)\u200bSensing (D)\u200bBackdrop"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: Game difficulty can be controlled by: (A)\u200bSpeed increase (B)\u200bMore enemies (C)\u200bVariables (D)\u200bAll of the above"
+  },
+  {
+    "number": 13,
+    "text": "Que 13: Winning condition is checked using: (A)\u200bIf block (B)\u200bWait block (C)\u200bSay block (D)\u200bHide block"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: Game sound effects improve: (A)\u200bLogic (B)\u200bUser experience (C)\u200bCode speed (D)\u200bStorage"
+  },
+  {
+    "number": 15,
+    "text": "Que 15: Which block stops the game from losing? (A)\u200bStop all (B)\u200bHide (C)\u200bReset (D)\u200bForever"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: Player input key detection uses: (A)\u200bWhen key pressed (B)\u200bWait (C)\u200bBroadcast (D)\u200bThink"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: Game sprites include: (A)\u200bPlayer only (B)\u200bEnemy only (C)\u200bPlayer, enemy, objects (D)\u200bStage only"
+  },
+  {
+    "number": 18,
+    "text": "Que 18: Control structures manage: (A)\u200bFlow of game (B)\u200bSprite shape (C)\u200bColor (D)\u200bAudio"
+  },
+  {
+    "number": 19,
+    "text": "Que 19: Score increases when: (A)\u200bVariable changes (B)\u200bEvent triggered (C)\u200bCondition met (D)\u200bAll of the above"
+  },
+  {
+    "number": 20,
+    "text": "Que 20: Restarting a game uses: (A)\u200bGreen flag (B)\u200bStop (C)\u200bHide (D)\u200bThink"
+  },
+  {
+    "number": 1,
+    "text": "Que 1: Custom sprites can be created using: (A)\u200bMotion tab (B)\u200bSounds tab (C)\u200bCostumes editor (D)\u200bEvents tab"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: Which tool is used to draw your own sprite? (A)\u200bSelect tool (B)\u200bPaint editor (C)\u200bFolder (D)\u200bCamera"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: A variable in Scratch is used to: (A)\u200bStore values (B)\u200bPlay sound (C)\u200bMove sprite (D)\u200bChange costume"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: Variables can store: (A)\u200bOnly text (B)\u200bOnly numbers (C)\u200bNumbers and text (D)\u200bImages"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: Variable blocks color is: (A)\u200bPurple (B)\u200bOrange (C)\u200bDark orange (D)\u200bBlue"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: Which block sets a variable value? (A)\u200bChange (B)\u200bSet (C)\u200bStore (D)\u200bValue"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: Loops are useful for: (A)\u200bOne-time actions (B)\u200bRepeated actions (C)\u200bDrawing shapes (D)\u200bStopping scripts"
+  },
+  {
+    "number": 8,
+    "text": "Que 8: Conditional statements use: (A)\u200bIf / If\u2013Else blocks (B)\u200bMove blocks (C)\u200bTurn blocks (D)\u200bSay blocks"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: Which block checks a condition continuously? (A)\u200bIf (B)\u200bForever (C)\u200bRepeat (D)\u200bWait"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: Sound blocks are used to: (A)\u200bDraw sprites (B)\u200bControl logic (C)\u200bAdd audio effects (D)\u200bChange backdrops"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: Which block plays sound until finished? (A)\u200bStart sound (B)\u200bPlay sound (C)\u200bPlay sound until done (D)\u200bSound forever"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: Background music usually runs in: (A)\u200bRepeat (B)\u200bForever loop (C)\u200bIf block (D)\u200bWait block"
+  },
+  {
+    "number": 13,
+    "text": "Que 13: You can record sound in Scratch using: (A)\u200bMicrophone (B)\u200bKeyboard (C)\u200bCamera (D)\u200bMouse"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: Sound editor allows: (A)\u200bCoding (B)\u200bTrimming and effects (C)\u200bMoving sprites (D)\u200bVariables"
+  },
+  {
+    "number": 15,
+    "text": "Que 15: Costumes are helpful for: (A)\u200bGame scoring (B)\u200bAnimation (C)\u200bSound recording (D)\u200bBroadcasting"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: Advanced logic improves: (A)\u200bVisuals only (B)\u200bGame rules (C)\u200bSound quality (D)\u200bFile size"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: Which block increases a variable gradually? (A)\u200bSet (B)\u200bChange (C)\u200bReset (D)\u200bStore"
+  },
+  {
+    "number": 18,
+    "text": "Que 18: Multiple variables are useful for: (A)\u200bLarge projects (B)\u200bOnly stories (C)\u200bOnly animations (D)\u200bDrawing"
+  },
+  {
+    "number": 19,
+    "text": "Que 19: Advanced Scratch projects often use: (A)\u200bNo logic (B)\u200bOnly motion (C)\u200bVariables and conditions (D)\u200bOnly sound"
+  },
+  {
+    "number": 20,
+    "text": "Que 20: Using clear variable names helps in: (A)\u200bDecoration (B)\u200bDebugging and understanding (C)\u200bAnimation speed (D)\u200bSound effects"
+  },
+  {
+    "number": 1,
+    "text": "Que 1: Scratch projects can be shared using: (A)\u200bEmail only (B)\u200bScratch website (C)\u200bUSB only (D)\u200bMobile app"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: To share a project, a user must: (A)\u200bInstall Scratch (B)\u200bCreate a Scratch account (C)\u200bBuy Scratch (D)\u200bUse mobile"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: Scratch community allows users to: (A)\u200bDelete others\u2019 work (B)\u200bView and remix projects (C)\u200bHack projects (D)\u200bSell code"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: Remixing a project means: (A)\u200bCopying illegally (B)\u200bModifying an existing project (C)\u200bDeleting project (D)\u200bRenaming file"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: Publishing a project makes it: (A)\u200bPrivate (B)\u200bEditable by you only (C)\u200bVisible to others (D)\u200bDeleted"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: Mini projects help students to: (A)\u200bMemorize blocks (B)\u200bCombine learned concepts (C)\u200bAvoid practice (D)\u200bCopy code"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: A Scratch mini project can be: (A)\u200bStory (B)\u200bAnimation (C)\u200bGame (D)\u200bAll of the above"
+  },
+  {
+    "number": 8,
+    "text": "Que 8: Team-based programming improves: (A)\u200bCompetition (B)\u200bCollaboration (C)\u200bConfusion (D)\u200bErrors"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: In collaborative coding, roles mean: (A)\u200bSame work by all (B)\u200bDividing responsibilities (C)\u200bNo planning (D)\u200bCopying"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: Commenting code helps in: (A)\u200bExecution speed (B)\u200bEasy understanding (C)\u200bDesigning sprites (D)\u200bSound quality"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: Documentation explains: (A)\u200bOnly design (B)\u200bHow project works (C)\u200bOnly sound (D)\u200bStage size"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: Event-based stories depend on: (A)\u200bUser actions (B)\u200bSprite color (C)\u200bSound volume (D)\u200bFile name"
+  },
+  {
+    "number": 13,
+    "text": "Que 13: Dialogue between sprites uses: (A)\u200bSay / Think blocks (B)\u200bMotion blocks (C)\u200bControl blocks (D)\u200bVariables"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: Interactive stories require: (A)\u200bNo events (B)\u200bUser interaction (C)\u200bOnly sound (D)\u200bStatic sprites"
+  },
+  {
+    "number": 15,
+    "text": "Que 15: A game objective should be: (A)\u200bConfusing (B)\u200bClear (C)\u200bHidden (D)\u200bRandom"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: Feedback in games is given using: (A)\u200bSound and visuals (B)\u200bVariables only (C)\u200bMotion only (D)\u200bBackdrops only"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: Testing a Scratch project helps to: (A)\u200bIncrease size (B)\u200bFind and fix errors (C)\u200bReduce blocks (D)\u200bRemove sprites"
+  },
+  {
+    "number": 18,
+    "text": "Que 18: Debugging means: (A)\u200bAdding errors (B)\u200bRemoving bugs (C)\u200bPublishing project (D)\u200bDrawing sprites"
+  },
+  {
+    "number": 19,
+    "text": "Que 19: Sharing projects helps in: (A)\u200bLearning from others (B)\u200bLosing ownership (C)\u200bHiding work (D)\u200bDeleting files"
+  },
+  {
+    "number": 20,
+    "text": "Que 20: A successful Scratch project should be: (A)\u200bVery long (B)\u200bError-free and interactive (C)\u200bWithout sound (D)\u200bOnly one sprite"
+  },
+  {
+    "number": 1,
+    "text": "Que 1: Which is NOT an input device for Scratch? (A)\u200bMic (B)\u200bCamera (C)\u200bKeyboard (D)\u200bSpeaker"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: Blocks that trigger scripts are called: (A)\u200bHat blocks (B)\u200bOperators (C)\u200bReporters (D)\u200bData blocks"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: The Scratch Cat is an example of a: (A)\u200bBoolean (B)\u200bSprite (C)\u200bStage (D)\u200bVariable"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: Operator \u201cand\u201d returns true when: (A)\u200bOne condition is true (B)\u200bBoth true (C)\u200bRandom (D)\u200bNone"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: The largest category of blocks is usually: (A)\u200bSound (B)\u200bEvents (C)\u200bMotion (D)\u200bControl"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: The block \u201cdistance to ()\u201d is: (A)\u200bMotion (B)\u200bSensing (C)\u200bOperators (D)\u200bControl"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: A conditional inside a loop is: (A)\u200bNested condition (B)\u200bBroadcast (C)\u200bTrigger (D)\u200bSprite"
+  },
+  {
+    "number": 8,
+    "text": "Que 8: The block \u201cswitch costume to\u201d helps create: (A)\u200bAnimation effect (B)\u200bMusic (C)\u200bScore (D)\u200bTime"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: Which detects blocks joining error? (A)\u200bError message (B)\u200bRed outline (C)\u200bWarning sign (D)\u200bAlert tone"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: Project thumbnail updates after clicking: (A)\u200bStop (B)\u200bSave (C)\u200bGreen flag (D)\u200bShare"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: To slow down animation: (A)\u200bReduce costume (B)\u200bWait between frames (C)\u200bChange backdrop (D)\u200bChange variable"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: \u201cSet size to 200%\u201d will: (A)\u200bShrink (B)\u200bHide (C)\u200bEnlarge (D)\u200bDelete"
+  },
+  {
+    "number": 13,
+    "text": "Que 13: To remove clone traces when moving with pen: (A)\u200bStop all (B)\u200bClear (C)\u200bHide (D)\u200bErase"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: To make sprite face mouse pointer: (A)\u200bTurn always (B)\u200bAim sensor (C)\u200bPoint towards mouse-pointer (D)\u200bSelect face"
+  },
+  {
+    "number": 15,
+    "text": "Que 15: Which pauses all code temporarily? (A)\u200bRepeat (B)\u200bForever (C)\u200bWait (D)\u200bHide"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: A timer usually starts from: (A)\u200b5 (B)\u200b10 (C)\u200b0 (D)\u200b1"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: Reporting blocks are: (A)\u200bCircle with data result (B)\u200bHexagon (C)\u200bCurve (D)\u200bHat"
+  },
+  {
+    "number": 18,
+    "text": "Que 18: Boolean blocks are: (A)\u200bRounded (B)\u200bHexagon-shaped (C)\u200bCircle (D)\u200bBox"
+  },
+  {
+    "number": 19,
+    "text": "Que 19: Which is used for mathematical calculations? (A)\u200bOperators (B)\u200bCostumes (C)\u200bEvents (D)\u200bBackdrops"
+  },
+  {
+    "number": 20,
+    "text": "Que 20: Scratch is best described as: (A)\u200bProfessional programming IDE (B)\u200bVisual block-based educational programming language (C)\u200bGame console (D)\u200bDigital library"
+  },
+  {
+    "number": 1,
+    "text": "Que 1: Motion on the X-axis means movement: (A)\u200bUp &amp; Down (B)\u200bLeft &amp; Right (C)\u200bForward (D)\u200bRandom"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: A sprite is a: (A)\u200bProgram (B)\u200bCharacter / Object (C)\u200bStage (D)\u200bBlock set"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: Which selects the next look of a sprite? (A)\u200bNext costume (B)\u200bTransform (C)\u200bChange sprite (D)\u200bRe-dress"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: Scratch projects are saved with extension: (A)\u200b.exe (B)\u200b.sb3 (C)\u200b.scr (D)\u200b.game"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: To glide smoothly to a position: (A)\u200bSlide (B)\u200bTeleport (C)\u200bGlide () seconds to x:y (D)\u200bMove"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: To broadcast a message we use: (A)\u200bAnnounce (B)\u200bShout (C)\u200bBroadcast (D)\u200bInform"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: Timer value is available under: (A)\u200bEvents (B)\u200bMotion (C)\u200bSensing (D)\u200bLooks"
+  },
+  {
+    "number": 8,
+    "text": "Que 8: Forever block belongs to: (A)\u200bMotion (B)\u200bEvents (C)\u200bControl (D)\u200bLooks"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: To clone a sprite we use: (A)\u200bCopy (B)\u200bDuplicate (C)\u200bCreate clone of () (D)\u200bSplit"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: The block \u201cturn 15 degrees\u201d rotates the sprite: (A)\u200bForward (B)\u200bBackward (C)\u200bClockwise (D)\u200bRandom"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: A variable affecting only one sprite is: (A)\u200bShared variable (B)\u200bLocal variable (C)\u200bTemporary variable (D)\u200bPublic variable"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: A loudness value increases with: (A)\u200bBrightness (B)\u200bCamera input (C)\u200bMicrophone input (D)\u200bSpeed"
+  },
+  {
+    "number": 13,
+    "text": "Que 13: To detect edges of the Stage: (A)\u200bEdge sensor (B)\u200bTouching edge? (C)\u200bBoundary check (D)\u200bEnd area"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: Loops are part of: (A)\u200bControl (B)\u200bLooks (C)\u200bSound (D)\u200bData"
+  },
+  {
+    "number": 15,
+    "text": "Que 15: Which stops all running scripts? (A)\u200bStop this script (B)\u200bStop others (C)\u200bStop all (D)\u200bEnd code"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: To reverse x-axis direction: (A)\u200bMultiply x by \u20131 (B)\u200bGo opposite (C)\u200bInvert (D)\u200bTeleport"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: To permanently delete a clone: (A)\u200bRemove (B)\u200bDelete clone (C)\u200bChange sprite (D)\u200bStop"
+  },
+  {
+    "number": 18,
+    "text": "Que 18: A list is: (A)\u200bImage (B)\u200bPicture memory (C)\u200bCollection of stored values (D)\u200bLoop"
+  },
+  {
+    "number": 19,
+    "text": "Que 19: Which block gives true/false value? (A)\u200bReporter (B)\u200bBoolean (C)\u200bHat (D)\u200bC-block"
+  },
+  {
+    "number": 20,
+    "text": "Que 20: Scratch supports extensions like: (A)\u200bRobotics (B)\u200bVideo Sensing (C)\u200bMusic (D)\u200bAll of these"
+  },
+  {
+    "number": 1,
+    "text": "Que 1: Which block starts a program when clicked? (A)\u200bStart (B)\u200bWhen Space Key Pressed (C)\u200bWhen Green Flag Clicked (D)\u200bBegin"
+  },
+  {
+    "number": 2,
+    "text": "Que 2: Scratch was developed by which institute? (A)\u200bStanford (B)\u200bGoogle (C)\u200bMIT (D)\u200bNASA"
+  },
+  {
+    "number": 3,
+    "text": "Que 3: Which category is used to move sprites? (A)\u200bLooks (B)\u200bMotion (C)\u200bEvents (D)\u200bSensing"
+  },
+  {
+    "number": 4,
+    "text": "Que 4: Which block repeats a set of instructions forever? (A)\u200bRepeat 10 (B)\u200bAgain (C)\u200bForever (D)\u200bLoop"
+  },
+  {
+    "number": 5,
+    "text": "Que 5: Score values are stored using: (A)\u200bMotion (B)\u200bVariables (C)\u200bCostumes (D)\u200bExtensions"
+  },
+  {
+    "number": 6,
+    "text": "Que 6: Which block is used to change sprite appearance? (A)\u200bGo (B)\u200bCostume (C)\u200bLooks (D)\u200bDisplay"
+  },
+  {
+    "number": 7,
+    "text": "Que 7: Which block plays a recorded clip? (A)\u200bSound (B)\u200bAudio (C)\u200bSpeaker (D)\u200bVolume"
+  },
+  {
+    "number": 8,
+    "text": "Que 8: Click-drag blocks to form a program is called: (A)\u200bCoding (B)\u200bSnapping (C)\u200bAttach (D)\u200bScripting"
+  },
+  {
+    "number": 9,
+    "text": "Que 9: The Scratch Stage uses which coordinate system? (A)\u200bLatitude (B)\u200bPolar (C)\u200bCartesian (D)\u200bMatrix"
+  },
+  {
+    "number": 10,
+    "text": "Que 10: Which sensing block detects sprite collision? (A)\u200bTouching ()? (B)\u200bBumping (C)\u200bCrash (D)\u200bIf overlap"
+  },
+  {
+    "number": 11,
+    "text": "Que 11: Which block stops a script? (A)\u200bCancel (B)\u200bClose (C)\u200bStop (D)\u200bHide"
+  },
+  {
+    "number": 12,
+    "text": "Que 12: A sprite moves upward when we: (A)\u200bChange y by 10 (B)\u200bChange y by \u201310 (C)\u200bChange x by 10 (D)\u200bChange x by \u201310"
+  },
+  {
+    "number": 13,
+    "text": "Que 13: The \u201cwait () seconds\u201d block belongs to: (A)\u200bEvents (B)\u200bControl (C)\u200bLooks (D)\u200bMy Blocks"
+  },
+  {
+    "number": 14,
+    "text": "Que 14: Output of \u201csay Hello for 2 seconds\u201d is: (A)\u200bText bubble (B)\u200bCostume change (C)\u200bMotion (D)\u200bBackdrop change"
+  },
+  {
+    "number": 15,
+    "text": "Que 15: Which block senses keyboard input? (A)\u200bKey Control (B)\u200bKey () pressed? (C)\u200bRead Keyboard (D)\u200bDetect Key"
+  },
+  {
+    "number": 16,
+    "text": "Que 16: Which Scratch feature changes background? (A)\u200bTheme (B)\u200bWallpaper (C)\u200bBackdrop (D)\u200bDisplay"
+  },
+  {
+    "number": 17,
+    "text": "Que 17: Sounds can be imported from: (A)\u200bGallery (B)\u200bLibrary (C)\u200bSound Tab (D)\u200bSystem"
+  },
+  {
+    "number": 18,
+    "text": "Que 18: A sprite is visible again using: (A)\u200bRestart (B)\u200bShow (C)\u200bAppear (D)\u200bLaunch"
+  },
+  {
+    "number": 19,
+    "text": "Que 19: Custom blocks are created inside: (A)\u200bExtensions (B)\u200bMy Blocks (C)\u200bLooks (D)\u200bLibraries"
+  },
+  {
+    "number": 20,
+    "text": "Que 20: Which block randomizes movement? (A)\u200bGo anywhere (B)\u200bPick random () to () (C)\u200bJump (D)\u200b Auto move"
+  },
+  {
+    "number": 1,
+    "text": "1. Operators perform: A. Music B. Animation C. Calculations D. Costume change"
+  },
+  {
+    "number": 2,
+    "text": "2. Which operator joins words? A. Add B. Merge C. Join () () D. Insert"
+  },
+  {
+    "number": 3,
+    "text": "3. The project thumbnail is visible in: A. Toolbar B. Stage preview C. Website project gallery D. Sound tab"
+  },
+  {
+    "number": 4,
+    "text": "4. Which runs a block after time delay? A. Hold B. Pause C. Wait D. Stop"
+  },
+  {
+    "number": 5,
+    "text": "5. A program error in Scratch is called: A. Bug B. Virus C. Hack D. Lock"
+  },
+  {
+    "number": 6,
+    "text": "6. Debugging means: A. Designing game B. Removing errors C. Resetting score D. Playing"
+  },
+  {
+    "number": 7,
+    "text": "7. Which block checks if number is greater than another? A. &gt; B. Compare C. Logic D. Boolean"
+  },
+  {
+    "number": 8,
+    "text": "8. &quot;+&quot; operator belongs to: A. Looks B. Operators C. Variables D. Motion"
+  },
+  {
+    "number": 9,
+    "text": "9. The Stage is: A. Coding space B. Output screen C. Sound area D. Folder"
+  },
+  {
+    "number": 10,
+    "text": "10. Which detects video movement? A. Pen B. Sound C. Video Sensing D. Music"
+  },
+  {
+    "number": 11,
+    "text": "11. To move exactly 10 steps: A. Jump B. Slide C. Move 10 steps D. Go"
+  },
+  {
+    "number": 12,
+    "text": "12. To forever bounce off the edge: A. Edge sensor B. If edge bounce C. Reverse edge D. Random bounce"
+  },
+  {
+    "number": 13,
+    "text": "13. Touching mouse-pointer detects: A. Cursor click B. Pointer proximity C. Touching mouse-pointer? D. Cursor bounce"
+  },
+  {
+    "number": 14,
+    "text": "14. A variable shown on Stage looks like: A. Icon B. Tag C. Monitor D. Button"
+  },
+  {
+    "number": 15,
+    "text": "15. Which allows storing multiple values? A. Costume B. Backdrop C. List D. Sound"
+  },
+  {
+    "number": 16,
+    "text": "16. Default backdrop color is: A. Green B. White C. Blue D. Black"
+  },
+  {
+    "number": 17,
+    "text": "17. A clone copies: A. Blocks only B. Appearance only C. Sprite with scripts D. Costumes only"
+  },
+  {
+    "number": 18,
+    "text": "18. Drag-and-drop coding supports: A. High-level syntax B. Text typing C. Block programming D. Binary coding"
+  },
+  {
+    "number": 19,
+    "text": "19. Broadcast signals are used for: A. Communication between sprites B. Changing sound C. Resetting game D. Editing looks"
+  },
+  {
+    "number": 20,
+    "text": "20. The Stop sign button is used to: A. Switch sprites B. Stop project C. Change costume D. Save work"
+  },
+  {
+    "number": 1,
+    "text": "1. The Scratch Stage resolution is: A. 640\u00d7480 B. 480\u00d7360 C. 360\u00d7240 D. 1080\u00d7720"
+  },
+  {
+    "number": 2,
+    "text": "2. \u201cAsk () and wait\u201d shows: A. Sound B. Video C. Question D. Code error"
+  },
+  {
+    "number": 3,
+    "text": "3. Which block detects mouse position? A. Pointer B. Mouse x / Mouse y C. Cursor sensor D. Target"
+  },
+  {
+    "number": 4,
+    "text": "4. A sprite costume change creates: A. Motion B. Animation C. Variable D. Backdrop"
+  },
+  {
+    "number": 5,
+    "text": "5. To run two scripts simultaneously we use: A. Broadcast B. Custom block C. Two hat blocks D. Video extension"
+  },
+  {
+    "number": 6,
+    "text": "6. Which input device is supported? A. Sensor B. Mic C. Camera D. All of these"
+  },
+  {
+    "number": 7,
+    "text": "7. &quot;Pen&quot; extension is used for: A. Drawing B. Motion C. Sound D. Scoring"
+  },
+  {
+    "number": 8,
+    "text": "8. What removes all pen drawings? A. Clean B. Delete C. Remove pen D. Clear screen"
+  },
+  {
+    "number": 9,
+    "text": "9. Backdrop change is used mainly for: A. Motion B. Scoring C. Scene transition D. Costume"
+  },
+  {
+    "number": 10,
+    "text": "10. The default sprite in Scratch is: A. Cat B. Dog C. Bird D. Robot"
+  },
+  {
+    "number": 11,
+    "text": "11. Which block runs only if a condition is true? A. Forever B. If C. Repeat D. Say"
+  },
+  {
+    "number": 12,
+    "text": "12. A combination of blocks is called: A. Chain B. Script C. List D. Line"
+  },
+  {
+    "number": 13,
+    "text": "13. Which block plays narration? A. Speak B. Talk C. Text-to-speech D. Say"
+  },
+  {
+    "number": 14,
+    "text": "14. Cloud variables allow: A. Online storage B. Offline only C. Graphics D. Sound"
+  },
+  {
+    "number": 15,
+    "text": "15. A customized event trigger uses: A. Broadcast and wait B. Wait C. Forever D. Repeat"
+  },
+  {
+    "number": 16,
+    "text": "16. &quot;When I start as a clone&quot; is a: A. Motion block B. Hat block C. Data block D. Backdrop block"
+  },
+  {
+    "number": 17,
+    "text": "17. Scratch supports programming mainly for: A. Kids B. Scientists C. AI engineers D. Researchers"
+  },
+  {
+    "number": 18,
+    "text": "18. &quot;Go to front layer&quot; appears under: A. Motion B. Layers C. Looks D. Stage"
+  },
+  {
+    "number": 19,
+    "text": "19. To play a project, click: A. Blue flag B. Red circle C. Green flag D. Yellow arrow"
+  },
+  {
+    "number": 20,
+    "text": "20. Values that change during execution are: A. Constants B. Variables C. Operators D. Costumes"
+  },
+  {
+    "number": 1,
+    "text": "1. Scratch programming follows: A. Block-based coding B. Assembly C. Java D. Binary"
+  },
+  {
+    "number": 2,
+    "text": "2. Loop inside loop is called: A. Clone B. Nesting C. Recursion D. Link"
+  },
+  {
+    "number": 3,
+    "text": "3. A sprite that talks uses block: A. Say B. Speak C. Tell D. Narrate"
+  },
+  {
+    "number": 4,
+    "text": "4. CPU load increases with: A. Too many sprites B. Too many broadcasts C. Many clones D. All of these"
+  },
+  {
+    "number": 5,
+    "text": "5. \u201cShow variable\u201d can be toggled inside: A. Data B. Looks C. Sound D. Events"
+  },
+  {
+    "number": 6,
+    "text": "6. Recording voice is available in: A. Costume Tab B. Sound Tab C. Motion Tab D. Variable Tab"
+  },
+  {
+    "number": 7,
+    "text": "7. To restart a game: A. Broadcast reset message B. Switch backdrop C. Hide score D. Stop video"
+  },
+  {
+    "number": 8,
+    "text": "8. A project saves automatically when: A. Offline B. Online on Scratch site C. No save option exists D. During export"
+  },
+  {
+    "number": 9,
+    "text": "9. Camera brightness is detected using: A. Video level B. Black-spot C. Yellow color D. Sound"
+  },
+  {
+    "number": 10,
+    "text": "10. To reuse code we use: A. Broadcast B. Loops C. Custom block D. Sensor"
+  },
+  {
+    "number": 11,
+    "text": "11. If-else block checks: A. Value only B. Yes/No condition C. Key pressed D. Costume"
+  },
+  {
+    "number": 12,
+    "text": "12. Which runs many times until condition becomes false? A. Repeat until B. Stop C. Exit D. Reset"
+  },
+  {
+    "number": 13,
+    "text": "13. \u201cAdd () to ()\u201d is part of: A. Motion B. Data \u2192 List C. Events D. Looks"
+  },
+  {
+    "number": 14,
+    "text": "14. Pen color can be: A. Random B. User selected C. Change behavior D. A &amp; B"
+  },
+  {
+    "number": 15,
+    "text": "15. Which allows saving &amp; sharing projects? A. Offline editor only B. Scratch Website C. Screen recorder D. Photo app"
+  },
+  {
+    "number": 16,
+    "text": "16. Sprites without scripts will: A. Move randomly B. Stay still C. Auto animate D. Talk"
+  },
+  {
+    "number": 17,
+    "text": "17. Backdrops help create: A. Sound track B. Animation scene C. Lists D. Variables"
+  },
+  {
+    "number": 18,
+    "text": "18. Clicking \u201csave to your computer\u201d creates: A. Screenshot B. .sb3 file C. Sound D. Costume"
+  },
+  {
+    "number": 19,
+    "text": "19. Zoom controls are used in: A. Code area B. Stage C. Sprite library D. Backdrop"
+  },
+  {
+    "number": 20,
+    "text": "20. Largest zoom symbol is displayed as: A. \u2013 B. + C. \u00d7 D. /"
+  }
+]

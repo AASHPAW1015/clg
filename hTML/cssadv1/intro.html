@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link href="introcss.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container1">
+    <div class="q1">
+      <h3>What is the difference between a normal div and a grid container?</h3>
+      <p>A normal div is a simple information grouping container, whereas a grid container transforms the layout to specific structured 2-D layouts for its direct child containers.</p>
+    </div>
+    <div class="q2">
+      <h3>Why does the layout look the same even after applying Grid?</h3>
+      <p>Since the grid isn't activated until the rows and columns are explicitly defined, instead it just stacks the children on top of each other like a normal document.</p>
+    </div>
+    <div class="q3">
+      <h3>Are grid items created automatically?</h3>
+      <p>Yes, grid "items" are created automatically when the child divs are placed under grid containers.</p>
+    </div>
+    <div class="q4">
+      <h3>Can Grid work without rows or columns?</h3>
+      <p>Yes, but it will behave like a default block-level layout (stacking items vertically) until columns or rows are defined.</p>
+    </div>
+    <div class="q5">
+      <h3>What do you think Grid needs to show visible changes?</h3>
+      <p>It needs explicit definitions like `grid-template-columns` or `grid-template-rows` to move items into a grid structure visibly.</p>
+    </div>
+  </div>
+  <div class="container2">
+    <div class="q1">
+      <h3>What does fr stand for?</h3>
+      <p>"fr" stands for "fractional unit", effectively dividing the available space into proportional fractions.</p>
+    </div>
+    <div class="q2">
+      <h3>How many columns are created?</h3>
+      <p>3 columns are created since we defined `1fr 1fr 1fr`.</p>
+    </div>
+    <div class="q3">
+      <h3>What happens when screen size is reduced?</h3>
+      <p>The columns shrink proportionally because `fr` is a flexible unit that adapts to available space.</p>
+    </div>
+    <div class="q4">
+      <h3>Do items overflow or adjust?</h3>
+      <p>Items adjust their width dynamically as the container resizes, preventing the overflow unless the content itself is wider than the column's minimum size.</p>
+    </div>
+    <div class="q5">
+      <h3>Why is fr better than px for layouts?</h3>
+      <p>`fr` is better for responsive layouts because it allocates available space proportionally, whereas `px` is rigid and does not adapt to different screen sizes.</p>
+    </div>
+  </div>
+
+  <div class="container3">
+    <div class="q1">
+      <h3>Which layout breaks faster on small screens?</h3>
+      <p>The fixed layout (px) breaks faster because it maintains rigid widths regardless of the viewport size, causing overflow.</p>
+    </div>
+    <div class="q2">
+      <h3>Which layout adjusts automatically?</h3>
+      <p>The flexible layout (fr) adjusts automatically, shrinking columns proportionally to fit the available space.
+      </p>
+    </div>
+    <div class="q3">
+      <h3>Why is fixed layout risky?</h3>
+      <p>Fixed layouts are risky because they can cause horizontal scrolling or cut-off content on smaller devices.</p>
+    </div>
+    <div class="q4">
+      <h3>Where can fixed columns be useful?</h3>
+      <p>Fixed columns are useful for sidebars or elements that require a specific, guaranteed width (e.g. ads, logos)regardless of screen size.</p>
+    </div>
+    <div class="q5">
+      <h3>Which unit would you choose for a responsive website?</h3>
+      <p>I would choose `fr` units for the main layout structure to ensure fluid responsiveness across all device sizes.</p>
+    </div>
+  </div>
+
+  <div class="container4">
+    <div class="q1">
+      <h3>What does auto do in grid rows?</h3>
+      <p>In grid rows, `auto` sizes the row based on the height of its content. It expands or contracts to fit whatever is inside it.</p>
+    </div>
+    <div class="q2">
+      <h3>Which row grows based on content?</h3>
+      <p>Any row set to `auto` will grow based on its content. In this example, the second row is set to auto.</p>
+    </div>
+    <div class="q3">
+      <h3>Can rows have different heights?</h3>
+      <p>Yes, rows can have different heights. We can mix `px`, `fr`, and `auto` to create varied row structures.</p>
+    </div>
+    <div class="q4">
+      <h3>What happens if content is very large?</h3>
+      <p>If the content is very large in an `auto` row, the row will expand indefinitely to accommodate it. If it's in a fixed row, it might overflow.</p>
+    </div>
+    <div class="q5">
+      <h3>Where are grid rows useful in real layouts?</h3>
+      <p>Grid rows are useful for defining consistent headers, footers, or hero sections with specific heights while letting main content areas expand.</p>
+    </div>
+  </div>
+
+  <div class="container5">
+    <div class="q1">
+      <h3>Where does gap add space?</h3>
+      <p>Grid gap adds empty space between grid tracks (rows and columns). It does not add space to the outer edges of the container.</p>
+    </div>
+    <div class="q2">
+      <h3>How is gap different from margin?</h3>
+      <p>`gap` is a property of the container that uniformly spaces children, whereas `margin` is applied to individual items to push them away from others.</p>
+    </div>
+    <div class="q3">
+      <h3>Does gap affect container size?</h3>
+      <p>Yes, adding gaps increases the total space required by the grid contents, which may affect the overall size of the container or cause shrinking of flexible items.</p>
+    </div>
+    <div class="q4">
+      <h3>Can we use gap only for rows or columns?</h3>
+      <p>Yes, we can use `row-gap` to space only rows or `column-gap` to space only columns intentionally.</p>
+    </div>
+    <div class="q5">
+      <h3>Why is gap preferred in Grid layouts?</h3>
+      <p>`gap` is preferred because it's simpler to manage than margins on children (no "last-child" margin removal needed) and keeps separation logic on the parent.</p>
+    </div>
+  </div>
+
+  <div class="container6">
+    <div class="q1">
+      <h3>What are grid lines?</h3>
+      <p>Grid lines are the dividing lines that make up the structure of the grid. They can be numbered (1, 2, 3...) to help place items.</p>
+    </div>
+    <div class="q2">
+      <h3>How many columns does the item span?</h3>
+      <p>This item spans 2 columns because we set `grid-column: 1 / 3`.</p>
+    </div>
+    <div class="q3">
+      <h3>What happens to other items?</h3>
+      <p>Other items are pushed to the next available cell in the grid flow, wrapping to new rows if necessary.</p>
+    </div>
+    <div class="q4">
+      <h3>Can two items overlap?</h3>
+      <p>Yes, items can overlap if they are placed on the same grid lines. </p>
+    </div>
+    <div class="q5">
+      <h3>Where is column spanning used in websites?</h3>
+      <p>Column spanning is used for hero images, headers across multiple content columns, or featured articles in a news layout.</p>
+    </div>
+  </div>
+
+  <div class="container7">
+    <div class="t7 header">
+      <h3>Header: Why are template areas easy to understand?</h3>
+      <p>They act like a map, using names instead of numbers, which makes the code readable and easier to visualize.</p>
+    </div>
+    <div class="t7 sidebar">
+      <h3>Sidebar: Which section spans full width?</h3>
+      <p>The Header and Footer span full width in this layout because their area names are repeated across all columns.</p>
+    </div>
+    <div class="t7 content">
+      <h3>Content: Can we rearrange layout by changing area names?</h3>
+      <p>Yes! We can completely change the visual layout just by editing the string in `grid-template-areas` without touching the HTML.</p>
+    </div>
+    <div class="t7 footer">
+      <h3>Footer: Is this better than column numbers?</h3>
+      <p>For complex layouts, yes. It abstracts away the line counting and prevents errors when adding new columns.</p>
+    </div>
+  </div>
+  <div class="container8">
+    <div class="q1">
+      <h3>What problem does auto-fit solve?</h3>
+      <p>`auto-fit` solves the problem of creating responsive grids that automatically wrap items and fill available space without needing specific media queries.</p>
+    </div>
+    <div class="q2">
+      <h3>Why is minmax important?</h3>
+      <p>`minmax` ensures items don't shrink below a usable size (200px here) but can expand (1fr) to fill remaining space, preventing squashed content.</p>
+    </div>
+    <div class="q3">
+      <h3>Do items shrink too much?</h3>
+      <p>No, because the minimum value in `minmax(200px, 1fr)` prevents them from shrinking below 200px. They will wrap to a new row instead.</p>
+    </div>
+    <div class="q4">
+      <h3>Is this layout mobile friendly?</h3>
+      <p>Yes. It automatically adjusts from multi-column to single-column layouts based on the screen width.
+      </p>
+    </div>
+    <div class="q5">
+      <h3>Why are media queries not needed here?</h3>
+      <p>Grid (`auto-fit`, `minmax`) handles the layout changes based on available space directly, simplifying the CSS .</p>
+    </div>
+  </div>
+
+  <div class="container9">
+    <div class="q1">
+      <h3>Why is 12-column grid popular?</h3>
+      <p>It's divisible by 2, 3, 4, and 6, offering maximum flexibility for creating varied column layouts (halves,thirds, quarters).</p>
+    </div>
+    <div class="q2">
+      <h3>How does spanning help layout?</h3>
+      <p>Spanning allows items to break out of single cells to create wider content areas, headers, or features while maintaining grid alignment.</p>
+    </div>
+    <div class="q3">
+      <h3>Where is this system used?</h3>
+      <p>It's the standard for frameworks like Bootstrap and Foundation, used in nearly all complex professional web designs.</p>
+    </div>
+    <div class="q4">
+      <h3>Can we create layouts without this system?</h3>
+      <p>Yes, CSS Grid allows custom column counts (e.g., 5 or 7), but 12 is preferred for its convenience.
+      </p>
+    </div>
+    <div class="q5">
+      <h3>What happens if column count changes?</h3>
+      <p>Changing the base column count would require recalculating all spans to maintain the same relative proportions.</p>
+    </div>
+  </div>
+
+  <div class="container10">
+    <div class="q1">
+      <h3>Why do we check browser support?</h3>
+      <p>To ensure our layout doesn't break on older browsers that don't recognize the Grid specification.</p>
+    </div>
+    <div class="q2">
+      <h3>What happens if Grid is not supported?</h3>
+      <p>Without `@supports`, older browsers might ignore the grid properties, potentially causing a collapsed or unstyled layout.</p>
+    </div>
+    <div class="q3">
+      <h3>Is this needed for all projects?</h3>
+      <p>Not always. Grid support is now global so strict checking is only needed if supporting very old legacy browsers</p>
+    </div>
+    <div class="q4">
+      <h3>Who uses this in real projects?</h3>
+      <p>Large-scale sites catering to diverse global audiences or enterprise environments with legacy software requirements.</p>
+    </div>
+    <div class="q5">
+      <h3>What does safe CSS mean?</h3>
+      <p>It means writing CSS that fails gracefully—if a feature isn't supported, the site should still be usable, even if it looks simpler.</p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,966 @@
+[
+  {
+    "number": 1,
+    "text": "1.   Which   of   the   following   is   the   correct   file   extension   for   Python   files?   a)   .pyt   b)   .pt   c)   .py   d)   .python"
+  },
+  {
+    "number": 2,
+    "text": "2.   What   will   be   the   output   of:   print(type(10))?   a)   <class   'float'>   b)   <class   'int'>   c)   <class   'number'>   d)   <class   'double'>"
+  },
+  {
+    "number": 3,
+    "text": "3.   Which   keyword   is   used   to   define   a   function   in   Python?   a)   function   b)   fun   c)   define   d)   def"
+  },
+  {
+    "number": 4,
+    "text": "4.   What   is   the   correct   syntax   to   install   a   package   in   Python?   a)   python   install   package-name   b)   install   package-name   c)   pip   install   package-name   d)   pip   package-name   install"
+  },
+  {
+    "number": 5,
+    "text": "5.   What   is   the   output   of:   len([1,   2,   3,   [4,   5]])?   a)   4   b)   5   c)   Error   d)   2"
+  },
+  {
+    "number": 6,
+    "text": "6.   Which   data   structure   does   NOT   allow   duplicate   values?   a)   List   b)   Tuple   c)   Set   d)   Dictionary"
+  },
+  {
+    "number": 7,
+    "text": "7.   What   will   be   the   result   of:   {1:'a',   1:'b'}?   a)   {'a':1,   'b':1}   b)   {1:'a',   1:'b'}   c)   {1:'b'}   d)   Error"
+  },
+  {
+    "number": 8,
+    "text": "8.   Which   of   the   following   is   true   about   modules?   a)   They   are   used   only   for   mathematical   functions   b)   They   allow   reusability   of   code   c)   They   are   the   same   as   classes   d)   They   must   always   be   downloaded"
+  },
+  {
+    "number": 9,
+    "text": "9.   Which   OOP   feature   bundles   data   and   functions   together?   a)   Abstraction   b)   Inheritance   c)   Polymorphism   d)   Encapsulation"
+  },
+  {
+    "number": 10,
+    "text": "10.   Which   method   is   the   constructor   in   Python   classes?   a)   __init__()   b)   __start__()   c)   __construct__()   d)   __build__()"
+  },
+  {
+    "number": 11,
+    "text": "11.   Which   statement   is   used   to   open   a   file   in   write   mode?   a)   open(\"file.txt\",   \"a\")   b)   open(\"file.txt\",   \"r\")   c)   open(\"file.txt\",   \"w\")   d)   open(\"file.txt\")"
+  },
+  {
+    "number": 12,
+    "text": "12.   Lambda   functions   are   also   known   as:   a)   inline   functions   b)   static   functions   c)   recursive   functions   d)   anonymous   functions"
+  },
+  {
+    "number": 13,
+    "text": "13.   What   does   a   decorator   typically   do?   a)   Modifies   the   functionality   of   a   function   b)   Deletes   functions   from   memory   c)   Converts   functions   into   classes   d)   Speeds   up   file   handling"
+  },
+  {
+    "number": 14,
+    "text": "14.   A   generator   function   must   contain   which   keyword?   a)   yield   b)   return   c)   gen   d)   pause"
+  },
+  {
+    "number": 15,
+    "text": "15.   What   is   the   command   to   create   a   virtual   environment   in   Python   3?   a)   python3   virtualenv   env   b)   python3   -m   venv   env   c)   create   virtual   env   d)   pip   create   env"
+  },
+  {
+    "number": 16,
+    "text": "16.   NumPy   arrays   are   better   than   Python   lists   because   they:   a)   Consume   more   memory   b)   Do   not   support   mathematical   operations   c)   Are   slower   than   lists   d)   Support   vectorized   operations"
+  },
+  {
+    "number": 17,
+    "text": "17.   Which   function   creates   a   NumPy   array?   a)   np.create()   b)   np.array()   c)   numpy.list()   d)   array()"
+  },
+  {
+    "number": 18,
+    "text": "18.   In   Pandas,   which   object   is   2-dimensional   and   tabular?   a)   Series   b)   DataFrame   c)   List   d)   Panel"
+  },
+  {
+    "number": 19,
+    "text": "19.   Which   command   reads   a   CSV   file   into   a   DataFrame?   a)   pd.read.txt()   b)   pd.read()   c)   pd.read_csv()   d)   pd.open_csv()"
+  },
+  {
+    "number": 20,
+    "text": "20.   In   Matplotlib,   which   function   is   used   to   plot   a   line   graph?   a)   plt.line()   b)   plt.plot()   c)   plt.graph()   d)   plt.draw()"
+  },
+  {
+    "number": 1,
+    "text": "1.   Which   command   is   used   to   check   the   installed   Python   version?   a)   python   --v   b)   python   --version   c)   pyversion   d)   python   -info"
+  },
+  {
+    "number": 2,
+    "text": "2.   Which   of   the   following   is   a   valid   variable   name?   a)   2value   b)   value-2   c)   _value2   d)   value   2"
+  },
+  {
+    "number": 3,
+    "text": "3.   Which   operator   is   used   for   floor   division?   a)   /   b)   //   c)   %   d)   **"
+  },
+  {
+    "number": 4,
+    "text": "4.   What   does   the   pass   statement   do?   a)   Exits   the   program   b)   Creates   a   loop   c)   Does   nothing;   acts   as   a   placeholder   d)   Skips   an   iteration"
+  },
+  {
+    "number": 5,
+    "text": "5.   Which   data   structure   is   ordered   and   mutable?   a)   List   b)   Tuple   c)   Set   d)   Dictionary   keys"
+  },
+  {
+    "number": 6,
+    "text": "6.   What   will   the   expression   my_tuple   =   (10,)   create?   a)   An   integer   b)   A   tuple   with   one   element   c)   An   empty   tuple   d)   A   string"
+  },
+  {
+    "number": 7,
+    "text": "7.   Which   method   is   used   to   add   an   element   to   a   set?   a)   append()   b)   add()   c)   insert()   d)   push()"
+  },
+  {
+    "number": 8,
+    "text": "8.   Which   module   is   used   to   generate   random   numbers?   a)   math   b)   random   c)   numbers   d)   itertools"
+  },
+  {
+    "number": 9,
+    "text": "9.   What   is   the   term   for   functions   inside   a   class?   a)   Objects   b)   Methods   c)   Attributes   d)   Instances"
+  },
+  {
+    "number": 10,
+    "text": "10.   Which   keyword   is   used   for   inheritance   in   Python?   a)   extend   b)   include   c)   inherits   d)   class   Child(Parent)"
+  },
+  {
+    "number": 11,
+    "text": "11.   Which   file   mode   is   used   to   read   and   write   without   erasing   existing   content?   a)   w   b)   r   c)   a+   d)   w+"
+  },
+  {
+    "number": 12,
+    "text": "12.   In   decorators,   which   symbol   is   used   directly   before   the   decorator   name?   a)   #   b)   @   c)   &   d)   %"
+  },
+  {
+    "number": 13,
+    "text": "13.   Which   of   the   following   best   describes   generator   objects?   a)   They   store   all   values   in   memory   b)   They   produce   values   on   demand   c)   They   must   return   lists   d)   They   cannot   be   iterated"
+  },
+  {
+    "number": 14,
+    "text": "14.   Which   statement   is   true   about   lambda   functions?   a)   They   can   contain   multiple   statements   b)   They   must   have   a   name   c)   They   are   defined   using   the   lambda   keyword   d)   They   always   return   None"
+  },
+  {
+    "number": 15,
+    "text": "15.   Which   command   activates   a   virtual   environment?   a)   env/activate   b)   source   env/bin/activate   c)   activate   env   d)   python   activate   env"
+  },
+  {
+    "number": 16,
+    "text": "16.   Which   function   creates   a   NumPy   array   of   zeros?   a)   np.zeros()   b)   np.empty()   c)   np.null()   d)   np.zero_array()"
+  },
+  {
+    "number": 17,
+    "text": "17.   In   Pandas,   what   does   df.head()   return?   a)   Last   5   rows   b)   Summary   statistics   c)   First   5   rows   d)   Only   the   header"
+  },
+  {
+    "number": 18,
+    "text": "18.   Which   attribute   of   a   NumPy   array   returns   its   dimensions?   a)   size   b)   shape   c)   ndim   d)   dimension"
+  },
+  {
+    "number": 19,
+    "text": "19.   In   Matplotlib,   which   command   displays   the   final   plot?   a)   plt.show()   b)   plt.display()   c)   plt.start()   d)   plt.run()"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   Pandas   function   is   used   to   combine   two   DataFrames   horizontally?   a)   merge()   b)   concat()   c)   groupby()   d)   join()"
+  },
+  {
+    "number": 1,
+    "text": "1.   Which   of   the   following   is   NOT   a   valid   Python   data   type?   a)   list   b)   tuple   c)   set   d)   arraylist"
+  },
+  {
+    "number": 2,
+    "text": "2.   Which   function   is   used   to   take   input   from   the   user?   a)   scan()   b)   read()   c)   input()   d)   get()"
+  },
+  {
+    "number": 3,
+    "text": "3.   What   will   the   expression   3   **   2   evaluate   to?   a)   5   b)   6   c)   9   d)   8"
+  },
+  {
+    "number": 4,
+    "text": "4.   Which   of   the   following   loops   in   Python   can   have   an   else   part?   a)   for   loop   only   b)   while   loop   only   c)   both   for   and   while   d)   neither   for   nor   while"
+  },
+  {
+    "number": 5,
+    "text": "5.   What   is   the   output   type   of   range(5)?   a)   list   b)   range   object   c)   array   d)   tuple"
+  },
+  {
+    "number": 6,
+    "text": "6.   Which   method   adds   an   element   at   a   specific   index   in   a   list?     a)   add()   b)   insert()   c)   append()   d)   push()"
+  },
+  {
+    "number": 7,
+    "text": "7.   How   is   a   dictionary   defined?   a)   {}   b)   []   c)   ()   d)   <>"
+  },
+  {
+    "number": 8,
+    "text": "8.   Which   of   the   following   is   used   to   import   a   specific   function   from   a   module?   a)   import   module.function   b)   from   module   import   function   c)   module   import   function   d)   import   function   from   module"
+  },
+  {
+    "number": 9,
+    "text": "9.   In   OOP,   what   is   the   blueprint   for   creating   objects?   a)   attribute   b)   function   c)   class   d)   module"
+  },
+  {
+    "number": 10,
+    "text": "10.   What   is   the   term   for   a   function   that   calls   itself?   a)   generator   b)   decorator   c)   recursive   function   d)   iterator"
+  },
+  {
+    "number": 11,
+    "text": "11.   Which   file   mode   creates   a   new   file   and   raises   an   error   if   it   exists?   a)   w   b)   x   c)   a   d)   r+"
+  },
+  {
+    "number": 12,
+    "text": "12.   Which   built-in   function   returns   the   number   of   items   in   an   object?   a)   size()   b)   count()   c)   len()   d)   total()"
+  },
+  {
+    "number": 13,
+    "text": "13.   Which   keyword   is   used   to   handle   an   exception?   a)   exception   b)   handle   c)   catch   d)   except"
+  },
+  {
+    "number": 14,
+    "text": "14.   What   does   the   map()   function   do?   a)   Maps   a   dictionary   b)   Applies   a   function   to   each   item   of   an   iterable   c)   Converts   strings   to   integers   d)   Creates   a   list   of   keys"
+  },
+  {
+    "number": 15,
+    "text": "15.   Which   keyword   is   used   inside   a   generator   function?   a)   create   b)   fetch   c)   yield   d)   return-all"
+  },
+  {
+    "number": 16,
+    "text": "16.   Which   of   the   following   is   used   to   install   NumPy?   a)   pip   install   np   b)   pip   install   numpy   c)   install   numpy   python   d)   python   numpy   install"
+  },
+  {
+    "number": 17,
+    "text": "17.   In   Pandas,   which   method   removes   missing   values?     a)   clean()   b)   dropna()   c)   remove_null()   d)   na_remove()"
+  },
+  {
+    "number": 18,
+    "text": "18.   Which   attribute   of   a   NumPy   array   returns   the   number   of   dimensions?   a)   shape   b)   ndim   c)   axis   d)   depth"
+  },
+  {
+    "number": 19,
+    "text": "19.   Which   Matplotlib   command   adds   a   title   to   a   plot?   a)   plt.set_title()   b)   plt.title()   c)   plt.header()   d)   plt.caption()"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   Pandas   function   is   used   to   read   an   Excel   file?   a)   pd.read_excel()   b)   pd.load_xls()   c)   pd.open_excel()   d)   pd.excel_read()"
+  },
+  {
+    "number": 1,
+    "text": "1.   Which   keyword   is   used   to   terminate   a   loop   prematurely?   a)   stop   b)   break   c)   exit   d)   quit"
+  },
+  {
+    "number": 2,
+    "text": "2.   What   is   the   default   return   value   of   a   Python   function   if   no   return   statement   is   used?   a)   0   b)   False   c)   None   d)   Empty   string"
+  },
+  {
+    "number": 3,
+    "text": "3.   Which   operator   is   used   to   check   identity   between   two   objects?   a)   ==   b)   is   c)   equals   d)   :="
+  },
+  {
+    "number": 4,
+    "text": "4.   What   is   the   correct   syntax   to   create   a   class   named   Student?   a)   class   Student[]:   b)   class   Student():   c)   class   Student{}   d)   class   Student<>:"
+  },
+  {
+    "number": 5,
+    "text": "5.   Which   built-in   function   is   used   to   convert   a   sequence   into   an   iterator?   a)   iter()   b)   next()   c)   it()   d)   sequence()"
+  },
+  {
+    "number": 6,
+    "text": "6.   Which   of   the   following   can   be   keys   in   a   dictionary?     a)   lists   b)   sets   c)   tuples   d)   dictionaries"
+  },
+  {
+    "number": 7,
+    "text": "7.   What   is   the   purpose   of   the   with   statement   in   file   handling?   a)   To   open   multiple   files   b)   To   ensure   files   are   closed   automatically   c)   To   append   text   easily   d)   To   encrypt   file   data"
+  },
+  {
+    "number": 8,
+    "text": "8.   Which   exception   is   raised   when   accessing   an   index   that   does   not   exist?   a)   ValueError   b)   KeyError   c)   IndexError   d)   TypeError"
+  },
+  {
+    "number": 9,
+    "text": "9.   What   does   the   zip()   function   do?   a)   Compresses   files   b)   Pairs   elements   from   iterables   into   tuples   c)   Creates   a   zip   folder   d)   Lists   directory   contents"
+  },
+  {
+    "number": 10,
+    "text": "10.   Which   of   the   following   is   used   to   apply   a   function   cumulatively   in   Python?   a)   reduce()   b)   map()   c)   filter()   d)   apply()"
+  },
+  {
+    "number": 11,
+    "text": "11.   Which   Python   file   is   executed   when   a   package   is   imported?   a)   install.py   b)   start.py   c)   main.py   d)   init.py"
+  },
+  {
+    "number": 12,
+    "text": "12.   Which   command   is   used   to   list   installed   packages   in   a   virtual   environment?   a)   pip   list   b)   pip   packages   c)   venv   list   d)   env   packages"
+  },
+  {
+    "number": 13,
+    "text": "13.   What   is   the   output   of   NumPy\u2019s   arange()   function?   a)   random   numbers   b)   evenly   spaced   values   c)   zeros   d)   one   value   only"
+  },
+  {
+    "number": 14,
+    "text": "14.   Which   Pandas   method   combines   datasets   based   on   a   common   column?   a)   concat()   b)   merge()   c)   join_all()   d)   append()"
+  },
+  {
+    "number": 15,
+    "text": "15.   In   NumPy,   what   does   dtype   represent?   a)   Data   type   of   array   elements   b)   Dimensions   of   array   c)   Default   typecasting   rule   d)   Name   of   the   array"
+  },
+  {
+    "number": 16,
+    "text": "16.   What   does   df.describe()   provide   in   Pandas?   a)   Data   types   of   columns   b)   Summary   statistics   c)   Last   few   rows   d)   Duplicate   row   count"
+  },
+  {
+    "number": 17,
+    "text": "17.   Which   Matplotlib   function   creates   a   bar   chart?   a)   plt.bar()   b)   plt.bars()   c)   plt.chart()   d)   plt.vbar()"
+  },
+  {
+    "number": 18,
+    "text": "18.   In   Python,   which   keyword   is   used   to   define   an   anonymous   block   of   code?   a)   do   b)   anon   c)   lambda   d)   func"
+  },
+  {
+    "number": 19,
+    "text": "19.   Which   statement   is   true   about   Python   lists?   a)   They   are   immutable   b)   They   store   only   numeric   data   c)   They   can   grow   or   shrink   dynamically   d)   They   must   contain   unique   values"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   function   returns   the   memory   address   of   an   object?   a)   ref()   b)   loc()   c)   id()   d)   addr()"
+  },
+  {
+    "number": 1,
+    "text": "1.   Which   symbol   is   used   for   comments   in   Python?   a)   //   b)   #   c)   /*   */   d)"
+  },
+  {
+    "number": 2,
+    "text": "2.   Which   built-in   function   returns   the   absolute   value   of   a   number?   a)   mod()   b)   absolute()   c)   abs()   d)   pos()"
+  },
+  {
+    "number": 3,
+    "text": "3.   Which   of   the   following   is   a   mutable   data   type?   a)   tuple   b)   list   c)   string   d)   int"
+  },
+  {
+    "number": 4,
+    "text": "4.   What   does   continue   do   in   a   loop?   a)   ends   the   loop   b)   restarts   the   loop   c)   skips   the   current   iteration   d)   exits   the   function"
+  },
+  {
+    "number": 5,
+    "text": "5.   What   is   the   result   type   of   division   operator   /   in   Python?   a)   int   b)   float   c)   string   d)   depends   on   operands"
+  },
+  {
+    "number": 6,
+    "text": "6.   What   does   the   pop()   method   do   in   a   list?     a)   removes   the   first   element   b)   removes   and   returns   the   last   element   c)   deletes   the   entire   list   d)   inserts   an   item"
+  },
+  {
+    "number": 7,
+    "text": "7.   Which   method   returns   all   keys   of   a   dictionary?   a)   get_keys()   b)   keys()   c)   allkeys()   d)   listkeys()"
+  },
+  {
+    "number": 8,
+    "text": "8.   Which   module   contains   mathematical   functions   like   sqrt(),   sin(),   cos()?   a)   random   b)   statistics   c)   math   d)   compute"
+  },
+  {
+    "number": 9,
+    "text": "9.   What   is   an   object   in   Python?   a)   a   blueprint   for   a   class   b)   an   instance   of   a   class   c)   a   type   of   module   d)   a   dictionary   element"
+  },
+  {
+    "number": 10,
+    "text": "10.   Which   method   is   automatically   called   when   an   object   is   deleted?   a)   remove()   b)   destroy()   c)   del()   d)   exit()"
+  },
+  {
+    "number": 11,
+    "text": "11.   What   is   exception   handling   used   for?   a)   speeding   up   the   program   b)   handling   runtime   errors   gracefully   c)   checking   syntax   errors   d)   managing   file   permissions"
+  },
+  {
+    "number": 12,
+    "text": "12.   What   does   the   filter()   function   return?   a)   list   only   b)   generator/iterator   c)   integer   d)   tuple"
+  },
+  {
+    "number": 13,
+    "text": "13.   In   Python   decorators,   what   is   typically   passed   as   an   argument?   a)   a   variable   b)   a   class   c)   a   function   d)   a   module"
+  },
+  {
+    "number": 14,
+    "text": "14.   Which   command   deactivates   a   virtual   environment?   a)   deactivate   b)   exitenv   c)   stopenv   d)   close"
+  },
+  {
+    "number": 15,
+    "text": "15.   Which   NumPy   function   creates   an   identity   matrix?   a)   np.eye()   b)   np.ident()   c)   np.matrix()   d)   np.ones()"
+  },
+  {
+    "number": 16,
+    "text": "16.   In   Pandas,   which   method   returns   the   last   5   rows   of   a   DataFrame?   a)   df.last()   b)   df.tail()   c)   df.end()   d)   df.bottom()"
+  },
+  {
+    "number": 17,
+    "text": "17.   What   does   the   attribute   itemsize   represent   in   a   NumPy   array?   a)   number   of   items   b)   size   of   each   element   in   bytes   c)   dimensions   d)   memory   location"
+  },
+  {
+    "number": 18,
+    "text": "18.   Which   Matplotlib   command   adds   a   label   to   the   x-axis?   a)   plt.xlabel()   b)   plt.xaxis()   c)   plt.labelx()   d)   plt.setx()"
+  },
+  {
+    "number": 19,
+    "text": "19.   Which   Pandas   function   writes   a   DataFrame   to   CSV?   a)   df.save_csv()   b)   df.write()   c)   df.to_csv()   d)   df.export_csv()"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   Python   function   returns   the   list   of   attributes   and   methods   of   an   object?   a)   dir()   b)   list()   c)   show()   d)   attr()"
+  },
+  {
+    "number": 1,
+    "text": "1.   Which   Python   keyword   is   used   to   define   a   block   of   code?   a)   block   b)   begin   c)   def   d)   indent"
+  },
+  {
+    "number": 2,
+    "text": "2.   Which   of   the   following   is   used   to   convert   a   string   to   an   integer?   a)   int()   b)   str()   c)   chr()   d)   convert()"
+  },
+  {
+    "number": 3,
+    "text": "3.   Which   operator   is   used   for   exponentiation?   a)   ^   b)   **   c)   %%   d)   @@"
+  },
+  {
+    "number": 4,
+    "text": "4.   What   does   the   built-in   function   type()   return?   a)   size   of   a   variable   b)   data   type   of   an   object   c)   value   of   a   variable   d)   memory   usage"
+  },
+  {
+    "number": 5,
+    "text": "5.   Which   method   is   used   to   remove   an   item   by   value   from   a   list?   a)   pop()   b)   remove()   c)   delete()   d)   discard()"
+  },
+  {
+    "number": 6,
+    "text": "6.   What   will   my_dict.values()   return?     a)   list   of   keys   b)   list   of   items   c)   list-like   view   of   values   d)   list   of   tuples"
+  },
+  {
+    "number": 7,
+    "text": "7.   Which   of   the   following   modules   manages   dates   and   times?   a)   calendar   b)   datetime   c)   timekeeper   d)   dates"
+  },
+  {
+    "number": 8,
+    "text": "8.   What   is   the   purpose   of   the   super()   function?   a)   call   child   class   methods   b)   access   private   attributes   c)   call   parent   class   methods   d)   import   modules"
+  },
+  {
+    "number": 9,
+    "text": "9.   Which   of   the   following   is   NOT   a   type   of   error   in   Python?   a)   SyntaxError   b)   RuntimeError   c)   CompileError   d)   TypeError"
+  },
+  {
+    "number": 10,
+    "text": "10.   What   is   returned   by   a   function   that   contains   yield?   a)   list   b)   generator   c)   dictionary   d)   module"
+  },
+  {
+    "number": 11,
+    "text": "11.   Which   decorator   is   used   to   define   a   class   method?   a)   @class   b)   @classmethod   c)   @classmethod()   d)   @methodclass"
+  },
+  {
+    "number": 12,
+    "text": "12.   Which   command   upgrades   an   installed   package   using   pip?   a)   pip   repair   package   b)   pip   update   package   c)   pip   upgrade   package   d)   pip   install   --upgrade   package"
+  },
+  {
+    "number": 13,
+    "text": "13.   What   does   np.linspace(0,   1,   5)   generate?   a)   integers   only   b)   logarithmic   values   c)   equally   spaced   values   d)   random   values"
+  },
+  {
+    "number": 14,
+    "text": "14.   Which   attribute   returns   the   number   of   elements   in   a   NumPy   array?   a)   length   b)   count   c)   size   d)   elements"
+  },
+  {
+    "number": 15,
+    "text": "15.   In   Pandas,   what   does   df.info()   display?   a)   number   of   rows   only   b)   memory   usage   and   column   types   c)   only   numerical   statistics   d)   missing   values   only"
+  },
+  {
+    "number": 16,
+    "text": "16.   What   is   the   default   chart   type   for   plt.plot()?   a)   scatter   plot   b)   bar   chart   c)   line   plot   d)   histogram"
+  },
+  {
+    "number": 17,
+    "text": "17.   Which   Pandas   method   is   used   to   rename   columns?   a)   df.name()   b)   df.rename()   c)   df.columns()   d)   df.change()"
+  },
+  {
+    "number": 18,
+    "text": "18.   Which   Python   statement   is   used   to   execute   a   block   only   if   a   condition   is   false?   a)   unless   b)   else   c)   otherwise   d)   not-if"
+  },
+  {
+    "number": 19,
+    "text": "19.   In   class   definitions,   what   does   self   represent?   a)   current   module   b)   base   class   c)   current   object   instance   d)   global   variable"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   function   returns   the   next   item   from   an   iterator?   a)   forward()   b)   next()   c)   step()   d)   iterate()"
+  },
+  {
+    "number": 1,
+    "text": "1.   Does   Python   support   the   concept   of   variables?   A.   Yes,   Python   variables   directly   hold   values   inside   fixed   memory   locations   B.   Yes,   but   Python   variables   must   be   created   using   a   declaration   keyword   C.   Yes,   but   Python   variables   act   as   references   that   point   to   objects   in   memory   D.   Yes,   but   Python   variables   can   only   reference   built-in   data   types"
+  },
+  {
+    "number": 2,
+    "text": "2.   Which   attributes   can   be   used   with   the   print()   function?   A.   before   and   after   :   to   control   text   alignment   B.   first   and   last   :   to   specify   starting   and   ending   characters   C.   open   and   close   :   to   decide   whether   the   print   statement   stays   active   D.   sep   and   end   :   to   control   value   separation   and   line   termination"
+  },
+  {
+    "number": 3,
+    "text": "3.   Python   was   named   after   which   reference?   A.   A   high-performance   computing   project   developed   in   the   1980s   B.   A   British   comedy   group   known   for   sketch   comedy   C.   A   widely   studied   species   of   constrictor   snake   D.   An   early   European   research   program   on   programming   languages"
+  },
+  {
+    "number": 4,
+    "text": "4.   What   is   the   basic   difference   between   variable   declaration   and   variable   definition?   A.   Declaration   reserves   memory,   while   definition   only   assigns   a   default   value   but   we   do   the   both   at   same   time   B.   Declaration   specifies   type,   while   definition   allocates   memory   C.   Declaration   is   required   before   assigning   a   value   to   any   variable   D.   python   does   not   differentiate   between   declaration   and   definition;   assignment   creates   the   reference"
+  },
+  {
+    "number": 5,
+    "text": "5.   Which   code   correctly   converts   a   list   into   integer   type?   A.   nums   =   int([\"1\",\"2\",\"3\"])   B.   nums   =   list(map(int,   [\"1\",\"2\",\"3\"]))   C.   nums   =   [\"1\",\"2\",\"3\"].to_int()   D.   nums   =   convert(int,   [\"1\",\"2\",\"3\"])"
+  },
+  {
+    "number": 6,
+    "text": "6.   For   the   given   situation,   which   loop   type   is   the   best   fit   .   You   are   building   a   login   system   that   keeps   asking   the   user   for   a   password   until   the   correct   one   is   entered.   The   number   of   attempts   is   unknown.   A.   while   loop   B.   for   loop   C.   map()   loop   D.   range-based   loop"
+  },
+  {
+    "number": 7,
+    "text": "7.   What   are   custom   modules   in   Python?   A.   Special   system-level   files   that   only   Python   internally   uses   B.   User-created   .py   files   that   contain   reusable   functions,   classes,   or   variables   C.   Built-in   libraries   automatically   loaded   with   every   Python   program   D.   Third-party   packages   downloaded   from   the   internet"
+  },
+  {
+    "number": 8,
+    "text": "8.   What   is   the   correct   way   to   raise   an   error   inside   a   custom   module?   A.   print(\"Something   went   wrong\")   B.   throw   Error(\"Invalid   input\")   C.   raise   ValueError(\"Invalid   input\")   D.   exception.ValueError(\"Invalid   input\")"
+  },
+  {
+    "number": 9,
+    "text": "9.   Which   statement   correctly   explains   the   purpose   of   a   try\u2013except   block?   A.   It   allows   you   to   handle   runtime   errors   without   stopping   the   entire   program   B.   It   compiles   Python   code   into   machine-level   instructions   C.   It   guarantees   faster   execution   by   skipping   error   checks   D.   It   prevents   all   errors   from   occurring   in   the   first   place"
+  },
+  {
+    "number": 10,
+    "text": "10.   What   is   the   role   of   self   in   object-oriented   programming?   A.   It   stores   the   class   name   so   methods   can   detect   which   class   they   belong   to   B.   It   automatically   tracks   memory   usage   for   each   object   instance   C.   It   refers   to   the   module   where   the   class   is   defined   D.   It   refers   to   the   current   object   instance   when   accessing   attributes   or   methods"
+  },
+  {
+    "number": 11,
+    "text": "11.   For   large   real-world   ERP   systems,   which   programming   paradigm   is   preferred?   A.   Object-oriented   programming,   because   it   models   complex   systems   using   reusable   components   B.   Procedural   programming,   because   ERP   systems   rarely   require   modular   design   C.   Functional   programming,   because   ERP   logic   must   avoid   maintaining   state   D.   Event-driven   programming,   because   ERP   systems   mainly   respond   to   mouse   and   keyboard   events"
+  },
+  {
+    "number": 12,
+    "text": "12.   For   the   given   code,   which   change   correctly   implements   encapsulation?   class   BankAccount:   def   __init__(self,   balance):   self.balance   =   balance   A.   Rename   the   variable   to   balance_amount   so   its   purpose   is   easier   to   recognize   B.   Add   a   second   parameter   to   __init__()   to   allow   more   account   options   C.   Make   balance   a   private   attribute   and   provide   getter/setter   methods   D.   Store   balance   as   a   global   variable   so   it   can   be   shared   across   all   objects"
+  },
+  {
+    "number": 13,
+    "text": "13.   What   is   the   main   difference   between   standard   deviation   and   median?   A.   Standard   deviation   measures   the   midpoint   of   data,   while   median   measures   how   spread   out   the   values   are   B.   Standard   deviation   and   median   both   measure   data   spread,   but   median   is   always   larger   C.   Standard   deviation   measures   data   variability,   while   median   represents   the   central   value   D.   Standard   deviation   finds   the   most   frequent   value,   while   median   finds   the   least   frequent"
+  },
+  {
+    "number": 14,
+    "text": "14.   What   is   the   meaning   of   vectorization   in   NumPy?   A.   Performing   array   operations   without   explicit   Python   loops   for   faster   execution   B.   Converting   every   list   into   a   vector   before   running   any   computation   C.   Storing   all   values   in   a   single   continuous   Python   list   for   optimization   D.   Running   NumPy   code   on   a   GPU   automatically   without   any   libraries"
+  },
+  {
+    "number": 15,
+    "text": "15.   Why   is   NumPy   preferred   over   Python   lists   and   the   built-in   array   module?   A.   Because   NumPy   automatically   converts   all   data   into   strings   for   safety   B.   Because   NumPy   lists   store   each   element   in   separate   memory   blocks   C.   Because   NumPy   disables   type   checking,   making   operations   simpler   D.   Because   NumPy   uses   optimized   C-based   arrays   for   speed   and   supports   vectorized   operations"
+  },
+  {
+    "number": 16,
+    "text": "16.   What   will   be   the   output   of   the   given   reshape   operation?   import   numpy   as   np   arr   =   np.array([1,   2,   3,   4,   5,   6])   reshaped   =   arr.reshape(2,   3)   print(reshaped)   A.   [[1,   2],   [3,   4],   [5,   6]]   B.   [[1,   3,   5],   [2,   4,   6]]   C.   [[1,   2,   3],   [4,   5,   6]]   D.   [[1,   2,   3,   4,   5,   6]]"
+  },
+  {
+    "number": 17,
+    "text": "17.   What   will   the   statement   print()   do   when   called   without   arguments?   A.   It   throws   an   error   because   print()   requires   at   least   one   argument   B.   It   prints   a   blank   line   C.   It   prints   a   default   message   stored   in   the   system   printer   D.   It   pauses   the   program   but   prints   nothing"
+  },
+  {
+    "number": 18,
+    "text": "18.   Which   option   converts   a   column   of   strings   to   datetime?   A.   df[\"date\"]   =   df[\"date\"].todate()   B.   df[\"date\"]   =   df.date.as_datetime()   C.   df[\"date\"]   =   pd.to_datetime(df[\"date\"])   D.   df.date.convert(datetime)"
+  },
+  {
+    "number": 19,
+    "text": "19.   Which   code   correctly   saves   a   plot   to   a   file?   A.   plt.save(\"output.png\")   B.   plt.savefig(\"output.png\")   C.   plt.store(\"output.png\")   D.   plt.plot.save(\"output.png\")"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   code   correctly   creates   a   scatter   plot   with   a   regression   line?   A.   plt.regress(x,   y)   B.   plt.scatterline(x,   y)   C.   plt.plotreg(x,   y)   D.   plt.scatter(x,   y);   plt.plot(x,   y_pred)"
+  },
+  {
+    "number": 1,
+    "text": "1.   How   can   you   print   the   value   008   in   Python   as   an   integer?   a.   print(008)   b.print(int(008))   c.print(int(0o10))   d.print(0o008)"
+  },
+  {
+    "number": 2,
+    "text": "2.   Which   programming   paradigm   does   Python   primarily   follow?   A.   Only   object-oriented   programming,   with   no   support   for   functional   features   B.   Only   procedural   programming,   similar   to   older   language   C.   A   strictly   functional   paradigm   with   immutable   data   by   default   D.   A   multi-paradigm   approach   supporting   procedural,   object-oriented,   and   functional   styles"
+  },
+  {
+    "number": 3,
+    "text": "3.   What   is   pip,   and   is   it   installed   separately?   A.   A   Python   debugger   that   must   be   installed   manually   B.   Python\u2019s   built-in   package   manager,   included   automatically   with   Python   3   C.   A   virtual   environment   tool   that   requires   separate   installation   D.   A   dependency   scanner   downloaded   from   the   Python   Package   Index"
+  },
+  {
+    "number": 4,
+    "text": "4.   Which   functions   belong   to   the   random   module   form   numpy   with   their   correct   usage?   A.   random.randint(1,   10)   :   returns   a   random   integer   in   range   random.choice(items)   :   picks   a   random   element   random.random()   :   returns   a   float   between   0   and   1   B.   random.sort(list)   :   sorts   a   list   randomly   random.pick(3)   :   picks   3   values   at   random   random.number()   :   returns   a   random   number   C.   random.range(5,   15)   ;   generates   a   random   range   random.first(seq):   returns   the   first   random   index   random.decimal()   :   returns   a   decimal   number   D.   random.select()   :   selects   items   based   on   weight   random.generate()   :   creates   random   datasets   random.flip()   :   flips   a   boolean   randomly"
+  },
+  {
+    "number": 5,
+    "text": "5.   Which   definition   and   code   correctly   represent   arithmetic   operators?   A.   Arithmetic   operators   only   compare   values,   e.g.,   ==,   >=,   <=   B.   Arithmetic   operators   update   variables   in   place,   e.g.,   +=,   -=,   *=   C.   Arithmetic   operators   perform   mathematical   calculations,   e.g.,   a   +   b,   a   -   b,   a   *   b,   a   /   b,   a   //   b,   a   %   b,   a   **   b   D.   Arithmetic   operators   are   used   for   type   conversions,   e.g.,   int(a),   float(a)"
+  },
+  {
+    "number": 6,
+    "text": "6.   Which   of   the   following   is   the   correct   example   of   dynamic   typing   in   Python?   A.   int   x   =   5   B.   var   x:   int   =   5   C.   x   =   int(5)   D.   x   =   10;   x   =   \"hello\""
+  },
+  {
+    "number": 7,
+    "text": "7.   Which   is   the   correct   built-in   function   along   with   its   description?   A.   open()   :   used   to   access   a   file,   but   only   for   reading   directory   names   B.   sum()   :   adds   values   in   an   iterable,   but   only   if   they   are   all   strings   C.   len()   :   returns   the   number   of   elements   in   a   sequence   D.   map()   :   applies   a   function   to   items,   but   returns   only   the   first   modified   value"
+  },
+  {
+    "number": 8,
+    "text": "8.   Which   functions   belong   to   the   random   module   with   their   correct   usage?   A.   random.range()   \u201c   generates   a   range   of   random   numbers   for   list   sorting   B.   random.pick()   :   selects   multiple   items   but   only   works   on   numeric   arrays   C.   random.float()   :   returns   a   decimal   value   but   always   between   10   and   20   D.   random.randint()   :   generates   a   random   integer;"
+  },
+  {
+    "number": 9,
+    "text": "9.   What   change   should   be   made   to   the   code   to   intentionally   create   an   infinite   loop?   i   =   0   while   i   <   5:   print(i)   i   +=   1   A.   Replace   i   +=   1   with   i   =   i   +   2   so   the   loop   runs   faster   before   stopping   B.   Change   the   condition   to   i   <=   5   so   it   loops   one   extra   time   C.   Remove   or   disable   the   update   (i   +=   1)   so   the   condition   never   becomes   False   D.   Add   a   break   statement   so   the   loop   continues   without   stopping"
+  },
+  {
+    "number": 10,
+    "text": "10.   What   are   lambdas   and   generators   in   Python?   A.   Lambdas   are   built-in   classes,   and   generators   are   database   connectors   B.   Lambdas   are   loops   that   run   once,   and   generators   are   files   that   auto-save   output   C.   Lambdas   are   small   anonymous   functions,   and   generators   produce   values   lazily   using   yield   D.   Lambdas   are   decorators,   and   generators   permanently   store   all   values   in   memory"
+  },
+  {
+    "number": 11,
+    "text": "11.   For   the   given   situation,   which   OOP   approach   should   be   used?   You   are   developing   a   student   login   feature   where   each   student   must   have   attributes   like   username,   password,   and   login   attempts.   A.   Use   procedural   functions   so   that   all   user   data   can   be   stored   in   global   variables   B.   Use   a   single   dictionary   for   all   users,   since   it   automatically   enforces   security   C.   Use   inheritance   so   that   each   user   automatically   becomes   a   subclass   of   Python\u2019s   base   types   D.   Use   classes   and   objects   to   model   each   user   with   its   own   attributes   and   behavior"
+  },
+  {
+    "number": 12,
+    "text": "12.   For   the   given   code,   which   change   correctly   implements   polymorphism?   class   Shape:   def   area(self):   return   0   class   Circle(Shape):     def   area(self):   return   \"Area   of   Circle\"   class   Square(Shape):   def   area(self):   return   \"Area   of   Square\"   A.   Remove   the   area()   method   from   all   child   classes   so   only   the   parent   version   is   used   B.   Convert   area()   into   a   static   method   so   it   doesn\u2019t   depend   on   object   behavior   C.   Allow   each   subclass   to   provide   its   own   implementation   of   area()   D.   Add   random   print   statements   inside   area()   so   each   class   \u201clooks   different\u201d"
+  },
+  {
+    "number": 11,
+    "text": "11.   What   is   the   difference   between   the   normal   and   uniform   random   functions,   and   which   choice   function   call   generates   the   given   output?   A.   normal   generates   evenly   spaced   values,   while   uniform   creates   values   around   a   mean;   np.random.uniform(0,   1)   B.   normal   always   produces   integers,   while   uniform   always   produces   floats;   np.random.uniform(5)   C.   normal   returns   only   positive   values,   while   uniform   returns   both   positive   and   negative;   np.random.uniform(-1,   1)   D.   normal   generates   values   around   a   mean   with   a   spread,   while   uniform   generates   values   in   a   flat   range;   np.random.normal(0,   1)"
+  },
+  {
+    "number": 12,
+    "text": "12.   Which   code   correctly   replaces   NaN   values   with   the   mean   or   median   of   the   array?   A.   arr   =   arr.fillna(np.mean(arr))   B.   arr   =   np.where(np.isnan(arr)   C.   arr   =   arr.replace(np.nan,   np.mean(arr))   D.   arr[np.mean]   =   np.nan"
+  },
+  {
+    "number": 13,
+    "text": "13.   Which   code   correctly   removes   incomplete   records   from   the   dataset?   A.   clean   =   arr[~np.isnan(arr).any(axis=1)]   B.   clean   =   arr.remove(np.nan)   C.   clean   =   arr.dropna()   D.   clean   =   arr[np.nan   ==   False]"
+  },
+  {
+    "number": 14,
+    "text": "14.   What   is   the   correct   definition   of   matrix   transpose,   and   which   code   correctly   performs   it?   A.   A   transpose   reverses   rows   only;   arr.reverse()   B.   A   transpose   swaps   values   diagonally;   arr.swap()   C.   A   transpose   flips   rows   and   columns;   arr.T   D.   A   transpose   rotates   the   matrix   by   90   degrees;   np.rot90(arr)"
+  },
+  {
+    "number": 15,
+    "text": "15.   Does   NumPy   only   focus   on   arrays?   A.   No,   NumPy   also   includes   linear   algebra,   statistics,   random   number   generation,   and   broadcasting   B.   Yes,   NumPy   can   only   store   arrays   and   cannot   perform   computations   C.   Yes,   NumPy   handles   arrays   exclusively,   and   all   math   must   be   done   manually   D.   No,   NumPy   is   mainly   used   for   web   development   and   backend   frameworks"
+  },
+  {
+    "number": 16,
+    "text": "16.   Which   option   correctly   describes   a   Pandas   Series?   A.   2D   labeled   table   used   for   grouping   data   B.   A   fixed-type   numeric   array   without   labels   C.   A   1D   labeled   array   capable   of   holding   any   data   type   D.   A   structure   that   only   stores   integers   efficiently"
+  },
+  {
+    "number": 17,
+    "text": "17.   Which   option   correctly   selects   rows   using   labels?   A.   df.loc[\"A\":\"C\"]   selects   rows   from   label   A   to   C   (inclusive)   B.   df.loc[0:2]   selects   rows   by   position   C.   df.loc()   automatically   converts   strings   to   indexes\\   D.   df.loc.label(\"A\")   fetches   row   A"
+  },
+  {
+    "number": 18,
+    "text": "18.   Which   option   correctly   creates   a   basic   scatter   plot?   A.   plt.pointplot(x,   y)   B.   plt.scatterplot(x=y)   C.   plt.plot(x   *   y)   D.   plt.scatter(x,   y)"
+  },
+  {
+    "number": 19,
+    "text": "19.   Which   statement   correctly   describes   subplot   creation?   A.   Subplots   require   opening   separate   figure   windows   B.   plt.subplots(2,   2)   creates   a   2\u00d72   grid   of   plots   C.   Subplots   cannot   share   axes   between   plots   D.   Subplots   must   be   drawn   before   creating   a   figure"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   option   correctly   plots   a   column   from   a   DataFrame?   A.   df.plotcol(\"age\")   automatically   creates   a   histogram   B.   plt.bar(df[\"age\"])   plots   a   bar   chart   directly   C.   plt.plot(df[\"age\"])   creates   a   line   plot   of   the   column   D.   df[\"age\"].scatter()   produces   a   scatter   plot"
+  },
+  {
+    "number": 1,
+    "text": "1.   Why   is   a   virtual   environment   required   when   using   third-party   modules   like   NumPy   and   Pandas?   A.   It   improves   Python\u2019s   execution   speed   by   running   code   in   isolation   B.   It   automatically   updates   all   installed   packages   to   their   latest   versions   C.   It   prevents   dependency   conflicts   by   isolating   project   package   versions   D.   It   allows   Python   to   access   system-level   hardware   drivers   more   efficiently"
+  },
+  {
+    "number": 2,
+    "text": "2.   Which   of   the   following   correctly   represents   a   feature   of   Python?   A.   Statically   typed,   compiled,   low-level   B.   Strict   typing,   manual   memory   control,   hardware-oriented   C.   Dynamically   typed,   interpreted,   high-level   D.   Fixed-type   variables,   fast   compilation,   limited   libraries"
+  },
+  {
+    "number": 3,
+    "text": "3.   Which   of   the   following   correctly   represents   real-world   use   cases   of   Python?   A.   BIOS   programming,   kernel   development,   device   firmware   B.   Web   development,   machine   learning,   automation   C.   Graphics   drivers,   low-level   memory   allocation,   embedded   chip   coding   D.   Real-time   operating   system   design,   hardware   interrupt   handling,   micro-kernel   scheduling"
+  },
+  {
+    "number": 4,
+    "text": "4.   The   given   code   converting   a   list   to   integers   is   an   example   of   which   concept?   A.   Memory   allocation   B.   Static   typing   C.   Loop   unrolling   D.   Type   conversion"
+  },
+  {
+    "number": 5,
+    "text": "5.   For   the   given   situation,   which   loop   type   is   the   best   fit   .   You   want   to   display   the   names   of   all   students   in   a   class   list   one   by   one.   The   total   number   of   names   is   fixed   and   known.   A.   while   loop   B.   do-while   loop   C.   for   loop   D.   recursive   function   loop"
+  },
+  {
+    "number": 6,
+    "text": "6.   Which   code   correctly   checks   for   a   palindrome   with   the   correct   definition?   A.   palindrome   is   a   word   with   repeating   characters;   check   using:   s   ==   sorted(s)   B.   palindrome   is   a   string   that   only   contains   alphabetic   characters;   check   using:   s.isalpha()   C.   palindrome   is   a   string   that   reads   the   same   forward   and   backward;   check   using:   s   ==   s[::-1]   D.   palindrome   is   a   string   where   characters   appear   in   decreasing   order;   check   using:   s   ==   s.reverse()"
+  },
+  {
+    "number": 7,
+    "text": "7.   Which   functions   belong   to   the   math   module   with   their   correct   usage?   A.   math.sqrt()   :   returns   the   square   root,   but   only   for   integer   values   B.   math.floor()   :   rounds   a   number   up   to   the   nearest   whole   number   C.   math.pi   :   provides   the   constant   value   of   \u03c0   D.   math.pow()   :   raises   to   a   power,   but   always   returns   an   integer"
+  },
+  {
+    "number": 8,
+    "text": "8.   What   change   should   be   made   to   the   code   to   stop   an   infinite   loop?   i   =   0   while   i   <   5:   print(i)   A.   Add   i   +=   1   inside   the   loop   so   the   condition   eventually   becomes   False   B.   Add   more   print()   statements   so   the   loop   slows   down   and   exits   naturally   C.   Remove   i   completely   so   Python   resets   the   loop   counter   automatically   D.   Use   continue   inside   the   loop   so   it   breaks   on   the   next   iteration"
+  },
+  {
+    "number": 9,
+    "text": "9.   Which   functions   belong   to   the   str   module   with   their   correct   usage?   A.   upper()   :   converts   to   uppercase,   but   only   for   the   first   character   B.   split()   :   breaks   a   string   into   a   list   based   on   a   separator   C.   replace()   :   swaps   characters,   but   only   if   the   string   length   is   even   D.   startswith()   :   checks   prefixes,   but   returns   the   index   instead   of   a   boolean"
+  },
+  {
+    "number": 10,
+    "text": "10.   For   the   given   code,   which   OOP   concept   is   being   implemented?   class   Animal:   def   speak(self):   return   \"Some   sound\"   class   Dog(Animal):   pass   A.   Inheritance   :   Dog   reuses   the   behavior   of   Animal   B.   Encapsulation   :   speak()   is   hidden   and   cannot   be   accessed   from   child   classes   C.   Polymorphism   :   Dog   is   overriding   speak()   to   change   its   behavior   D.   Abstraction   :   Animal   is   an   abstract   class   that   cannot   be   instantiated"
+  },
+  {
+    "number": 11,
+    "text": "11.   For   the   given   code,   which   change   correctly   implements   abstraction?   class   Payment:   def   process(self,   amount):   print(f\"Processing   payment   of   \u20b9{amount}...\")   A.   Rename   process()   to   _process()   to   indicate   it   is   internally   used   B.   Turn   Payment   into   an   abstract   base   class   and   make   process()   an   abstract   method   C.   Move   the   print   statement   into   another   helper   function   inside   the   same   class   D.   Add   more   parameters   to   process()   so   different   payment   types   can   be   handled"
+  },
+  {
+    "number": 12,
+    "text": "12.   What   is   the   correct   way   of   using   the   super()   keyword   along   with   its   definition?   A.   super(self).__init__()   :   calls   the   constructor   of   the   current   class   before   the   parent   B.   super(ClassName,   self)   :   accesses   all   methods   of   the   child   class   automatically   C.   super().__init__()   :   invokes   the   parent   class\u2019s   initializer   D.   super(self).method()   :   runs   the   method   in   the   shared   namespace   of   both   classes"
+  },
+  {
+    "number": 13,
+    "text": "13.   What   does   the   __init__   function   do   in   a   Python   class?   A.   It   deletes   unused   objects   at   the   end   of   the   program   B.   It   initializes   object   attributes   when   a   new   instance   is   created   C.   It   is   called   only   once   when   the   module   is   imported   D.   It   runs   automatically   when   the   class   definition   is   compiled"
+  },
+  {
+    "number": 14,
+    "text": "14.   For   the   given   project,   which   Python   library   would   be   the   most   appropriate?   You   are   working   on   a   project   where   for   given   student   data,   preview   the   data   using   functions   like   head(),   tail(),   info(),   and   describe(),   filter   students   based   on   grade   or   age,   and   sort   the   results   by   multiple   columns.   A.   NumPy   B.   Matplotlib   C.   Pandas   D.   Seaborn"
+  },
+  {
+    "number": 15,
+    "text": "15.   What   is   the   correct   step   to   create   a   virtual   environment   in   Python?   A.   python   -m   venv   env   \u2014   creates   a   virtual   environment   in   the   folder   env   B.   pip   install   venv   \u2014   installs   a   new   Python   interpreter   for   virtual   use   C.   python   create   env   \u2014   initializes   a   Python-managed   system   environment   D.   venv   --auto   \u2014   automatically   detects   and   builds   virtual   environment"
+  },
+  {
+    "number": 16,
+    "text": "16.   Which   statement   correctly   modifies   a   column   in   a   DataFrame?   A.   Columns   cannot   be   replaced   once   created   B.   Columns   must   be   reset   before   assigning   new   values   C.   Column   modification   automatically   changes   the   index   D.   Assigning   df[\"col\"]   =   ...   updates   or   replaces   values"
+  },
+  {
+    "number": 17,
+    "text": "17.   Which   option   correctly   merges   two   DataFrames?   A.   Merging   is   only   possible   if   DataFrames   share   the   same   index   B.   pd.merge(df1,   df2,   on=\"id\")   joins   rows   based   on   a   common   column   C.   Merge   operations   always   delete   duplicate   rows   first   D.   Merge   only   works   when   both   DataFrames   contain   numeric   data"
+  },
+  {
+    "number": 18,
+    "text": "18.   Which   option   correctly   customizes   a   plot?   A.   plt.title(\"Sales   Data\")   adds   a   title   B.   plt.name(\"Sales   Data\")   renames   the   figure   C.   plt.settext(\"Sales\")   sets   global   labels   D.   plt.plotlabel(\"Sales   Data\")   creates   text   automatically"
+  },
+  {
+    "number": 19,
+    "text": "19.   Which   option   correctly   creates   a   horizontal   bar   plot?   A.   plt.barrotate()   B.   plt.hbar(x,   y)   C.   plt.barh(x,   y)   D.   plt.bar.horizontal(x,   y)"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   option   correctly   loads   a   CSV   and   displays   its   first   rows?   A.   df   =   pd.read_csv(\"data.csv\");   print(df.head())   B.   df   =   pd.load(\"data.csv\");   print(df.top())   C.   df   =   pd.file(\"data.csv\");   df.start()   D.   df   =   read.csv(\"data.csv\");   head(df)"
+  },
+  {
+    "number": 1,
+    "text": "1.   Which   built-in   function   is   used   to   get   user   input   in   Python?     A.   input()     B.   enter()     C.   read()     D.   scan()"
+  },
+  {
+    "number": 2,
+    "text": "2.   What   will   this   expr ession   return?   type(3   >   2)     A.   int     B.   bool     C.   str     D.   float"
+  },
+  {
+    "number": 3,
+    "text": "3.   Which   keyword   is   used   to   define   a   block   of   code   in   Python?     A.   block     B.   begin     C.   define     D.   indentation"
+  },
+  {
+    "number": 4,
+    "text": "4.   What   will   be   printed?   x   =   \"Hello\"   print(x   *   2)     A.   Error     B.   Hello     C.   HelloHello     D.   Hello*2"
+  },
+  {
+    "number": 5,
+    "text": "5.   Which   operator   has   the   highest   precedence?     A.   +     B.   ==     C.   not     D.   **"
+  },
+  {
+    "number": 6,
+    "text": "6.   How   many   times   will   this   loop   run?   for   i   in   range(1,   6):      pass     A.   4     B.   5     C.   6     D.   Infinite"
+  },
+  {
+    "number": 7,
+    "text": "7.   What   is   the   output?   i   =   5   while   i   >   5:     print(i)       i   -=   1     A.   5   4   3   2   1     B.   5     C.   No   output     D.   Error"
+  },
+  {
+    "number": 8,
+    "text": "8.   What   does   the   return   statement   do?     A.   Stops   the   interpreter     B.   Exits   a   loop     C.   Sends   a   value   back   from   a   function     D.   Converts   data   types"
+  },
+  {
+    "number": 9,
+    "text": "9.   Which   built-in   function   finds   the   smallest   value?     A.   less()     B.   minimum()     C.   small()     D.   min()"
+  },
+  {
+    "number": 10,
+    "text": "10.   What   is   the   correct   way   to   import   only   one   function   from   a   module?     A.   include   function   from   module     B.   import   module   ->   function     C.   from   module   import   function     D.   load   module.function"
+  },
+  {
+    "number": 11,
+    "text": "11.   What   is   the   output   of   this   try-except   block?   try:       print(10   /   5)   except:      print(\"Err or\")     A.   Error     B.   2.0     C.   0     D.   None"
+  },
+  {
+    "number": 12,
+    "text": "12.   Which   data   structur e   does   NOT   allow   duplicates?     A.   List     B.   Tuple     C.   Set     D.   Dictionary"
+  },
+  {
+    "number": 13,
+    "text": "13.   Which   statement   is   correct   about   tuples?     A.   They   are   mutable     B.   They   are   immutable     C.   They   support   append()     D.   They   behave   like   sets"
+  },
+  {
+    "number": 14,
+    "text": "14.   What   will   this   print?   class   Test:     x   =   5   obj   =   Test()   print(obj.x)   A.   Error     B.   None     C.   0     D.   5"
+  },
+  {
+    "number": 15,
+    "text": "15.   Which   concept   allows   multiple   classes   to   have   methods   with   the   same   name   but   differ ent   behavior?   A.   Abstraction     B.   Polymorphism     C.   Encapsulation     D.   Overriding"
+  },
+  {
+    "number": 16,
+    "text": "16.   Which   of   these   creates   an   anonymous   function?   A.   define     B.   anon     C.   lambda     D.   func"
+  },
+  {
+    "number": 17,
+    "text": "17.   What   is   NumPy   primarily   used   for?   A.   Machine   learning   algorithms     B.   Numerical   computations   and   arrays     C.   Web   development     D.   File   handling"
+  },
+  {
+    "number": 18,
+    "text": "18.   What   Pandas   function   reads   CSV   files?     A.   pd.open_csv()     B.   pd.load_csv()     C.   pd.read_csv()     D.   pd.csv_read()"
+  },
+  {
+    "number": 19,
+    "text": "19.   Which   Matplotlib   function   is   used   to   make   a   bar   chart?     A.   plt.bar()     B.   plt.plot()     C.   plt.show()     D.   plt.line()"
+  },
+  {
+    "number": 20,
+    "text": "20.   What   is   a   common   first   step   in   data   cleaning?     A.   Adding   random   values     B.   Dropping   duplicate   rows     C.   Increasing   dataset   size     D.   Encrypting   the   data   1.Which   command   is   used   to   check   the   installed   Python   version   on   your   system?     A.   python   --check     B.   python   -v     C.   python   --version     D.   python   show-version"
+  },
+  {
+    "number": 2,
+    "text": "2.   What   will   be   printed   by   this   code?   s   =   \"Python\"   print(s[1:4])     A.   Pyt     B.   yth     C.   ytho     D.   yth"
+  },
+  {
+    "number": 3,
+    "text": "3.   What   is   the   output   type   of   3.14   +   2   in   Python?     A.   int     B.   float     C.   str     D.   bool"
+  },
+  {
+    "number": 4,
+    "text": "4.   What   operator   is   used   for   exponentiation   in   Python?     A.   ^     B.   **     C.   %     D.   //"
+  },
+  {
+    "number": 5,
+    "text": "5.   What   is   the   result   of   this   logical   expr ession?   not   (False   or   True)   and   True     A.   True     B.   False     C.   Error     D.   None"
+  },
+  {
+    "number": 6,
+    "text": "6.   Which   statement   correctly   defines   an   empty   set?     A.   s   =   {}     B.   s   =   []     C.   s   =   set()     D.   s   =   ()"
+  },
+  {
+    "number": 7,
+    "text": "7.   What   will   be   the   output   of   this   code   snippet?   a   =   [1,   2,   3]   b   =   a   b.append(4)   print(a)     A.   [1,   2,   3]     B.   [1,   2,   3,   4]     C.   [4]     D.   Error"
+  },
+  {
+    "number": 8,
+    "text": "8.   Choose   the   correct   way   to   open   a   file   for   both   reading   and   writing   (overwriting)   in   Python.     A.   open(\"file.txt\",   \"r+\")     B.   open(\"file.txt\",   \"rw\")     C.   open(\"file.txt\",   \"w+\")     D.   open(\"file.txt\",   \"a+\")"
+  },
+  {
+    "number": 9,
+    "text": "9.   What   will   this   print?   def   f(x,   y=5,   *args):        return   x   +   y   +   sum(args)   print(f(2,   3,   4,   5))     A.   9     B.   14     C.   7     D.   10"
+  },
+  {
+    "number": 10,
+    "text": "10.   Which   of   these   is   NOT   a   valid   method   to   import   a   module   or   its   part?     A.   import   math     B.   from   math   import   sqrt     C.   import   math   as   m     D.   include   math"
+  },
+  {
+    "number": 11,
+    "text": "11.   What   does   this   NumPy   code   output?   import   numpy   as   np   a   =   np.arange(0,   9).reshape(3,3)   print(a[1,   :])     A.   [0   1   2]     B.   [3   4   5]     C.   [6   7   8]     D.   [1   2   3]"
+  },
+  {
+    "number": 12,
+    "text": "12.   In   Pandas,   which   method   returns   summary   statistics   (like   mean,   std,   min,   max)   of   numerical   columns   in   a   DataFrame?     A.   df.info()     B.   df.describe()     C.   df.summary()     D.   df.stats()"
+  },
+  {
+    "number": 13,
+    "text": "13.   What   kind   of   plot   is   typically   used   to   show   the   distribution   of   a   single   variable?     A.   Scatter   plot     B.   Line   plot     C.   Histogram     D.   Bar   chart"
+  },
+  {
+    "number": 14,
+    "text": "14.   Which   built-in   Python   function   converts   a   string   \u201c123\u201d   into   integer   123?     A.   parse_int()     B.   integer()     C.   int()     D.   to_int()"
+  },
+  {
+    "number": 15,
+    "text": "15.   What   is   printed   by   this   code?   x   =   None   if   x:        print(\"Y es\")   else:        print(\"No\")     A.   Yes     B.   No     C.   None     D.   Error"
+  },
+  {
+    "number": 16,
+    "text": "16.   Which   of   these   keywords   is   used   to   define   a   generator   function?     A.   gen     B.   lambda     C.   yield     D.   generate"
+  },
+  {
+    "number": 17,
+    "text": "17.   For   OOP ,   what   does   the   term   \u201cencapsulation\u201d   mean?     A.   Hiding   internal   state   and   requiring   methods   for   accessing   data     B.   Allowing   multiple   inheritance     C.   Overriding   base   class   methods     D.   Creating   multiple   objects"
+  },
+  {
+    "number": 18,
+    "text": "18.   Which   of   these   will   correctly   create   a   dictionary   with   keys   \u201ca\u201d,   \u201cb\u201d   and   values   1,   2?     A.   {'a':1,   'b':2}     B.   {a:1,   b:2}     C.   dict('a'=1,   'b'=2)     D.   dict(a;1,   b;2)"
+  },
+  {
+    "number": 19,
+    "text": "19.   What   will   be   printed   by   this   code   snippet?   import   random   print(random.randint(1,   5))     A.   A   random   float   between   1   and   5     B.   A   random   integer   between   1   and   4     C.   A   random   integer   between   1   and   5   inclusive     D.   Always   1"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   of   the   following   is   correct   to   create   a   line   plot   using   Matplotlib   (assuming   import   matplotlib.pyplot   as   plt)?     A.   plt.line([1,2,3],   [4,5,6])     B.   plt.plot([1,2,3],   [4,5,6])     C.   plt.bar([1,2,3],   [4,5,6])     D.   plt.scatter([1,2,3],   [4,5,6])"
+  },
+  {
+    "number": 1,
+    "text": "1.   Which   of   the   following   is   NOT   a   featur e   of   Python?     A.   Interpreted     B.   Easy-to-learn     C.   Low-level   memory   management     D.   Object-oriented"
+  },
+  {
+    "number": 2,
+    "text": "2.   What   will   be   the   output   of   the   following   code?   x   =   10   y   =   3   print(x   //   y)     A.   3.33     B.   3     C.   4     D.   0"
+  },
+  {
+    "number": 3,
+    "text": "3.   Which   of   the   following   is   a   valid   variable   name   in   Python?     A.   1value     B.   value_1     C.   value-1     D.   value   1"
+  },
+  {
+    "number": 4,
+    "text": "4.   What   is   the   data   type   of   the   value   returned   by   input()?     A.   int     B.   float     C.   str     D.   bool"
+  },
+  {
+    "number": 5,
+    "text": "5.   What   will   this   code   print?   a   =   True   b   =   False   print(a   and   not   b)     A.   False     B.   True     C.   Error     D.   None"
+  },
+  {
+    "number": 6,
+    "text": "6.   Which   loop   is   best   suited   when   the   number   of   iterations   is   known?     A.   while   loop     B.   for   loop     C.   do-while   loop     D.   switch   loop"
+  },
+  {
+    "number": 7,
+    "text": "7.   What   is   the   output   of   this   code?   for   i   in   range(2,   10,   3):        print(i,   end=\"   \")     A.   2   3   4     B.   2   5   8     C.   3   6   9     D.   2   4   6"
+  },
+  {
+    "number": 8,
+    "text": "8.   What   does   the   function   return?   def   calc(a,   b=2):      return   a   *   b   print(calc(3))     A.   3     B.   5     C.   6     D.   9"
+  },
+  {
+    "number": 9,
+    "text": "9.   Which   built-in   function   gives   the   largest   element   of   a   list?     A.   big()     B.   max()     C.   top()     D.   high()"
+  },
+  {
+    "number": 10,
+    "text": "10.   What   is   the   correct   way   to   import   only   the   sqrt   function   from   math?     A.   import   math.sqrt     B.   from   math   import   sqrt     C.   include   math.sqrt     D.   using   math.sqrt"
+  },
+  {
+    "number": 11,
+    "text": "11.   What   is   the   output   of   this   code?   try:        x   =   10   /   0   except   ZeroDivisionErr or:        print(\"Err or\")     A.   0     B.   Zero     C.   Error     D.   No   output"
+  },
+  {
+    "number": 12,
+    "text": "12.   Which   data   structur e   is   unorder ed   and   contains   unique   elements?     A.   List     B.   Tuple     C.   Set     D.   Dictionary"
+  },
+  {
+    "number": 13,
+    "text": "13.   What   is   the   output?   my_tuple   =   (10,   20,   30)   print(len(my_tuple))     A.   1     B.   2     C.   3     D.   30"
+  },
+  {
+    "number": 14,
+    "text": "14.   Which   OOP   concept   allows   creating   a   subclass   from   an   existing   class?     A.   Polymorphism     B.   Inheritance     C.   Encapsulation     D.   Abstraction"
+  },
+  {
+    "number": 15,
+    "text": "15.   What   will   this   code   output?   class   A:        def   show(self):            return   \"A\"     class   B(A):        pass     obj   =   B()   print(obj.show())     A.   Error     B.   B     C.   A     D.   None"
+  },
+  {
+    "number": 16,
+    "text": "16.   What   is   the   purpose   of   a   lambda   function?     A.   Create   long   functions     B.   Create   anonymous   functions     C.   Replace   all   functions     D.   Loop   through   lists"
+  },
+  {
+    "number": 17,
+    "text": "17.   What   will   be   the   output?   import   numpy   as   np   arr   =   np.array([[1,   2],   [3,   4]])   print(arr .shape)     A.   (1,   4)     B.   (4,   1)     C.   (2,   2)     D.   (2,   4)"
+  },
+  {
+    "number": 18,
+    "text": "18.   In   Pandas,   which   data   structur e   is   used   to   store   tabular   data?     A.   Series     B.   DataFrame     C.   Array     D.   Matrix"
+  },
+  {
+    "number": 19,
+    "text": "19.   What   does   the   following   Matplotlib   code   do?   plt.plot([1,   2,   3],   [4,   5,   6])     A.   Draws   a   bar   graph     B.   Draws   a   line   graph     C.   Draws   a   scatter   plot     D.   Draws   a   pie   chart"
+  },
+  {
+    "number": 20,
+    "text": "20.   Which   step   is   part   of   basic   data   cleaning?     A.   Encrypting   data     B.   Dropping   missing   values     C.   Adding   random   values     D.   Increasing   dataset   size     Que   1:   Python   was   developed   by:   (A)   Dennis   Ritchie   (B)   James   Gosling   (C)   Guido   van   Rossum   (D)   Bjarne   Stroustrup     Que   2:   Which   command   runs   a   Python   file?   (A)   run   file.py   (B)   execute   file.py   (C)   python   file.py   (D)   open   file.py     Que   3:   Which   function   displays   output?   (A)   input()   (B)   show()   (C)   display()   (D)   print()     Que   4:Which   function   checks   data   type?   (A)   datatype()   (B)   typeof()   (C)   type()   (D)   check()     Que   5:   Python   is   a:   (A)   Statically   typed   language   (B)   Dynamically   typed   language   (C)   Low-level   language   (D)   Machine-dependent   language     Que   6:   What   will   be   the   output   for   below   code?       (A)   5   (B)   6     (C)   7   (D)   8       Que   7:   What   will   be   the   output   for   below   code?     (A)   [1,4,9]   (B)   [2,4,6]   (C)   [2,   2,6]   (D)   [1,4,   4]     Que   8:   What   will   be   the   output   for   below   code?       (A)   3   (B)   4   (C)   2   (D)   1     Que   9:   What   will   be   the   output   for   below   code?       (A)   True   (B)   False     (C)   Hi   (D)   Error       Que   10:   What   will   be   the   output   for   below   code?       (A)   3   (B)   4   (C)   2   (D)   1     Que   11:   What   will   be   the   output   for   below   code?       (A)   y   (B)   t   (C)   p   (D)   n     Que   12:   What   will   be   the   output   for   below   code?       (A)   {1,   2,   3,   4}   (B)   {1,   2,   4,   3}   (C)   {1,   2,   3,   3,   4}   (D)   {1,   2,   3,   4,   3}     Que   13:   What   will   be   the   output   for   below   code?       (A)   True     (B)   False     (C)   0   (D)   Error     Que   14:   What   will   be   the   output   for   below   code?       (A)   True     (B)   False     (C)   0   (D)   Error       Que   15:   What   will   be   the   output   for   below   code?       (A)   ([1],   [1,1])   (B)   ([1   ],   [1   ])   (C)   ([1   ],   [1,   1])   (D)   ([1,   1],[1,1])     Que   16:   What   will   be   the   output   for   below   code?       (A)   2   5   (B)   2   4   (C)   2   3     (D)   0   1       Que   17:   What   will   be   the   output   for   below   code?       (A)   True   (B)   False     (C)   0     (D)   Error     Que   18:   What   will   be   the   output   for   below   code?       (A)   1     (B)   2   (C)   3   (D)   4     Que   19:   What   will   be   the   output   for   below   code?       (A)   float   (B)   int     (C)   Error     (D)   str     Que   20:    What   will   be   the   output   for   below   code?       (A)   5   (B)   7   (C)   6   (D)   4     Que   1:   Function   used   to   take   input:   (A)   scan()   (B)   read()   (C)   input()   (D)   get()     Que   2:   Membership   operator   is:   (A)   ==   (B)   !=   (C)   in   (D)   is     Que   3:   range(1,5)   generates:   (A)   1   to   5   (B)   1   to   4   (C)   0   to   5   (D)   0   to   4     Que   4:   Which   function   gives   length?   (A)   count()   (B)   size()   (C)   length()   (D)   len()     Que   5:   Variable   scope   refers   to:   (A)   Variable   memory   size   (B)   Variable   accessibility   (C)   Variable   name   (D)   Variable   type     Que   6:   What   will   be   the   output   for   code?       (A)   True     (B)   False   (C)   0     (D)   Error       Que   7:   What   will   be   the   output   for   code?       (A)   set   (B)   dict   (C)   list   (D)   tuple     Que   8:   What   will   be   the   output   for   code?       (A)   [1]   (B)   [1,   2]   (C)   [1,   2,   3]   (D)   [1,   3]     Que   9:   What   will   be   the   output   for   code?       (A)   abc   (B)   abcabc   (C)   abc   abc   (D)   abcc     Que   10:   What   will   be   the   output   for   code?       (A)   True     (B)   False   (C)   0     (D)   1     Que   11:   What   will   be   the   output   for   code?       (A)   0   (B)   1   (C)   0   1   (D)   1   0     Que   12:   What   will   be   the   output   for   code?       (A)   6   (B)   3     (C)   4     (D)   2     Que   13:   What   will   be   the   output   for   code?       (A)   n   (B)   o   (C)   h   (D)   P     Que   14:   What   will   be   the   output   for   code?       (A)   int   (B)   float   (C)   bool   (D)   str     Que   15:   What   will   be   the   output   for   code?       (A)   2     (B)   3     (C)   4   (D)   5     Que   16:   What   will   be   the   output   for   code?       (A)   True   (B)   False     (C)   0     (D)   1   Que   17:   What   will   be   the   output   for   code?       (A)   1   (B)   2   (C)   3   (D)   4     Que   18:   What   will   be   the   output   for   code?       (A)   1     (B)   2     (C)   3     (D)   None     Que   19:   What   will   be   the   output   for   code?     (A)   [1,   2   ]     (B)   [2,   3]   (C)   [3,   4]   (D)   [2,   4]     Que   20:   Why   use   with   in   files?   (A)   Faster   execution   (B)   Auto   close   file   (C)   Encryption   (D)   Reading   only         Que   1:   Lambda   functions   are   best   for:   (A)   Large   complex   programs   (B)   Reusable   multi-line   logic   (C)   Short   one-line   functions   (D)   File   handling     Que   2:   Which   Keyword   used   to   access   parent   class:   (A)   parent   (B)   super   (C)   base   (D)   this     Que   3:   __init__()   method   is   used   for:   (A)   Deleting   object   (B)   Initializing   object   (C)   Inheriting   class   (D)   Printing   object     Que   4:   Object   is   an   instance   of:   (A)   Module   (B)   Function   (C)   Class   (D)   Package     Que   5:   Which   data   structure   uses   key\u2013value   pairs?   (A)   List   (B)   Tuple   (C)   Set   (D)   Dictionary     Que   6:   What   will   be   the   output   for   code?       (A)   True   True     (B)   False   True     (C)   True   False     (D)   False   False           Que   7:   What   will   be   the   output   for   code?       (A)   1     (B)   2     (C)   3   (D)   [1,   2]     Que   8:   What   will   be   the   output   for   code?       (A)   1     (B)   1.2   (C)   1.5   (D)   2     Que   9:   What   will   be   the   output   for   code?       (A)   1   (B)   1.2   (C)   1.5   (D)   2     Que   10:   What   will   be   the   output   for   code?       (A)   True     (B)   False     (C)   0     (D)   1       Que   11:   What   will   be   the   output   for   code?       (A)   5   4   3     (B)   4   5     (C)   3   4   5     (D)   3   4     Que   12:   What   will   be   the   output   for   code?       (A)   NameError     (B)   5     (C)   0     (D)   5   5       Que   13:   What   will   be   the   output   for   code?       (A)   1     (B)   0     (C)   2   (D)   3       Que   14:   What   will   be   the   output   for   code?       (A)   function   (B)   class   (C)   method     (D)   error     Que   15:   What   will   be   the   output   for   code?       (A)   date     (B)   time     (C)   datetime   (D)   str     Que   16:    What   will   be   the   output   for   code?       (A)   1     (B)   2     (C)   3   (D)   4   Que   17:   What   will   be   the   output   for   code?       (A)   5   (B)   3   (C)   7   (D)   2     Que   18:   Which   is   immutable?   (A)   List     (B)   Set   (C)   Tuple   (D)   Dictionary       Que   19:   What   will   be   the   output   for   code?       (A)   5     (B)   2     (C)   10     (D)   7       Que   20:   What   will   be   the   output   for   code?       (A)   5     (B)   6     (C)   7     (D)   3"
+  }
+]
