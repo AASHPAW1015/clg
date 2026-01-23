@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+
+</head>
+<body>
+    <svg width="700" height="400" style="border:2px solid black">
+
+    <circle cx="300" cy="90" r="40" fill="blue"/>
+
+    <circle cx="50" cy="280" r="25" fill="orange">
+        <animate
+            attributeName="cx"
+            form="50"
+            to="650"
+            dur="3s"
+            repeatCount="indefinite">
+    </animate>
+    </circle>
+
+    <rect x="50" y="20" width="120" height="80" fill="yellow">
+        <animate
+        attributeName="y"
+        from="50"
+        to="650"
+        dur="1s"
+        repeatCount="indefinite">
+        </animate>
+
+    </rect>
+
+    </svg>
+    
+</body>
+</html>

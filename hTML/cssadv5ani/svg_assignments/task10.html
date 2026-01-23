@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 10: Mini SVG Scene</title>
+    <style>
+        .scene {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transform: scale(2);
+        }
+    </style>
+</head>
+
+<body style="margin: 0">
+    <h1>Task 10: Mini SVG Scene</h1>
+    <div class="scene">
+        <svg width="500" height="400" style="border: 1px solid #ccc; background-color: lightgreen;">
+            <rect x="0" y="0" width="500" height="200" fill="lightblue" />
+
+            <circle cx="50" cy="50" r="30" fill="yellow">
+                <animate attributeName="cx" values="50;450;50" dur="10s" repeatCount="indefinite" />
+            </circle>
+
+            <rect x="300" y="150" width="150" height="100" fill="wheat" stroke="black" />
+            <line x1="300" y1="150" x2="375" y2="100" stroke="brown" stroke-width="5" />
+            <line x1="450" y1="150" x2="375" y2="100" stroke="brown" stroke-width="5" />
+
+            <rect x="100" y="200" width="20" height="100" fill="brown" />
+            <circle cx="110" cy="200" r="40" fill="darkgreen" />
+
+            <g transform="translate(200, 50)">
+                <circle cx="0" cy="0" r="20" fill="white" />
+                <circle cx="25" cy="-10" r="25" fill="white" />
+                <circle cx="50" cy="0" r="20" fill="white" />
+                <animateTransform attributeName="transform" type="translate" values="200,50; 250,50; 200,50" dur="5s"
+                    repeatCount="indefinite" />
+            </g>
+        </svg>
+    </div>
+</body>
+
+</html>
