@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <img src="assets/logo.png" alt="Cafe Coffee Day" class="logo">
+        <div class="menu">
+            <label class="option">
+                <input type="radio" name="drink" value="Espresso" data-price="$3.00"> Espresso
+            </label>
+            <label class="option">
+                <input type="radio" name="drink" value="Cappuccino" data-price="$4.50"> Cappuccino
+            </label>
+            <label class="option">
+                <input type="radio" name="drink" value="Latte" data-price="$4.00"> Latte
+            </label>
+            <label class="option">
+                <input type="radio" name="drink" value="Mocha" data-price="$4.75"> Mocha
+            </label>
+            <label class="option">
+                <input type="radio" name="drink" value="Americano" data-price="$3.25"> Americano
+            </label>
+        </div>
+        <div class="result" id="output"></div>
+    </div>
+
+    <script>
+        const options = document.querySelectorAll('input[name="drink"]');
+        const output = document.getElementById('output');
+
+        options.forEach(option => {
+            option.addEventListener('change', function () {
+                if (this.checked) {
+                    const drink = this.value;
+                    const price = this.getAttribute('data-price');
+                    output.style.display = 'block';
+                    output.textContent = `${drink} selected - Price: ${price}`;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
