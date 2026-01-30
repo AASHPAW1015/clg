@@ -15,5 +15,3 @@ closeBtn.addEventListener('click', function () {
     modal.classList.remove('show-modal');
 });
 
-
-NIGGER
