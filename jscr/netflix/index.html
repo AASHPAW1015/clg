@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+</head>
+
+<body style="margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; overflow-x: hidden;">
+
+    <!-- Hero Section with Background -->
+    <div style="
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%),
+                    url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzE0MTQxNCIvPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    ">
+
+        <!-- Vignette Overlay -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+            pointer-events: none;
+        "></div>
+
+        <!-- Top Navigation Bar -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+            z-index: 10;
+        ">
+            <!-- Netflix Logo -->
+            <div style="
+                font-size: 42px;
+                font-weight: 900;
+                color: #E50914;
+                letter-spacing: -2px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            ">NETFLIX</div>
+
+            <!-- Sign In Button -->
+            <button style="
+                background-color: #E50914;
+                color: white;
+                border: none;
+                padding: 8px 20px;
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            ">Sign In</button>
+        </div>
+
+        <!-- Hero Content -->
+        <div style="
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            color: white;
+            max-width: 950px;
+            padding: 0 20px;
+        ">
+            <h1 style="
+                font-size: 64px;
+                font-weight: 700;
+                margin: 0 0 20px 0;
+                line-height: 1.1;
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            ">Unlimited movies, TV shows, and more</h1>
+
+            <p style="
+                font-size: 26px;
+                font-weight: 400;
+                margin: 0 0 20px 0;
+                text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            ">Watch anywhere. Cancel anytime.</p>
+
+            <p style="
+                font-size: 20px;
+                font-weight: 400;
+                margin: 0 0 30px 0;
+                text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            ">Ready to watch? Enter your email to create or restart your membership.</p>
+
+            <!-- Email Form -->
+            <div style="
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            ">
+                <input type="email" placeholder="Email address" style="
+                    flex: 1;
+                    max-width: 450px;
+                    padding: 20px 15px;
+                    font-size: 16px;
+                    border: 1px solid rgba(255,255,255,0.3);
+                    border-radius: 4px;
+                    background: rgba(22, 22, 22, 0.7);
+                    color: white;
+                    outline: none;
+                ">
+                <button style="
+                    padding: 20px 30px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    background-color: #E50914;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    white-space: nowrap;
+                    transition: background-color 0.3s ease;
+                ">
+                    Get Started
+                    <span style="font-size: 24px;">›</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Fade -->
+        <div style="
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, #000000 0%, transparent 100%);
+            pointer-events: none;
+        "></div>
+    </div>
+
+    <!-- Separator -->
+    <div style="height: 8px; background-color: #222222;"></div>
+
+    <!-- Feature Section with Background Pattern -->
+    <div style="
+        background: #000000;
+        padding: 70px 50px;
+        position: relative;
+        overflow: hidden;
+    ">
+        <!-- Subtle Background Pattern -->
+        <div style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.01) 10px,
+                rgba(255,255,255,0.01) 20px
+            );
+            pointer-events: none;
+        "></div>
+
+        <!-- Content Row -->
+        <div style="
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        ">
+            <div style="flex: 1;">
+                <h2 style="
+                    font-size: 48px;
+                    font-weight: 700;
+                    color: white;
+                    margin: 0 0 20px 0;
+                    line-height: 1.1;
+                ">Enjoy on your TV</h2>
+                <p style="
+                    font-size: 24px;
+                    font-weight: 400;
+                    color: #ffffff;
+                    margin: 0;
+                    line-height: 1.4;
+                ">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+            </div>
+
+            <!-- TV Image Placeholder -->
+            <div style="
+                flex: 1;
+                aspect-ratio: 4/3;
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                border-radius: 8px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: rgba(255,255,255,0.1);
+                font-size: 18px;
+                border: 2px solid rgba(255,255,255,0.1);
+            ">TV Display</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

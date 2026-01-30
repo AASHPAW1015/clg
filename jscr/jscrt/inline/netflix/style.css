@@ -1,0 +1,399 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #000;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.header {
+    padding: 24px 50px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.logo {
+    height: 45px;
+    width: 167px;
+    fill: #e50914;
+    display: block;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.language-selector {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 0 10px;
+}
+
+.language-selector select {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 6px 20px 6px 22px;
+    /* Add extra padding for icons */
+    appearance: none;
+    /* Hide default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.language-selector select:focus {
+    outline: none;
+    background: #000;
+}
+
+.lang-icon {
+    position: absolute;
+    left: 8px;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+    fill: white;
+}
+
+.caret-icon {
+    position: absolute;
+    right: 8px;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    fill: white;
+}
+
+.btn-signin {
+    background-color: #e50914;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 7px 17px;
+    border-radius: 4px;
+    transition: background-color 0.1s ease;
+}
+
+.btn-signin:hover {
+    background-color: #c11119;
+}
+
+
+.content-wrapper {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 85vh;
+    /* Adjust to center content */
+    padding: 0 20px;
+}
+
+.hero-card {
+    max-width: 950px;
+    width: 100%;
+    padding: 75px 0;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.email-form-title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.email-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.email-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+.email-input {
+    width: 100%;
+    height: 60px;
+    /* Taller input */
+    padding: 10px 10px 0 16px;
+    background: rgba(22, 22, 22, 0.7);
+    border: 1px solid rgba(128, 128, 128, 0.7);
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+}
+
+.email-input:focus {
+    background: rgba(22, 22, 22, 0.9);
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+.email-label {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    color: #b3b3b3;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.1s ease;
+}
+
+.email-input:focus~.email-label,
+.email-input:not(:placeholder-shown)~.email-label {
+    top: 7px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.get-started-btn {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    height: 60px;
+    padding: 0 24px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.get-started-btn:hover {
+    background-color: #f40612;
+}
+
+.chevron-right {
+    height: 24px;
+    width: 24px;
+    margin-left: 8px;
+    fill: currentColor;
+}
+
+@media (min-width: 950px) {
+    .hero-title {
+        font-size: 4rem;
+        /* 64px on screenshots usually */
+    }
+}
+
+.curve-container {
+    position: relative;
+    z-index: 2;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: -100px;
+    /* Pull it up to overlay the bottom of the hero */
+}
+
+.curve-container::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 120%;
+    height: 100%;
+    border-top: 4px solid #e50914;
+    /* Thinner border */
+    border-radius: 50% 50% 0 0;
+    transform: translateX(-50%);
+    /* Dimmer and smaller blue gradient glow */
+    background: radial-gradient(50% 100% at 50% 0%, rgba(30, 80, 255, 0.5) 0%, #000 50%);
+    /* Tapering the line at the ends using a mask */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.show-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 60px 68px 40px;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 450px;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-content h1 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+
+.modal-content .input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.modal-content .form-control {
+    background: #333;
+    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    padding: 16px 20px 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+.modal-content .form-control:focus {
+    background: #454545;
+    outline: none;
+}
+
+.modal-content .form-label {
+    color: #8c8c8c;
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.1s ease;
+}
+
+.modal-content .form-control:focus~.form-label,
+.modal-content .form-control:not(:placeholder-shown)~.form-label {
+    top: 7px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.modal-content .btn-submit {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    color: #b3b3b3;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+.new-to-netflix {
+    color: #737373;
+    font-size: 16px;
+    margin-top: 16px;
+}
+
+.new-to-netflix a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.new-to-netflix a:hover {
+    text-decoration: underline;
+}
