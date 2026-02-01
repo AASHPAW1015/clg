@@ -1,0 +1,721 @@
+/* Global Variables */
+:root {
+    --primary-color: #283618;
+    /* Dark Green */
+    --secondary-color: #606c38;
+    /* Green */
+    --background-color: #fefae0;
+    /* Cream */
+    --text-color: #283618;
+    /* Dark Green for text */
+    --accent-gold: #dda15e;
+    /* Gold */
+    --accent-rust: #bc6c25;
+    /* Rust */
+    --white: #fff;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Navbar - Glassmorphism */
+header {
+    background: rgba(40, 54, 24, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--background-color);
+    padding: 0 5%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header .AdventureX h1,
+header .logo h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.nav ul,
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a,
+nav a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nav a:hover,
+nav a:hover {
+    color: var(--accent-gold);
+}
+
+/* Hero Section */
+.launching-page,
+.page-title,
+.hero {
+    position: relative;
+    text-align: center;
+    color: var(--background-color);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Removed padding-top here, will handle content spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Homepage Hero - Full View */
+.launching-page {
+    background-image: linear-gradient(rgba(40, 54, 24, 0.5), rgba(40, 54, 24, 0.3)), url('assets/intro.jpg');
+    min-height: 100vh;
+    /* Force full height */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Parallax feel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically centered like the red box */
+    align-items: flex-start;
+    padding-left: 10%;
+    text-align: left;
+}
+
+/* Utility Classes for removing inline CSS */
+.full-width-section {
+    padding: 0;
+    width: 100%;
+}
+
+.centered-text-block {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-weight: 800;
+    /* Bolder text matching screenshot */
+}
+
+.section-heading::before,
+.section-heading::after {
+    content: "";
+    height: 6px;
+    /* Thick line */
+    width: 100px;
+    /* Fixed length */
+    background-color: var(--accent-rust);
+    /* Theme Rust Color */
+    border-radius: 3px;
+    display: block;
+}
+
+.cta-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/sunset-snow-capped-mountains_23-2152014205.jpg?semt=ais_hybrid&w=740&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.cta-section h2 {
+    color: #fefae0;
+    margin-bottom: 15px;
+}
+
+.cta-text {
+    margin-bottom: 20px;
+}
+
+/* Hero/Title Sections */
+.hero {
+    background-image: linear-gradient(rgba(40, 54, 24, 0.6), rgba(40, 54, 24, 0.6)), url('https://www.mountainphotography.com/images/xl/20141119-Annapurna-Sunrise.jpg');
+    height: 60vh;
+    width: 100%;
+    margin-top: 0;
+}
+
+.page-title {
+    background-image: linear-gradient(rgba(40, 54, 24, 0.6), rgba(40, 54, 24, 0.6)), url('https://images.unsplash.com/photo-1657598339759-fd1432d833f0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3VtbWVyJTIwY2xvdWRzfGVufDB8fDB8fHww');
+    height: 60vh;
+    width: 100%;
+    margin-top: 0;
+}
+
+.launching-content h2,
+.page-title h1,
+.hero h1 {
+    font-size: 4rem;
+    /* Larger title */
+    margin-bottom: 5px;
+    /* Reduced margin for stacked H2s */
+    color: #fff;
+    /* Pure White */
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+    /* Strong shadow for visibility */
+    line-height: 1.1;
+    max-width: 800px;
+    text-align: left;
+    /* Force left align */
+}
+
+.launching-content p,
+.page-title p {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: left;
+}
+
+button,
+.launching-content button,
+.book-btn {
+    padding: 15px 35px;
+    background-color: var(--accent-rust);
+    color: var(--background-color);
+    border: none;
+    border-radius: 50px;
+    /* Rounded pill shape */
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(188, 108, 37, 0.4);
+}
+
+button:hover,
+.book-btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(221, 161, 94, 0.6);
+}
+
+/* Section Styling */
+section {
+    padding: 80px 5%;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+/* Cards */
+.Adventure-sports,
+.why-us,
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Reduced to fit 4 in 1200px */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    justify-items: center;
+}
+
+/* Specific Style for Gallery Carousel */
+.gallery-images {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 300px;
+    /* Fixed width for columns */
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+}
+
+.gallery-images::-webkit-scrollbar {
+    height: 8px;
+}
+
+.gallery-images::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 4px;
+}
+
+.gallery-images img {
+    width: 100%;
+    /* Fill the grid column */
+    height: 250px;
+    object-fit: cover;
+    scroll-snap-align: start;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Adventures Grid Layout */
+.adventure-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1300px;
+    /* Forces 4 cards per row (approx 280*4 + gaps) */
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.adventure-card,
+.card,
+.reason,
+.review {
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(40, 54, 24, 0.1);
+    /* Subtle green shadow */
+    overflow: hidden;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.adventure-card:hover,
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(40, 54, 24, 0.2);
+}
+
+.adventure-card img,
+.card img,
+.reason img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.adventure-card h3,
+.card h3,
+.reason h4 {
+    margin: 20px 0 10px;
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+}
+
+.adventure-card p,
+.card p,
+.reason p {
+    padding: 0 20px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Contact Form */
+form.contact {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(40, 54, 24, 0.1);
+}
+
+form input,
+form select,
+form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    font-family: inherit;
+    background: var(--background-color);
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(96, 108, 56, 0.2);
+}
+
+form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+form label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+form label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--background-color);
+    text-align: center;
+    padding: 20px 0;
+    /* Significantly smaller padding */
+    margin-top: 0;
+    /* Sections have padding */
+}
+
+footer h3 {
+    color: var(--accent-gold);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 54, 24, 0.9);
+    /* Dark green overlay */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modalPop {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--accent-rust);
+}
+
+.modal-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#modalTitle {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+#modalDesc {
+    color: #444;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+/* SVG Animations & Positioning */
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    /* Ensures space for the vertical layout */
+}
+
+/* Path SVG */
+.path-svg {
+    position: absolute;
+    left: -20px;
+    top: 75%;
+    width: 400px;
+    transform: translateY(-50%) rotate(-10deg);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Shared SVG stroke properties */
+.path,
+.path-dash,
+.cross {
+    stroke: rgb(255, 115, 0);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.path {
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3.5s ease-out infinite;
+}
+
+.path-dash {
+    fill: none;
+    stroke-dasharray: 15 10;
+    stroke-dashoffset: 0;
+    opacity: 0;
+    animation: show-dashes 3.5s ease infinite;
+}
+
+.cross {
+    opacity: 0;
+    transform-origin: center;
+    animation: cross-pop 3.5s ease infinite;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+
+    70% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes show-dashes {
+    0% {
+        opacity: 0;
+    }
+
+    35% {
+        opacity: 0.3;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes cross-pop {
+
+    0%,
+    70% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    85% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Compass (Yellow Box Position - Right) */
+.compass-container {
+    position: absolute;
+    right: 11%;
+    /* Moved more to the left from 5% */
+    top: 75%;
+    /* Aligned with Path SVG */
+    transform: translateY(-50%);
+    width: 150px;
+    height: 150px;
+    perspective: 600px;
+    z-index: 1;
+}
+
+.compass {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #d7cbcb;
+    border: 15px solid #082159;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 0 8px rgba(26, 42, 108, 0.7), inset 0 0 5px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.compass:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.needle {
+    width: 90px;
+    height: 4px;
+    background: linear-gradient(to right, #ff7000, #ff4500);
+    position: absolute;
+    transform-origin: center;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+    box-shadow: 0 0 8px rgba(255, 100, 0, 0.5);
+}
+
+.needle::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    border-top: 4px solid red;
+    border-right: 4px solid red;
+}
+
+.compass:hover .needle {
+    transform: rotate(-90deg);
+}
+
+.center-dot {
+    width: 12px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+}
+
+.direction {
+    position: absolute;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #333;
+    font-size: 14px;
+    user-select: none;
+}
+
+.north {
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.south {
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.east {
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.west {
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}

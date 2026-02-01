@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | AdventureX</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR: Fixed at top, contains logo and menu links -->
+    <header>
+        <div class="AdventureX">
+            <h1>AdventureX</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="adventures.html">Adventures</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- PAGE HEADER: Banner with title for the Contact page -->
+    <section class="hero">
+        <h1>Contact Us</h1>
+    </section>
+
+    <!-- CONTACT FORM SECTION: Where users can submit inquiries -->
+    <section class="page">
+        <h2 style="margin-bottom: 20px; text-align: center;">Get in Touch</h2>
+
+        <!-- FORM: Collects user details and sends to backend (handled by script.js) -->
+        <form class="contact" id="contactForm">
+            <!-- User's Name -->
+            <input type="text" placeholder="Name" required>
+
+            <!-- User's Email -->
+            <input type="email" placeholder="Email" required>
+
+            <!-- Adventure Selection Dropdown -->
+            <select>
+                <option>Select Adventure</option>
+                <option>Rock Climbing</option>
+                <option>Kayaking</option>
+                <option>River Rafting</option>
+                <option>Mountain Biking</option>
+                <option>Trekking</option>
+                <option>Scuba Diving</option>
+                <option>Sky Diving</option>
+                <option>Other</option>
+            </select>
+
+            <!-- User's Message -->
+            <textarea placeholder="Message" required></textarea>
+
+            <!-- Consent Checkbox -->
+            <label>
+                <input type="checkbox" required>
+                I agree to be contacted by AdventureX
+            </label>
+
+            <!-- Submit Button -->
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- FOOTER: Company info and copyright -->
+    <footer>
+        <div class="footer-content">
+            <h3>AdventureX</h3>
+            <p>Adventure begins where comfort ends.</p>
+            <p>Email: info@adventurex.com | Phone: +91 98765 43210</p>
+            <p>&copy; 2026 AdventureX. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for form validation -->
+    <script src="script.js"></script>
+</body>
+
+</html>
