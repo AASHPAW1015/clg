@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>first</title>
+    <style>
+
+    .circle {
+    width: 60px;
+    height: 60px;
+    background: black;
+    border-radius:50%;
+    position: absolute;
+    animation: moveCircle 4s linear infinite;
+    }
+
+    @keyframes moveCircle {
+    from {
+      transform: translateX(0vw) ;
+    }
+    to {
+      transform: translateX(100vw)
+    }
+    }
+    </style>
+  </head>
+  <body>
+    <div class = "container">
+      <div class = "circle"></div>
+    </div>
+  </body>
+</html>

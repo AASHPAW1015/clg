@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>main?</title>
+    <style>
+      .loader {
+        width:50px;
+        height:50px;
+        border: 15px solid transparent;
+        background-color: transparent;
+        border-radius: 50%;
+        border-top-color: blue;
+        border-right-color: blue;
+        border-bottom-color:red;
+        border-left-color: red;
+        animation: circleRotate 1.5s infinite;
+      }
+
+      @keyframes circleRotate {
+        from {
+          transform : rotate(0deg);
+        }
+        to {
+          transform : rotate(360deg);
+        }
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div class = "container">
+      <div class = "loader"></div>
+    </div>
+  </body>
+</html>
+

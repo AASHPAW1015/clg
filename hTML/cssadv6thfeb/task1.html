@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    :root {
+      --main-primary-color: blue;
+      --secondary-color: green;
+      --text-color: yellow;
+    }
+    p {
+      color: var(--text-color);
+    }
+    h1 {
+      color: var(--secondary-color);
+    }
+    button {
+      background-color: var(--main-primary-color);
+      padding: 10px 15px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+    <h1>TIS A TITLE</h1>
+    <p>This text uses color from :root</p>
+    <button onclick="toggleTheme">change theme</button>
+</body>
+</html>

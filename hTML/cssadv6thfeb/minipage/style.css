@@ -1,0 +1,86 @@
+:root {
+    --primary: rgb(88, 81, 219);
+    --secondary: rgb(81, 169, 219);
+    --bg: rgb(250, 250, 250);
+    --text: rgb(51, 51, 51);
+    --radius: 0.5rem;
+    --s: 0.5rem;
+    --m: 1rem;
+    --l: 2rem;
+    --font-base: 1rem;
+    --font-h: 2rem;
+}
+
+.dark-theme {
+    --primary: rgb(155, 150, 245);
+    --bg: rgb(23, 23, 28);
+    --text: rgb(230, 230, 230);
+}
+
+
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+    font-size: var(--font-base);
+    margin: 0;
+    display: grid;
+    gap: var(--l);
+    padding: var(--m);
+    transition: 0.3s;
+}
+
+h1,
+h2 {
+    font-size: var(--font-h);
+    margin: 0;
+}
+
+.btn {
+    background: var(--primary);
+    color: white;
+    padding: var(--s) var(--m);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font: inherit;
+}
+
+/* Header & Nav */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--m) 0;
+}
+
+nav ul {
+    display: flex;
+    gap: var(--m);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    cursor: pointer;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--m);
+}
+
+.card {
+    background: var(--secondary);
+    padding: var(--m);
+    border-radius: var(--radius);
+    color: white;
+}
+
+footer {
+    text-align: center;
+    opacity: 0.7;
+}

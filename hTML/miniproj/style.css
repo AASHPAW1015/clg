@@ -275,36 +275,70 @@ section h2 {
     justify-items: center;
 }
 
-/* Specific Style for Gallery Carousel */
-.gallery-images {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 300px;
-    /* Fixed width for columns */
-    overflow-x: auto;
-    gap: 20px;
-    padding: 20px;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-}
-
-.gallery-images::-webkit-scrollbar {
-    height: 8px;
-}
-
-.gallery-images::-webkit-scrollbar-thumb {
-    background: var(--accent-gold);
-    border-radius: 4px;
-}
-
-.gallery-images img {
+/* 3D Carousel Gallery */
+.banner {
     width: 100%;
-    /* Fill the grid column */
+    height: 70vh;
+    position: relative;
+    overflow: visible;
+    text-align: center;
+    perspective: 1200px;
+    background: var(--background-color);
+}
+
+/* 3D ring container that spins */
+.banner .slider {
+    position: absolute;
+    width: 200px;
     height: 250px;
+    top: 67%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    animation: spin 22s linear infinite;
+}
+
+/* Heading stays flat above carousel */
+.banner .section-heading {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Each image panel in the 3D ring */
+.banner .slider .item {
+    position: absolute;
+    inset: 0;
+    transform:
+        rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(420px);
+}
+
+/* Image styling */
+.banner .slider .item img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    scroll-snap-align: start;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Spin animation */
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotateY(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotateY(360deg);
+    }
+}
+
+/* Pause rotation on hover */
+.banner .slider:hover {
+    animation-play-state: paused;
 }
 
 /* Adventures Grid Layout */

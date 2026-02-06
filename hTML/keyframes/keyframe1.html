@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Notification Toast</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #f1f5f9;
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .toast {
+    width: 340px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    display: flex;
+    gap: 12px;
+
+    animation: toastLife 5s cubic-bezier(.22,1,.36,1) forwards;
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+  }
+
+  .content h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  .content p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #475569;
+  }
+
+  @keyframes toastLife {
+
+    /* Hidden & ready */
+    0% {
+      transform: translateY(30px) scale(0.95);
+      opacity: 0;
+      filter: blur(6px);
+    }
+
+    /* Quick entrance */
+    15% {
+      transform: translateY(-6px) scale(1.02);
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    /* Settle */
+    25% {
+      transform: translateY(0) scale(1);
+    }
+
+    /* Fully visible (reading time) */
+    70% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    /* Exit with weight */
+    100% {
+      transform: translateY(20px) scale(0.96);
+      opacity: 0;
+      filter: blur(4px);
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="toast">
+    <div class="icon"></div>
+    <div class="content">
+      <h4>Payment Successful</h4>
+      <p>Your invoice has been processed.</p>
+    </div>
+  </div>
+
+</body>
+</html>
+

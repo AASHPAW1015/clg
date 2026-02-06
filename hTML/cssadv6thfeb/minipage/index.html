@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <h1>HEADER</h1>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+            </ul>
+        </nav>
+        <button class="btn" id="t">Theme</button>
+    </header>
+
+    <header>
+        <h1>Hello World</h1>
+        <p>Minimal content as requested.</p>
+        <button class="btn">Action</button>
+    </header>
+
+    <section class="card-grid">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+    </section>
+
+    <footer>&copy; 2026, Ashutosh Pawar</footer>
+
+    <script>
+        document.getElementById('t').onclick = () => document.body.classList.toggle('dark-theme');
+    </script>
+</body>
+
+</html>
