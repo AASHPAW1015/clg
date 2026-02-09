@@ -43,7 +43,6 @@
 
         <!-- Right: Icons -->
         <div class="nav-right">
-            <!-- User Icon -->
             <div class="icon-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -51,7 +50,6 @@
                     <circle cx="12" cy="7" r="4"></circle>
                 </svg>
             </div>
-            <!-- Search Icon -->
             <div class="icon-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -62,91 +60,102 @@
         </div>
     </nav>
 
-    <div class="container">
-        <h2 class="heading-l">Upcoming Events</h2>
-        <p style="margin-bottom: 40px; font-size: 1.1rem; max-width: 800px;">Discover the best events in music, sports,
-            and culture happening in India and around the world.</p>
+    <!-- Hero Banner Section -->
+    <div class="page-hero"
+        style="background-image: url('https://img.redbull.com/images/c_crop,x_0,y_108,h_1000,w_3999/q_auto:best,f_auto/redbullcom/2015/10/19/f9f6b3c0862a0ca56e92819092969a51/hardline-rider');">
+        <div class="page-hero-overlay">
+            <div class="page-hero-content">
+                <h1 class="page-hero-title">Events</h1>
+                <p class="page-hero-desc">Discover worldwide Red Bull events. Explore the event calendar to see past and
+                    upcoming events: bike, motorsport, surfing, winter sport, music, gaming and much more.</p>
+            </div>
+        </div>
+    </div>
 
-        <div class="events-grid">
+    <!-- Events Grid Section -->
+    <section class="events-section">
+        <div class="events-scroll-container">
 
-            <div class="event-card">
-                <div class="event-image"
-                    style="background-image: url('https://img.redbull.com/images/c_limit,w_2000/e_trim:1:transparent/c_limit,w_618/bo_5px_solid_rgb:00000000/q_auto:best,f_auto/redbullcom/2023/11/7/i9i5jb1aklnz3kpluk9p/red-bull-turn-it-up-logo'); background-size: contain; background-repeat: no-repeat; background-color: #000;">
-                    <span class="event-tag">Music</span>
+            <!-- Event Card 1: Riyadh Season Premier Padel -->
+            <div class="event-card-new">
+                <div class="event-card-image"
+                    style="background-image: url('https://img.redbull.com/images/c_fill,g_auto,w_400,h_280/q_auto,f_auto/redbullcom/2026/1/15/riyadh-season-premier-padel');">
+                    <div class="event-card-logo">
+                        <img src="https://img.redbull.com/images/c_limit,w_100/q_auto,f_auto/redbullcom/qatar-airways-premier-padel-logo"
+                            alt="Logo" onerror="this.style.display='none'">
+                    </div>
                 </div>
-                <div class="event-info">
-                    <p class="event-date">5 Feb - 1 Mar 2026</p>
+                <div class="event-card-info">
+                    <h3>Riyadh Season Premier Padel P1</h3>
+                    <p class="event-card-date">📅 9 – 14 February 2026</p>
+                    <p class="event-card-location">🇸🇦 Riyadh, Saudi Arabia</p>
+                    <span class="event-card-category">PADEL</span>
+                    <p class="event-card-status live">📺 Live Soon</p>
+                </div>
+            </div>
+
+            <!-- Event Card 2: Red Bull Powerplay -->
+            <div class="event-card-new">
+                <div class="event-card-image"
+                    style="background-image: url('https://img.redbull.com/images/c_fill,g_auto,w_400,h_280/q_auto,f_auto/redbullcom/2025/5/13/red-bull-powerplay-2026-hero');">
+                    <div class="event-card-logo">
+                        <img src="https://img.redbull.com/images/c_limit,w_100/q_auto,f_auto/redbullcom/2025/5/13/epcoxctw0btg6vq6dpni/red-bull-powerplay-logo"
+                            alt="Powerplay Logo" onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <div class="event-card-info">
+                    <h3>Red Bull Powerplay 2026</h3>
+                    <p class="event-card-date">📅 7 February – 15 March 2026</p>
+                    <p class="event-card-location">🇮🇳 India</p>
+                    <span class="event-card-category">CRICKET</span>
+                    <p class="event-card-status">✅ Registrations open</p>
+                </div>
+            </div>
+
+            <!-- Event Card 3: Red Bull Hardline Tasmania -->
+            <div class="event-card-new">
+                <div class="event-card-image"
+                    style="background-image: url('https://img.redbull.com/images/c_fill,g_auto,w_400,h_280/q_auto,f_auto/redbullcom/2024/2/14/red-bull-hardline-tasmania');">
+                    <div class="event-card-logo">
+                        <img src="https://img.redbull.com/images/c_limit,w_100/q_auto,f_auto/redbullcom/red-bull-hardline-logo"
+                            alt="Hardline Logo" onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <div class="event-card-info">
+                    <h3>Red Bull Hardline Tasmania 2026</h3>
+                    <p class="event-card-date">📅 7 – 8 February 2026</p>
+                    <p class="event-card-location">🇦🇺 Maydena Bike Park, Australia</p>
+                    <span class="event-card-category">MTB</span>
+                    <p class="event-card-status">🎟️ Tickets available</p>
+                </div>
+            </div>
+
+            <!-- Event Card 4: Red Bull Turn It Up -->
+            <div class="event-card-new">
+                <div class="event-card-image"
+                    style="background-image: url('https://img.redbull.com/images/c_crop,x_1037,y_0,h_2951,w_2213/c_fill,w_400,h_280/q_auto,f_auto/redbullcom/2023/11/7/fcrv3b6s6udvkc7a2k7w/red-bull-turn-it-up-india-2023');">
+                    <div class="event-card-logo">
+                        <img src="https://img.redbull.com/images/c_limit,w_100/q_auto,f_auto/redbullcom/2023/11/7/i9i5jb1aklnz3kpluk9p/red-bull-turn-it-up-logo"
+                            alt="Turn It Up Logo" onerror="this.style.display='none'">
+                    </div>
+                </div>
+                <div class="event-card-info">
                     <h3>Red Bull Turn It Up 2026</h3>
-                    <p style="font-size: 0.9rem; color: #555;">The ultimate sound clash.</p>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-image"
-                    style="background-image: url('https://img.redbull.com/images/c_limit,w_2000/e_trim:1:transparent/c_limit,w_618/bo_5px_solid_rgb:00000000/q_auto:best,f_auto/redbullcom/2026/1/30/gco1ri03htfmhsevvcre/red-bull-hot-laps-logo'); background-size: contain; background-repeat: no-repeat; background-color: #000;">
-                    <span class="event-tag">Racing</span>
-                </div>
-                <div class="event-info">
-                    <p class="event-date">4 - 26 Feb 2026</p>
-                    <h3>Red Bull Hot Laps</h3>
-                    <p style="font-size: 0.9rem; color: #555;">Set your fastest lap.</p>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-image"
-                    style="background-image: url('https://img.redbull.com/images/c_limit,w_2000/e_trim:1:transparent/c_limit,w_618/bo_5px_solid_rgb:00000000/q_auto:best,f_auto/redbullcom/2025/5/13/epcoxctw0btg6vq6dpni/red-bull-powerplay-logo'); background-size: contain; background-repeat: no-repeat; background-color: #1a1a1a;">
-                    <span class="event-tag">Cricket</span>
-                </div>
-                <div class="event-info">
-                    <p class="event-date">7 Feb - 15 Mar 2026</p>
-                    <h3>Red Bull Powerplay</h3>
-                    <p style="font-size: 0.9rem; color: #555;">Corporate cricket tournament.</p>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-image"
-                    style="background-image: url('https://img.redbull.com/images/c_limit,w_2000/e_trim:1:transparent/c_limit,w_618/bo_5px_solid_rgb:00000000/q_auto:best,f_auto/redbullcom/2026/1/23/cip2ac5p5vh67k4xol2j/red-bull-speedster-2026-logo'); background-size: contain; background-repeat: no-repeat; background-color: #000;">
-                    <span class="event-tag">Cricket</span>
-                </div>
-                <div class="event-info">
-                    <p class="event-date">30 Jan - 14 Mar 2026</p>
-                    <h3>Red Bull Speedster</h3>
-                    <p style="font-size: 0.9rem; color: #555;">Find the fastest bowler.</p>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-image"
-                    style="background-image: url('https://img.redbull.com/images/c_crop,x_0,y_0,h_800,w_1067/c_fill,w_700,h_538/q_auto:low,f_auto/redbullcom/2025/3/19/yrks4smtsh6fjpqv44dy/red-bull-dance-your-style-india-final-2024');">
-                    <span class="event-tag">Dance</span>
-                </div>
-                <div class="event-info">
-                    <p class="event-date">19 Jan - 22 Mar 2026</p>
-                    <h3>Red Bull Dance Your Style</h3>
-                    <p style="font-size: 0.9rem; color: #555;">Who rules the dance floor?</p>
-                </div>
-            </div>
-
-            <div class="event-card">
-                <div class="event-image"
-                    style="background-image: url('assets/mountainspeed.jpg'); background-color: #eee;">
-                    <span class="event-tag">Adventure</span>
-                </div>
-                <div class="event-info">
-                    <p class="event-date">5 Feb - 1 Mar 2026</p>
-                    <h3>Mountain Speed Challenge</h3>
-                    <p style="font-size: 0.9rem; color: #555;">Race against the elements.</p>
+                    <p class="event-card-date">📅 5 February – 1 March 2026</p>
+                    <p class="event-card-location">🇮🇳 India</p>
+                    <span class="event-card-category">MUSIC</span>
+                    <p class="event-card-status">✅ Registrations open</p>
                 </div>
             </div>
 
         </div>
-    </div>
+    </section>
 
     <footer>
         <p>&copy; 2026 Red Bull. All Rights Reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 
