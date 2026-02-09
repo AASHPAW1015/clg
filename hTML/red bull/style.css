@@ -461,6 +461,7 @@ body:not(.home-page) .nav-center {
 
 .drinks-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin-top: 60px;
 }
 
 .events-grid,
