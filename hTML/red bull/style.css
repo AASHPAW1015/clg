@@ -421,6 +421,7 @@ body:not(.home-page) .nav-center {
 .events-grid,
 .athletes-grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: center;
 }
 
 .drink-card,
@@ -431,6 +432,21 @@ body:not(.home-page) .nav-center {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
+    position: relative;
+    /* Added for scroll layout */
+    flex: 0 0 calc(25% - 18px);
+    /* 4 cards view */
+    scroll-snap-align: start;
+    margin-top: -50px;
+    /* Overlap hero */
+    z-index: 10;
+}
+
+.athlete-card:hover {
+    transform: translateY(-10px);
+    z-index: 15;
+    /* Bring to front on hover */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .drink-card {
@@ -447,7 +463,8 @@ body:not(.home-page) .nav-center {
 
 .athlete-card img {
     width: 100%;
-    height: 400px;
+    height: 350px;
+    /* Adjusted height for card proportions */
     object-fit: cover;
 }
 
@@ -520,6 +537,8 @@ body:not(.home-page) .nav-center {
     gap: 20px;
     overflow-x: auto;
     padding-bottom: 15px;
+    padding-top: 10px;
+    /* Prevent hover clipping */
     scroll-snap-type: x mandatory;
 }
 
@@ -752,9 +771,11 @@ body:not(.home-page) .nav-center {
     display: flex;
     gap: 24px;
     overflow-x: auto;
-    padding: 20px 5px 20px;
+    padding: 60px 5px 20px;
+    /* Increased top padding for overlap & hover */
     /* Padding for shadow visibility */
     scroll-snap-type: x mandatory;
+    justify-content: center;
 }
 
 .events-scroll-container::-webkit-scrollbar {
@@ -793,17 +814,35 @@ body:not(.home-page) .nav-center {
     background-position: center;
     position: relative;
     background-color: #1a1a1a;
+    /* Added for centering logo and overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark tint overlay for all event images */
+.event-card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 .event-card-logo {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
+    position: relative;
+    z-index: 2;
+    /* Above the tint */
+    /* Removed absolute positioning to center it with flexbox */
 }
 
 .event-card-logo img {
-    height: 50px;
-    width: auto;
+    height: auto;
+    width: 150px;
+    /* Default width for logos */
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 

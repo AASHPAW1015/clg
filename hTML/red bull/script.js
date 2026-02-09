@@ -70,3 +70,5 @@ if (slides.length > 0 && dots.length > 0) {
         });
     });
 }
+
+

@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0f182b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.6s ease;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body:has(.can-wrapper:hover) {
+  background: #4a9fcf;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.can-wrapper {
+  position: relative;
+  width: 260px;   
+  height: 600px;
+  z-index: 2;
+  transform: translateY(-150px);
+}
+
+.can {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: motionA 6s ease-in-out infinite;
+  transition: opacity 0.2s ease;
+}
+
+.can-1 { opacity: 1; }
+.can-2 { opacity: 0; }
+
+.can-wrapper:hover .can-1 { opacity: 0; }
+.can-wrapper:hover .can-2 { opacity: 1; }
+
+@keyframes motionA {
+  0% {
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  20% {
+    transform: translateY(-16px) scale(1.03);
+  }
+  45% {
+    transform: translateY(-28px) scale(1.06);
+    filter: blur(1px);
+  }
+  65% {
+    transform: translateY(-10px) scale(0.98);
+    filter: blur(0);
+  }
+  85% {
+    transform: translateY(-4px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.marquee {
+  width: 100vw;
+  overflow: hidden;
+  margin-top: -550px;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 6s linear infinite;
+}
+ 
+.track span {
+  white-space: nowrap;
+  font-size: 96px;
+  font-weight: 900;
+
+  color: transparent;
+  -webkit-text-stroke: 3px #9a9a9a;
+}
+
+body:has(.can-wrapper:hover) .track span {
+  -webkit-text-stroke: 3px #003e57; 
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
