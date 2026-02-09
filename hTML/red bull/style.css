@@ -1,15 +1,40 @@
-/* Global Reset & Variables */
+/* ============================================================================
+   RED BULL INDIA - MAIN STYLESHEET
+   ============================================================================
+   
+   Table of Contents:
+   1. CSS Variables & Global Reset
+   2. Typography Utilities
+   3. Navigation Bar
+   4. Hero Section (Homepage Carousel)
+   5. Page Hero (Events, Athletes, Drinks)
+   6. Content Container & Grid Layouts
+   7. Card Components (Drinks, Events, Athletes)
+   8. Horizontal Scroll Containers
+   9. Event Cards (New Design)
+   10. Footer
+   11. Responsive Styles
+   
+   ============================================================================ */
+
+
+/* ============================================================================
+   1. CSS VARIABLES & GLOBAL RESET
+   ============================================================================
+   Design tokens for consistent theming across the site.
+   - Primary: Dark navy blue (#0b1c3d)
+   - Accent: Red Bull red (#ea1d2c)
+   - Secondary: Light grey background (#f7f7f7)
+   ============================================================================ */
+
 :root {
     --primary-color: #0b1c3d;
-    /* Dark Blue */
     --accent-color: #ea1d2c;
-    /* Red Bull Red (Brighter) */
     --secondary-color: #f7f7f7;
     --text-color: #111;
     --white: #ffffff;
     --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-heading: 'Bull', 'Helvetica Neue', sans-serif;
-    /* Custom font approximation */
     --nav-height: 80px;
 }
 
@@ -43,7 +68,11 @@ img {
     display: block;
 }
 
-/* Typography Utility */
+
+/* ============================================================================
+   2. TYPOGRAPHY UTILITIES
+   ============================================================================ */
+
 .heading-l {
     font-size: 2.5rem;
     font-weight: 800;
@@ -54,7 +83,17 @@ img {
     border-left: 5px solid var(--accent-color);
 }
 
-/* Navbar - Transparent Overlay Global Style */
+
+/* ============================================================================
+   3. NAVIGATION BAR
+   ============================================================================
+   Fixed navbar with:
+   - Transparent gradient over hero sections
+   - Solid background when scrolled past hero
+   - Hide/show on scroll behavior (controlled by JS)
+   - Centered pill navigation with hover and active states
+   ============================================================================ */
+
 .nav-bar {
     display: flex;
     justify-content: space-between;
@@ -63,34 +102,27 @@ img {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
     height: var(--nav-height);
     position: fixed;
-    /* Always fixed overlay */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     color: var(--white);
     pointer-events: none;
-    /* Let clicks pass through empty areas */
-    /* Animation for hide/show on scroll + background transition */
     transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 
-/* Hidden state when scrolling down */
 .nav-bar.nav-hidden {
     transform: translateY(-100%);
 }
 
-/* Solid background when past hero section */
 .nav-bar.nav-solid {
     background: var(--primary-color);
 }
 
 .nav-bar>* {
     pointer-events: auto;
-    /* Re-enable clicks on children */
 }
 
-/* Left: Menu & Logo */
 .nav-left {
     display: flex;
     align-items: center;
@@ -119,25 +151,17 @@ img {
     object-fit: contain;
 }
 
-/* Center: Pill Navigation Container */
 .nav-center {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    /* More translucent background */
     background: rgba(15, 20, 30, 0.6);
-    /* Darker, clearly defined pill background */
-
-    /* Thinner height via padding */
-    padding: 6px 6px;
-    /* Tight padding to wrap links */
+    padding: 6px;
     border-radius: 50px;
     backdrop-filter: blur(10px);
     display: flex;
     gap: 5px;
-    /* Small gap, spacing handled by links padding */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    /* Subtle grey border */
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -148,43 +172,30 @@ img {
 
 .nav-links a {
     font-weight: 600;
-    /* Smaller font size */
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.85);
     text-transform: capitalize;
-    /* "Drinks", "Events" */
     letter-spacing: 0.3px;
-    /* Thinner and longer look via padding */
     padding: 1px 30px;
-    /* Spacious click area */
     border-radius: 20px;
-    /* Capsule shape */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     white-space: nowrap;
 }
 
-/* Hover State: Greyish Bubble Capsule */
 .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.15);
-    /* Greyish bubble */
     color: var(--white);
 }
 
-/* Active State: Red Underline */
-/* Note: The user requested a red underline. 
-   Usually, a red underline AND a capsule shape might conflict visually.
-   I will place the underline INSIDE the capsule padding. */
 .nav-links a.active {
     color: var(--white);
     background-color: transparent;
-    /* No bubble for active, just underline? Or both? Screenshot implied separation. User: "present page has a red underline". Let's stick to underline for active. */
 }
 
 .nav-links a.active::after {
     content: '';
     position: absolute;
-    /* Position on the border area at the bottom */
     bottom: -8px;
     left: 15px;
     right: 15px;
@@ -193,12 +204,6 @@ img {
     border-radius: 2px;
 }
 
-/* Remove hover bg if it is active to keep it clean, OR allow both. 
-   User said "hover... goes away when pointer is off". ACTIVE is persistent. 
-   Let's allow hover effect on non-active items, and maybe active items too? 
-   Let's keep hover effect on everything for interactivity feel. */
-
-/* Right: Icons */
 .nav-right {
     display: flex;
     align-items: center;
@@ -216,7 +221,16 @@ img {
 }
 
 
-/* Hero Section - 100vh Carousel */
+/* ============================================================================
+   4. HERO SECTION (Homepage Carousel)
+   ============================================================================
+   Full-viewport hero with:
+   - Auto-advancing slide carousel (JS controlled)
+   - Gradient overlay for text readability
+   - Dot navigation indicators
+   - CTA button and event logos
+   ============================================================================ */
+
 .hero-container {
     position: relative;
     height: 100vh;
@@ -231,7 +245,6 @@ img {
     height: 100%;
 }
 
-/* Individual Slide */
 .hero-slide {
     position: absolute;
     top: 0;
@@ -240,6 +253,7 @@ img {
     height: 100%;
     background-size: cover;
     background-position: center;
+    background-color: #1a1a1a;
     opacity: 0;
     visibility: hidden;
     transition: opacity 1s ease-in-out, visibility 0s 1s;
@@ -249,11 +263,6 @@ img {
     opacity: 1;
     visibility: visible;
     transition: opacity 1s ease-in-out, visibility 0s 0s;
-}
-
-/* Fallback gradient for missing images */
-.hero-slide {
-    background-color: #1a1a1a;
 }
 
 .hero-overlay {
@@ -310,7 +319,6 @@ img {
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 0px;
-    /* Aligned with button row usually */
     opacity: 0.8;
 }
 
@@ -328,7 +336,6 @@ img {
     font-size: 1rem;
     font-weight: 700;
     border-radius: 30px;
-    /* Pill shape */
     cursor: pointer;
     transition: background 0.2s, transform 0.2s;
 }
@@ -341,10 +348,8 @@ img {
 .event-logo-small {
     width: 50px;
     height: auto;
-    /* Inline with button and meta */
 }
 
-/* Dots Navigation */
 .slider-dots {
     position: absolute;
     bottom: 40px;
@@ -364,14 +369,12 @@ img {
     transition: all 0.3s ease;
 }
 
-/* Hover on inactive dot: longer pill but stays grey */
 .dot:hover {
     width: 25px;
     border-radius: 4px;
     background: rgba(255, 255, 255, 0.6);
 }
 
-/* Active dot: long white pill */
 .dot.active {
     width: 40px;
     height: 8px;
@@ -379,23 +382,66 @@ img {
     border-radius: 4px;
 }
 
-/* Active dot hover stays white */
 .dot.active:hover {
     width: 40px;
     background: var(--white);
 }
 
 
-/* OTHER SECTIONS (Drinks, Events, Athletes) - Keeping these relatively compatible */
+/* ============================================================================
+   5. PAGE HERO (Events, Athletes, Drinks)
+   ============================================================================
+   Shorter hero banner (60vh) for subpages with darker overlay gradient.
+   ============================================================================ */
+
+.page-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #00172b 0%, rgba(0, 23, 43, 0.5) 40%, rgba(0, 23, 43, 0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 40px 120px;
+    color: var(--white);
+}
+
+.page-hero-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.page-hero-desc {
+    font-size: 1rem;
+    max-width: 100%;
+    line-height: 1.4;
+    opacity: 0.8;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ============================================================================
+   6. CONTENT CONTAINER & GRID LAYOUTS
+   ============================================================================ */
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 120px 20px 60px;
-    /* Added top padding because nav is fixed now */
 }
 
-/* Adjustments for non-home pages if they use the same nav */
-/* For now, let's assume specific page adjustments or a 'dark-nav' class */
 body:not(.home-page) .nav-bar {
     background: var(--primary-color);
     position: sticky;
@@ -405,7 +451,6 @@ body:not(.home-page) .nav-center {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Grid Styles (Same as before) */
 .drinks-grid,
 .events-grid,
 .athletes-grid {
@@ -424,6 +469,14 @@ body:not(.home-page) .nav-center {
     justify-content: center;
 }
 
+
+/* ============================================================================
+   7. CARD COMPONENTS (Drinks, Events, Athletes)
+   ============================================================================
+   Shared card styling with hover lift effect.
+   Athlete cards use flex properties for horizontal scroll layout.
+   ============================================================================ */
+
 .drink-card,
 .event-card,
 .athlete-card {
@@ -433,19 +486,15 @@ body:not(.home-page) .nav-center {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s;
     position: relative;
-    /* Added for scroll layout */
     flex: 0 0 calc(25% - 18px);
-    /* 4 cards view */
     scroll-snap-align: start;
     margin-top: -50px;
-    /* Overlap hero */
     z-index: 10;
 }
 
 .athlete-card:hover {
     transform: translateY(-10px);
     z-index: 15;
-    /* Bring to front on hover */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -464,7 +513,6 @@ body:not(.home-page) .nav-center {
 .athlete-card img {
     width: 100%;
     height: 350px;
-    /* Adjusted height for card proportions */
     object-fit: cover;
 }
 
@@ -492,9 +540,13 @@ body:not(.home-page) .nav-center {
     color: white;
 }
 
-/* ========================= */
-/* HOME PAGE SECTIONS        */
-/* ========================= */
+
+/* ============================================================================
+   8. HORIZONTAL SCROLL CONTAINERS
+   ============================================================================
+   Home page sections with scrollable card rows.
+   ============================================================================ */
+
 .home-section {
     padding: 50px 40px;
     background: var(--secondary-color);
@@ -531,14 +583,12 @@ body:not(.home-page) .nav-center {
     border-color: #aaa;
 }
 
-/* Horizontal Scroll Container */
 .scroll-container {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     padding-bottom: 15px;
     padding-top: 10px;
-    /* Prevent hover clipping */
     scroll-snap-type: x mandatory;
 }
 
@@ -556,7 +606,6 @@ body:not(.home-page) .nav-center {
     border-radius: 10px;
 }
 
-/* --- Drink Cards --- */
 .drink-scroll-card {
     flex: 0 0 calc(25% - 15px);
     min-width: 220px;
@@ -588,7 +637,6 @@ body:not(.home-page) .nav-center {
     object-fit: contain;
 }
 
-/* --- Event Cards --- */
 .event-scroll-card {
     flex: 0 0 calc(25% - 15px);
     min-width: 240px;
@@ -643,7 +691,6 @@ body:not(.home-page) .nav-center {
     margin-top: 5px;
 }
 
-/* --- Athlete Cards --- */
 .athlete-scroll-card {
     flex: 0 0 calc(25% - 15px);
     min-width: 220px;
@@ -676,7 +723,6 @@ body:not(.home-page) .nav-center {
     background-position: center;
     position: absolute;
     top: 140px;
-    /* Overlapping the background */
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -684,7 +730,6 @@ body:not(.home-page) .nav-center {
 
 .athlete-scroll-info {
     padding: 50px 15px 20px;
-    /* Extra top padding for avatar */
     text-align: center;
 }
 
@@ -706,64 +751,19 @@ body:not(.home-page) .nav-center {
     color: #888;
 }
 
-/* ========================= */
-/* PAGE HERO (Events, Athletes, Drinks pages) */
-/* ========================= */
-.page-hero {
-    position: relative;
-    height: 60vh;
-    min-height: 400px;
-    background-size: cover;
-    background-position: center;
-    /* margin-top: var(--nav-height); Removed to fix gap */
-}
 
-.page-hero-overlay {
-    position: absolute;
-    inset: 0;
-    /* Darker blue start as requested */
-    background: linear-gradient(to top, #00172b 0%, rgba(0, 23, 43, 0.5) 40%, rgba(0, 23, 43, 0.2) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 40px 40px 120px;
-    /* Added bottom padding to push text up slightly above overlap */
-    color: var(--white);
-}
+/* ============================================================================
+   9. EVENTS SECTION (New Design)
+   ============================================================================
+   Events page with cards overlapping the hero banner.
+   Features centered horizontal scroll layout.
+   ============================================================================ */
 
-.page-hero-title {
-    font-size: 2.2rem;
-    /* Smaller title */
-    font-weight: 800;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.page-hero-desc {
-    font-size: 1rem;
-    /* Smaller font */
-    max-width: 100%;
-    /* Allow full width to fit in one line */
-    line-height: 1.4;
-    opacity: 0.8;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-    white-space: nowrap;
-    /* Force one line if space permits */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* Handle overflow gracefully */
-}
-
-/* ========================= */
-/* EVENTS SECTION (New Design) */
-/* ========================= */
 .events-section {
     position: relative;
     z-index: 10;
     padding: 0 40px 40px;
     margin-top: -80px;
-    /* Overlap the hero */
-    /* Transparent top to show hero behind cards, then solid color */
     background: linear-gradient(to bottom, transparent 0%, transparent 10px, var(--secondary-color) 100px);
 }
 
@@ -772,8 +772,6 @@ body:not(.home-page) .nav-center {
     gap: 24px;
     overflow-x: auto;
     padding: 60px 5px 20px;
-    /* Increased top padding for overlap & hover */
-    /* Padding for shadow visibility */
     scroll-snap-type: x mandatory;
     justify-content: center;
 }
@@ -792,7 +790,6 @@ body:not(.home-page) .nav-center {
     border-radius: 10px;
 }
 
-/* New Event Card Style */
 .event-card-new {
     flex: 0 0 280px;
     scroll-snap-align: start;
@@ -814,13 +811,11 @@ body:not(.home-page) .nav-center {
     background-position: center;
     position: relative;
     background-color: #1a1a1a;
-    /* Added for centering logo and overlay */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Dark tint overlay for all event images */
 .event-card-image::before {
     content: '';
     position: absolute;
@@ -835,14 +830,11 @@ body:not(.home-page) .nav-center {
 .event-card-logo {
     position: relative;
     z-index: 2;
-    /* Above the tint */
-    /* Removed absolute positioning to center it with flexbox */
 }
 
 .event-card-logo img {
     height: auto;
     width: 150px;
-    /* Default width for logos */
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
@@ -891,22 +883,61 @@ body:not(.home-page) .nav-center {
     font-weight: 600;
 }
 
-/* Footer */
+
+/* ============================================================================
+   10. FOOTER
+   ============================================================================
+   Multi-column footer with company links, legal links, and copyright.
+   ============================================================================ */
+
 footer {
-    background: #111;
-    color: #666;
-    padding: 60px 20px;
-    text-align: center;
-    font-size: 0.9rem;
+    background: #0a1628;
+    color: #fff;
+    padding: 50px 60px;
 }
 
-/* Mobile */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-column a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.footer-column a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    text-align: right;
+}
+
+
+/* ============================================================================
+   11. RESPONSIVE STYLES
+   ============================================================================ */
+
 @media (max-width: 768px) {
     .nav-center {
         display: none;
     }
 
-    /* Hide pill nav on mobile */
     .hero-title {
         font-size: 2.5rem;
     }
