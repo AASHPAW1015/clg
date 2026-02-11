@@ -1,0 +1,29 @@
+body {
+  margin : 0;
+  padding : 0;
+  background : skyblue;
+  height : 100vh;
+  display : flex;
+  justify-content: center; 
+  align-items: center;
+}
+.weather-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+#refresh {
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4facfe;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  justify-content: center; 
+  align-items: center;
+}
