@@ -1,0 +1,69 @@
+.container {
+  font-family: Arial;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: black;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#login button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#login button:hover {
+  background-color: #0056b3;
+}
+
+#logo {
+  display: flex;
+
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: yellow;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.card {
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 40px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+  flex: 1 1 300px;
+  /* Allow cards to grow and wrap */
+  text-align: center;
+}
