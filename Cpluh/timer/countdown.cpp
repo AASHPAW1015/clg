@@ -65,7 +65,11 @@ public:
 
         completed = true;
         cout << endl;
-        playAlert();
+
+        // The completed flag triggers the alert
+        if (completed) {
+            playAlert();
+        }
     }
 
     // Displays two lines of progress blocks:
