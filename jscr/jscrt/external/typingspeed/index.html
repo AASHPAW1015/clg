@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium typing speed test to check your WPM and accuracy.">
+    <title>Typing Speed Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>TypeMaster</h1>
+            <p>Test your speed and accuracy</p>
+        </header>
+
+        <main>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-label">WPM</span>
+                    <span class="stat-value" id="wpm">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Time</span>
+                    <span class="stat-value" id="time">0s</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Accuracy</span>
+                    <span class="stat-value" id="accuracy">100%</span>
+                </div>
+            </div>
+
+            <div class="typing-area-container">
+                <div class="quote-display" id="quote-display">Click here to start typing...</div>
+                <textarea id="quote-input" class="quote-input" autocomplete="off" spellcheck="false"></textarea>
+                <div class="restart-container">
+                     <button id="restart-btn" class="hidden">Restart Test</button>
+                </div>
+            </div>
+
+            <div class="leaderboard-section">
+                <h2>Leaderboard</h2>
+                <div class="leaderboard-container">
+                    <ul id="leaderboard-list">
+                        <!-- Leaderboard items will be injected here -->
+                        <li class="empty-state">No scores yet. valid your first test!</li>
+                    </ul>
+                </div>
+                <div id="save-score-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <h3>New High Score!</h3>
+                        <p>Enter your name to save your score.</p>
+                        <input type="text" id="username" placeholder="Your Name" maxlength="15">
+                        <button id="save-btn">Save Score</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 TypeMaster. Built with performance in mind.</p>
+        </footer>
+    </div>
+</body>
+</html>

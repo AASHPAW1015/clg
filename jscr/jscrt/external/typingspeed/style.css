@@ -1,0 +1,298 @@
+:root {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --primary-color: #38bdf8;
+    --secondary-color: #818cf8;
+    --accent-color: #f472b6;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --correct-match: #4ade80;
+    --incorrect-match: #f87171;
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    overflow-x: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: var(--glass-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    color: var(--primary-color);
+}
+
+.typing-area-container {
+    position: relative;
+    background: var(--glass-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.quote-display {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #64748b;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-bottom: 1rem;
+    user-select: none; /* Prevent text selection */
+    pointer-events: none; /* Clicks verify pass through to textarea usually, but we overlay textarea */
+    position: relative;
+    z-index: 1;
+}
+
+.quote-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Invisible but interactive */
+    z-index: 2;
+    cursor: text;
+    resize: none;
+    font-family: var(--font-mono); /* Match font to alignment if needed, though opacity 0 makes it moot */
+    font-size: 1.5rem;
+    padding: 2rem; /* Match container padding */
+}
+
+/* Character states */
+.correct {
+    color: var(--correct-match);
+}
+
+.incorrect {
+    color: var(--incorrect-match);
+    text-decoration: underline;
+    background-color: rgba(248, 113, 113, 0.2);
+}
+
+.cursor {
+    border-left: 2px solid var(--primary-color);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--primary-color); }
+}
+
+.restart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    z-index: 3; /* Above input */
+    position: relative;
+}
+
+#restart-btn {
+    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(129, 140, 248, 0.4);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.leaderboard-section {
+    background: var(--glass-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+}
+
+.leaderboard-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.leaderboard-container ul {
+    list-style: none;
+}
+
+.leaderboard-container li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.leaderboard-container li:last-child {
+    border-bottom: none;
+}
+
+.score-rank {
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+.score-name {
+    flex-grow: 1;
+}
+
+.score-wpm {
+    font-weight: 700;
+    color: var(--correct-match);
+}
+
+/* Modal for saving score */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #1e293b;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 1.5rem 0;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1rem;
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 0.5rem;
+    color: #0f172a;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-content button:hover {
+    background: #0ea5e9;
+}
+
+footer {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+}

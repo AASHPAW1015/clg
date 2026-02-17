@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Typing Speed Test</h1>
+
+    <div id="container">
+        <!-- quote display -->
+        <div id="quote-display">Click "New Quote" to start...</div>
+
+        <!-- typing area -->
+        <textarea id="typing-area" placeholder="Start typing here..." disabled></textarea>
+
+        <!-- controls -->
+        <div id="controls">
+            <button id="new-quote-btn" onclick="startTest()">New Quote</button>
+            <button id="download-btn" onclick="downloadScores()">Download Scores</button>
+        </div>
+
+        <!-- results -->
+        <div id="results" style="display:none;">
+            <p><strong>Time:</strong> <span id="time-result"></span>s</p>
+            <p><strong>WPM:</strong> <span id="wpm-result"></span></p>
+            <p><strong>Accuracy:</strong> <span id="accuracy-result"></span>%</p>
+        </div>
+
+        <!-- past scores -->
+        <h2>Past Scores</h2>
+        <ul id="scores-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

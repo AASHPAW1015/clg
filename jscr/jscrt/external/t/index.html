@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>⌨️ Typing Speed Test</h1>
+      <p class="subtitle">Test how fast you can type — accuracy matters!</p>
+    </header>
+
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-label">Time</span>
+        <span class="stat-value" id="timer">0s</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">WPM</span>
+        <span class="stat-value" id="wpm">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Accuracy</span>
+        <span class="stat-value" id="accuracy">100%</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Errors</span>
+        <span class="stat-value" id="errors">0</span>
+      </div>
+    </div>
+
+    <div class="text-display" id="textDisplay">
+      <!-- Quote characters will be rendered here -->
+    </div>
+
+    <textarea
+      id="inputArea"
+      placeholder="Start typing here..."
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="off"
+      spellcheck="false"
+    ></textarea>
+
+    <div class="controls">
+      <button id="restartBtn" class="btn">🔄 New Test</button>
+    </div>
+
+    <div class="results-panel hidden" id="resultsPanel">
+      <h2>🏁 Results</h2>
+      <div class="results-grid">
+        <div class="result-card">
+          <span class="result-number" id="finalWpm">0</span>
+          <span class="result-label">Words Per Minute</span>
+        </div>
+        <div class="result-card">
+          <span class="result-number" id="finalAccuracy">0%</span>
+          <span class="result-label">Accuracy</span>
+        </div>
+        <div class="result-card">
+          <span class="result-number" id="finalTime">0s</span>
+          <span class="result-label">Time Taken</span>
+        </div>
+        <div class="result-card">
+          <span class="result-number" id="finalErrors">0</span>
+          <span class="result-label">Mistakes</span>
+        </div>
+      </div>
+      <button id="tryAgainBtn" class="btn btn-accent">🔄 Try Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

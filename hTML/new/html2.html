@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebKit CSS Properties Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>WebKit CSS Properties Demo</h1>
+
+    <!-- 1. -webkit-text-fill-color & 2/3/4. -webkit-text-stroke -->
+    <section>
+        <h2>1. Text Fill Color + Text Stroke</h2>
+        <p class="text-fill">This text has a custom fill color.</p>
+        <p class="text-stroke">This text has a visible stroke outline.</p>
+    </section>
+
+    <!-- 5. -webkit-font-smoothing -->
+    <section>
+        <h2>2. Font Smoothing</h2>
+        <p class="font-smooth">This text uses antialiased font smoothing for a cleaner look on macOS.</p>
+    </section>
+
+    <!-- 6. -webkit-tap-highlight-color -->
+    <section>
+        <h2>3. Tap Highlight Color</h2>
+        <a href="#" class="tap-highlight">Tap me on mobile — no highlight flash!</a>
+    </section>
+
+    <!-- 7. -webkit-overflow-scrolling -->
+    <section>
+        <h2>4. Overflow Scrolling (iOS momentum)</h2>
+        <div class="scroll-box">
+            <p>Line 1</p>
+            <p>Line 2</p>
+            <p>Line 3</p>
+            <p>Line 4</p>
+            <p>Line 5</p>
+            <p>Line 6</p>
+            <p>Line 7</p>
+            <p>Line 8</p>
+            <p>Line 9</p>
+            <p>Line 10</p>
+            <p>Line 11</p>
+            <p>Line 12</p>
+        </div>
+    </section>
+
+    <!-- 8/9. -webkit-line-clamp & -webkit-box-orient -->
+    <section>
+        <h2>5. Line Clamp (Text Truncation)</h2>
+        <p class="line-clamp">
+            This is a long paragraph that will be clamped to only 2 lines using -webkit-line-clamp.
+            Any extra text beyond the second line will be hidden and replaced with an ellipsis.
+            This sentence should not be visible at all.
+        </p>
+    </section>
+
+    <!-- 10/11/12/13/14. -webkit-mask properties -->
+    <section>
+        <h2>6. Mask Image Properties</h2>
+        <div class="masked-box">
+            This box has a gradient mask applied to it, fading it out on the right side.
+        </div>
+    </section>
+
+    <!-- 15. -webkit-text-security -->
+    <section>
+        <h2>7. Text Security</h2>
+        <label>Type something (hidden with discs):</label><br>
+        <input type="text" class="text-security" value="secret123">
+    </section>
+
+    <!-- 16. -webkit-touch-callout -->
+    <section>
+        <h2>8. Touch Callout</h2>
+        <p class="touch-callout">Long-press on this text on iOS — the callout menu is disabled.</p>
+    </section>
+
+    <!-- 17. -webkit-text-size-adjust -->
+    <section>
+        <h2>9. Text Size Adjust</h2>
+        <p class="text-size-adjust">This text won't be auto-resized by mobile browsers.</p>
+    </section>
+
+    <!-- 18. -webkit-marquee-direction -->
+    <section>
+        <h2>10. Marquee Direction</h2>
+        <p class="marquee-demo">This demonstrates the marquee-direction property (WebKit only).</p>
+    </section>
+
+    <!-- 19. -webkit-print-color-adjust -->
+    <section>
+        <h2>11. Print Color Adjust</h2>
+        <div class="print-color">
+            This colored box will print exactly as shown — browsers won't strip the background.
+        </div>
+    </section>
+
+    <!-- 20. -webkit-backface-visibility -->
+    <section>
+        <h2>12. Backface Visibility</h2>
+        <div class="flip-card">
+            <div class="flip-inner">
+                <div class="flip-front">Front Side</div>
+                <div class="flip-back">Back Side</div>
+            </div>
+        </div>
+        <p><small>Hover to flip</small></p>
+    </section>
+
+</body>
+
+</html>

@@ -122,7 +122,7 @@ public:
     // system() runs a terminal command, afplay is the macOS audio player
     void playAlert() {
         cout << "\n  *** TIMES UP ***\n" << endl;
-        system("afplay alert.wav &");
+        system("afplay alert.wav");
     }
 };
 
