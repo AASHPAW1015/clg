@@ -1,0 +1,56 @@
+body {
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#game-container {
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.5;
+    text-align: center;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Word and Character Styles */
+.word {
+    display: inline;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
+
+.current {
+    background-color: #eee;
+}
+
+/* Space spans */
+.space {
+    display: inline;
+    white-space: pre;
+}
+
+/* Utility */
+#hidden-input {
+    opacity: 0;
+    position: absolute;
+    top: -9999px;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}

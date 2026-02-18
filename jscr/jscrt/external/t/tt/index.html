@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Typing Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Simple Typing Test</h1>
+
+    <div class="options">
+        <button onclick="startGame(10)">10 Words</button>
+        <button onclick="startGame(15)">15 Words</button>
+    </div>
+
+    <div id="wpm-display">WPM: 0</div>
+
+    <div id="game-container" onclick="focusInput()">
+        Click here or select a button to start...
+    </div>
+
+    <input type="text" id="hidden-input" autocomplete="off">
+
+    <script src="script.js"></script>
+</body>
+
+</html>
