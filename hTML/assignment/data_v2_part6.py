@@ -1,0 +1,121 @@
+data = [
+    {
+        'section': 'Advanced Topics',
+        'topic': 'Tabindex = 0 and Tabindex = 1',
+        'headers': ['Conceptual Difference', 'Tabindex Evaluated to `0`', 'Tabindex Evaluated strictly `> 0`'],
+        'points': [
+            ['1. Positioning Trajectory', 'Slotting the element respectfully exactly where it organically belongs in the DOM\'s sequential tab jumping flow.', 'Violently ripping the element completely out of the organic, logical DOM sequence jumping flow.'],
+            ['2. The Core Developer intent', 'Deployed to grant non-focusable structural elements (like a `div` or `span`) the innate ability to receive keyboard focus.', 'Deployed specifically to force a rogue element to demand focus *before* any other naturally occurring focusable items.'],
+            ['3. Real-world Industry consensus', 'Touted as the absolute most robust, bulletproof best-practice standard for building custom, accessible Javascript widgets.', 'Touted universally as an extreme anti-pattern, a web accessibility nightmare, and an unforgivable bad practice.'],
+            ['4. The Narrative Interaction flow', 'Maintains and protects the visual, logical reading flow rhythm (left-to-right, top-to-bottom sequentially).', 'Obliterates visual cadence, causing the focus ring to teleport chaotically and unpredictably across massive screen gaps.'],
+            ['5. Technical Maintenance debt', 'Absolutely zero; the browser engine natively swallows shifts if elements are reordered dynamically in the code.', 'Extremely high; developers must manually calculate and re-assign every single `tabindex` digit if a tiny layout change occurs.'],
+            ['6. The "Focus Trap" dilemma', 'Inherently immune to creating traps; focus simply exits the designated element naturally downstream to the next DOM leaf.', 'Routinely isolates users in inescapable traps if numbering chains conflict or if third-party dynamic HTML is injected arbitrarily.'],
+            ['7. Mimicry of Native Elements', 'Flawlessly mimics the baseline native keyboard engine behaviors of standard `<button>` and `<a href>` routing tags.', 'Forces an utterly unnatural interaction paradigm specifically overriding native browser engine neurological intelligence.'],
+            ['8. The Visually Impaired penalty', 'Presents a silky smooth, heavily predictable spatial mapping narrative for blind users relying heavily on keyboard tabs.', 'Presents a brutally confusing, heavily fragmented architectural experience for users expecting sane top-down navigational structures.'],
+            ['9. The Hierarchy Engine loop', 'Every single element globally set to `0` is visited passively purely in their exact physical DOM-appearance rendering order.', 'Elements strictly > 0 are visited actively from the lowest integer (1) marching upwards, hitting all of them *before* passing execution to ANY element natively set to 0.'],
+            ['10. The Ultimate Usage justification', 'A highly custom React `<div role="menuitem">` dropdown that desperately needs seamless keyboard arrow pressing support integrations.', 'Perhaps an extremely weird, deeply legacy modal dialog overlay z-index trick from 2008 (though practically still heavily reprimanded by experts today).']
+        ]
+    },
+    {
+        'section': 'Advanced Topics',
+        'topic': 'Character entity and Symbol',
+        'headers': ['Point of Difference', 'HTML Character Entity String', 'Raw Keyboard Symbol Byte'],
+        'points': [
+            ['1. The Parsing Conversion Engine', 'Injected as string text, then explicitly translated and physically converted by the HTML parser during document algorithmic reading.', 'Injected instantly as raw binary bytes mapped flawlessly directly to the currently active webpage charset (e.g., standard UTF-8).'],
+            ['2. Grammatical Escape Syntax', 'Always definitively initiates with an ampersand trigger (`&`) and strictly terminates with a semicolon blockade (`&copy;`).', 'Punched purely via standard physical keyboard buttons or arcane OS-level Alt-codes directly into the raw text (`©`, `@`, `#`).'],
+            ['3. Primary Engineering Goal', 'Engineered exclusively to safely render deeply reserved HTML structural characters without accidentally shattering the source code DOM.', 'Engineered universally for standard human textual communication layouts and fundamental punctuation marks in normal sentence structures.'],
+            ['4. The "Less Than" Catastrophe', 'Written deliberately as `&lt;` to safely render a `<` symbol visually without accidentally commanding the engine to begin a new HTML block tag.', 'Typing a raw `<` symbol directly into unparsed text variables can catastrophically decapitate the entire webpage DOM rendering structure.'],
+            ['5. The Font Ambiguity Risk', 'Practically guarantees the exact same visual glyph character will materialize identically across every browser, OS, and device on earth.', 'Can occasionally misfire and render as an ugly, broken, hollow square box `□` if the user\'s local font/charset lacks Unicode mapping support.'],
+            ['6. File Memory Payload footprint', 'Requires parsing roughly 4-10 bytes of raw physical string text characters specifically for a single output (e.g., `&copy;` is 6 bytes).', 'Requires a highly volatile 1-4 literal binary bytes relying strictly on the current encoding format mapping of the document.'],
+            ['7. Standard Arsenal Examples', '`&amp;` (Ampersand), `&quot;` (Quote), `&apos;` (Tick), `&copy;` (Copyright), `&nbsp;` (Forced Hidden Space).', '`&` (Ampersand), `"` (Quote), `\'` (Tick), `©` (Copyright), ` ` (Simple Space).'],
+            ['8. The W3C Validation Protocol', 'Absolutely crucial for successfully passing strict W3C HTML Validation test metrics when writing instructional `<pre>` code snippets on screen arrays.', 'Will instantly and permanently trigger massive parsing failures and red validation errors if reserved structural symbols are left completely naked on screen.'],
+            ['9. The "Non-Breaking Space" anomaly', 'The sole programmatic method (`&nbsp;`) available to force multiple horizontal spaces, since standard HTML physics always collapse empty space strings into one.', 'Hitting the mechanical spacebar physically 50 times in the source code simply results in 1 tiny solitary rendered space pixel visually.'],
+            ['10. Numeric Fallback Coordinates', 'Specific entities can also be summoned cleanly via direct Unicode numerical code parameters (e.g., `&#169;` for Copyright).', 'Directly typed symbols rely entirely on the OS copy-paste clipboard buffers or direct keystroke inputs bypassing HTML logic completely.']
+        ]
+    },
+    {
+        'section': 'Advanced Topics',
+        'topic': 'Inline JavaScript and External JavaScript',
+        'headers': ['Factor', 'Inline JS Methodology', 'External JS Methodology'],
+        'points': [
+            ['1. Deployment Placement architecture', 'Smashed directly inside raw HTML tags using attributes like `onclick="app.run()"` or stuffed plainly into bare `<script>` HTML tags.', 'Engineered entirely in strictly separate `.js` module files and linked cleanly via the `<script src="...">` routing mechanism.'],
+            ['2. Browser Caching Leverage', 'Technically zero. The code byte strings are pointlessly re-downloaded continuously every single time the HTML page reloads or refreshes.', 'Massively optimized. The discrete `.js` file is cached instantly to the disk, making page 2 load blazing fast with zero new bandwidth.'],
+            ['3. The Separation of Concerns law', 'Forges a terrible Spaghetti Code environment; fragile structural HTML mixes violently and irreversibly with active, volatile computational JS logic.', 'Achieves textbook separation of interactive logic (JS) from visual presentation (CSS) and foundational markup skeleton structure (HTML).'],
+            ['4. The Cybersecurity Vector (CSP)', 'Routinely blocked and completely gutted by strict enterprise Content Security Policies (CSP) specifically designed to mitigate lethal XSS injection attacks.', 'Highly trusted, cryptographically verifiable via nonces, and natively permitted without friction by baseline corporate security perimeter setups.'],
+            ['5. Webpack/Module Toolchain capability', 'Fundamentally impossible to bundle, minify, transpile (Babel ES6), or aggressively lint practically via modern Node.js CLI tools.', 'The absolute undisputed backbone infrastructure of practically all modern frontend engineering modular networks (React, Angular, Vue).'],
+            ['6. Global `Window` Scope Chaos', 'Notoriously easily pollutes the overarching `window` scope map, immediately threatening massive, unpredictable variable naming collision crashes.', 'Notoriously easy to intelligently isolate from the global scope using IIFEs, secure Modules (`<script type="module">`), or closure mapping scopes.'],
+            ['7. The Team Collaboration bottleneck', 'Guaranteed to throw painful, blocking GIT merge conflicts instantly when UI designers and JS coders inevitably touch the exact same line of HTML.', 'Permits Javascript engineering teams to iterate rapidly and deploy freely without ever needing to freeze the HTML/CSS layout architectures.'],
+            ['8. Time-to-First-Byte (TTFB) penalty', 'Bloats the raw HTML HTTP packet size dramatically, severely penalizing and dragging down the crucial "Time to First Byte" metric for SEO.', 'Keeps HTML page skeletons utterly lightweight and sleek, allowing the browser to parse and physically render the visual page shapes instantaneously.'],
+            ['9. The `defer`/`async` network capabilities', 'Cannot be natively deferred or loaded asynchronously using modern `<script>` parsing tag modifiers; it blocks the parser instantly.', 'Can cleanly and effortlessly utilize the `defer` or `async` tags to guarantee parsing physics without blocking the HTML visual engine.'],
+            ['10. The Industry Production Standard', 'Strictly confined to microscopic 1-line tracking pixel injections in marketing, or 20-year-old high school web design tutorials.', 'The absolute undeniable required standard for literally all professional, enterprise web platform application development loops.']
+        ]
+    },
+    {
+        'section': 'Advanced Topics',
+        'topic': 'defer and async in script tag',
+        'headers': ['Conceptual Difference', 'The `defer` Parsing Attribute', 'The `async` Parsing Attribute'],
+        'points': [
+            ['1. HTML Parser Blocking topology', 'Securely downloads completely in the background threads; it does NOT block the HTML parser engine from building the page visually.', 'Securely downloads completely in the background threads; it does NOT block the HTML parser engine from building the page visually.'],
+            ['2. The Execution Timing catalyst', 'Strictly guaranteed to wait patiently until the entire HTML DOM tree is 100% fully parsed and physically built before firing its engines.', 'Fires blindly and instantly the literal millisecond the network finishes downloading it, violently pausing the HTML parser midway to run.'],
+            ['3. Chronological Sequence guarantees', 'Executes strictly and flawlessly in the exact chronological sequential order the scripts appear in the literal HTML document text list.', 'Executes in a totally chaotic, completely unpredictable order (literally whichever random network data request finishes downloading first).'],
+            ['4. The Primary Use-Case framework', 'Crucial for complex code heavily relying on the DOM nodes existing (UI logic) or relying on other libraries preceding it (jQuery plugins).', 'Crucial for code that is completely independent of the visual DOM or any other application scripts (like Google Analytics tracking hubs).'],
+            ['5. The `DOMContentLoaded` Event handshake', 'The global `DOMContentLoaded` layout event strictly waits for all deferred scripts to finish executing successfully before it is permitted to fire.', 'The global `DOMContentLoaded` layout event completely ignores async scripts and will happily fire even if they are still downloading.'],
+            ['6. Document Placement constraints', 'Only genuinely effective if placed high in the `<head>` matrix (placing it at the bottom `</body>` pointlessly renders its async power useless).', 'Also primarily effective if placed aggressively high in the `<head>` to immediately kickstart slow network fetch requests.'],
+            ['7. Multi-script Modularity Support', 'Absolutely required heavily when chaining modular library dependencies that must load sequentially without breaking.', 'Lethally dangerous for library dependency chains; (e.g., if a React app async loads before ReactDOM parses, it physically crashes the app).'],
+            ['8. HTML5 Module integration mapping', 'Standard `<script type="module">` tag components natively act exactly like a `defer` attribute automatically by default across all browsers.', 'Modules *can* be explicitly overridden and made `async`, but natively they enforce highly stable, sequential `defer`-like behavior.'],
+            ['9. Inline Tag deployment capability', 'Totally ignored mathematically if accidentally placed on an inline script tag block lacking a physical `src` attribute URL pointer.', 'Also completely ignored mathematically on any inline script block inexplicably lacking a physical `src` attribute pointer.'],
+            ['10. Network Prioritization translation', 'Tells the browser engine: "Download this now without stopping the page, but kindly wait until we are visually ready to run it safely".', 'Tells the browser engine: "Download this ASAP and execute it the exact millisecond you grab it, interrupting literally anything else".']
+        ]
+    },
+    {
+        'section': 'Advanced Topics',
+        'topic': 'Viewport meta tag and Media query',
+        'headers': ['Aspect', '`<meta name="viewport">` System Tag', 'CSS-Level `@media` Logic Queries'],
+        'points': [
+            ['1. Execution Engine Hierarchy', 'Read directly by the low-level browser rendering engine to explicitly dictate the literal physical pixel zoom scaling ratio logic on mobile phones.', 'Read explicitly by the CSS layout computing engine to conditionally activate aesthetic design variations based on geometric limits.'],
+            ['2. Declaration Syntax Placement', 'Engineered strictly as a single `<meta>` tag specifically sitting isolated inside the HTML `<head>` document structure hierarchy.', 'Engineered fundamentally inside `.css` styling stylesheets (or `<style>` blocks) wrapped dynamically inside `@media` block wrappers.'],
+            ['3. The Dependency Symbiosis', 'CSS Media Queries will almost completely fail to trigger predictably on mobile phones if the Viewport meta tag is missing from the head.', 'Requires absolutely zero Media Queries to exist; it operates alone, simply forcing the physical baseline screen zoom multiplier.'],
+            ['4. The "Width" Parameter hack', '`<meta name="viewport" content="width=device-width">` tricks phones into rendering pixels at their literal OS device width scale natively.', '`@media (max-width: 600px)` executes styling rules conditionally based specifically on the width coordinate established by the meta tag.'],
+            ['5. Zoom Scaling accessibility', 'Can brutally and explicitly turn off the user’s ability to pinch-to-zoom (considered a massive accessibility nightmare for visually impaired users).', 'Possesses absolutely zero mathematical power or capability to control, restrict, or modify browser engine pinch-to-zoom magnification.'],
+            ['6. Allowed Quantity Per Page', 'A single HTML document should possess exactly one unified Viewport declaration coordinating the physics of the page globally.', 'A single massive CSS stylesheet can comfortably possess hundreds of distinct Media Queries firing wildly at different fluid breakpoints.'],
+            ['7. Original Design Intent', 'Created immediately to solve the "980px Shrink-to-Fit" legacy nightmare rendering problem on the original iPhone Safari iterations.', 'Created elegantly to solve the "Elements are too wide for a narrow screen column" fluid visual CSS-grid layout problem visually.'],
+            ['8. Classic Syntax blueprint', '`<meta name="viewport" content="initial-scale=1.0, width=device-width">`', '`@media screen and (min-width: 1024px) { body { font-size: 20px; } }`'],
+            ['9. The Trigger State mechanics', 'Applies globally and instantly upon parsing; it is mathematically static and completely non-reactive to a user resizing their desktop browser.', 'Endlessly highly reactive; flips rules seamlessly on and off dynamically in real-time as a user physically drags the OS window edge.'],
+            ['10. Evolution and specifications', 'Invented independently by Apple engineers specifically for the release of the first mobile iPhone Safari OS to fake desktop views.', 'Formally standardized by the W3C spec networks specifically intended for widespread global fluid CSS design pattern methodologies.']
+        ]
+    },
+    {
+        'section': 'Advanced Topics',
+        'topic': 'Client-side validation and Server-side validation',
+        'headers': ['Factor', 'Client-side Validation Matrix', 'Server-side Backend Validation'],
+        'points': [
+            ['1. Processing Language / Engine', 'Processed natively pushing HTML5 attributes (`required`, `type="email"`) or custom browser-based JavaScript parsing matrices.', 'Processed rigorously using heavy backend compute languages like Django Python, Node.js, PHP, or Enterprise Java arrays.'],
+            ['2. Response Feedback Velocity', 'Immediate and instantaneous; provides the user incredibly fast visual red/green stroke feedback precisely as they type keystrokes.', 'Cumbersome and slow; requires blindly submitting the entire network packet, waiting for ping latency, and reloading the processed OS response.'],
+            ['3. Core Engineering Philosophy', 'Architected strictly for User Experience (UX) enrichment to smoothly guide honest users making minor geographical typos in forms.', 'Architected strictly for unyielding Security and Data Integrity to completely block malicious hackers and automated botting networks.'],
+            ['4. The Security Reliability metric', 'Statistically zero security. It can be bypassed effortlessly in 3 seconds by merely disabling JS or deleting the DOM tags in DevTools.', 'The absolute ultimate security matrix. It serves as the final, un-bypassable gatekeeper standing defensively before the SQL database arrays.'],
+            ['5. Command Line bypassing hack', 'Trivially bypassed by simply utilizing Postman API or generic Terminal cURL to fling HTTP POST payloads directly at the server URL.', 'Mathematically impossible to bypass using direct blind API requests; it rigorously validates the raw network payload string byte by byte.'],
+            ['6. Form Transmissions logic', 'Actively stops the HTML form from physically sending the HTTP network request blindly if the entered data is obviously grammatically incorrect.', 'Permits the HTTP request to land, but maliciously rejects processing the data internally in the backend code logic throwing a 400 error.'],
+            ['7. CPU Processing Location', 'Revs and runs explicitly on the end-user’s personal computer CPU hardware exclusively inside their isolated Chrome or Safari tab container.', 'Revs and runs explicitly on the hosting company’s secure, protected cloud server hardware mainframes (like AWS EC2 or DigitalOcean droplets).'],
+            ['8. Database Query context', 'Physically incapable of securely checking if an "Email Already Exists" in a hidden database without making a secondary asynchronous API fetch.', 'Flawlessly positioned to securely run vast SQL queries instantly to verify if an email already possesses a unique row constraint in the database.'],
+            ['9. The Ultimate Best Practice', 'Never, ever rely on this logic matrix alone; deploy it solely to stop accidental, sloppy form submissions smoothly for honest humans.', 'Never, ever skip this logic matrix; the server infrastructure must aggressively assume literally all incoming port data is heavily poisoned.'],
+            ['10. Algorithm Maintenance burden', 'Significantly harder to maintain if massive, complex business logic algorithms (like cryptographic ID calculations) pivot frequently.', 'Offers centralized business logic maintenance; changing verifying algorithmic formulas safely updates everything across the web automatically.']
+        ]
+    },
+    {
+        'section': 'Advanced Topics',
+        'topic': 'HTML Collection and NodeList',
+        'headers': ['Conceptual Difference', 'DOM `HTMLCollection` API', 'DOM `NodeList` Array API'],
+        'points': [
+            ['1. Parent Retrieval Methods', 'Returned explicitly and natively by older legacy DOM querying methods like `getElementsByClassName` or `getElementsByTagName`.', 'Returned explicitly and natively by modern advanced DOM querying methods like `querySelectorAll` or the generic `childNodes` property map.'],
+            ['2. The "Live" vs "Static" rendering', 'Inherently and aggressively LIVE; if the DOM changes dynamically, the entire collection array updates itself automatically and instantaneously.', 'Generally strictly STATIC (except for `childNodes`); adding or deleting new elements down the line will practically never update the snapshot list.'],
+            ['3. Permitted Node Types Included', 'Exclusively constraints itself to purely visible `HTML Element Nodes` natively (absolutely no text nodes or comment lines allowed).', 'Can contain completely any node in the tree: standard Element nodes, raw text strings, whitespace carriages, and even HTML comments.'],
+            ['4. Array-style Loop Methods', 'Extremely limited mathematically; entirely lacks native access to sleek modern array looping methods like the `.forEach()` mechanic.', 'Modern browser engines natively grant NodeLists access to the highly efficient `.forEach()` array loop methodology directly natively.'],
+            ['5. The Performance Crash Loop', 'Attempting to loop through a live collection while also physically adding elements to the DOM will instantly cause a fatal browser infinite loop crash.', 'Looping safely through a static NodeList snapshot is perfectly safe, as its mathematical length parameter is locked in stone permanently from birth.'],
+            ['6. Accessing Elements by unique ID', 'Can natively hunt and fetch inner items by their `id` or `name` attribute strings utilizing `collection["myId"]` bracket target syntax.', 'Completely lacks the specific architectural capability to access specific array items directly using string keys or associated string IDs.'],
+            ['7. Historical usage Context specification', 'A deeply historical and heavily antiquated JavaScript DOM artifact originating from the original 1990s web design engine specifications.', 'A universally preferred, highly modern iteration specifically popularized to mimic the robust querying power of early jQuery systems.'],
+            ['8. Modern Developer Recommendation', 'Heavily discouraged by seniors today because aggressively live-updating DOM lists routinely cause unpredictable UI rendering layout bugs.', 'Highly encouraged standard querying paradigm natively guaranteeing highly stable, static snapshot-driven DOM manipulation flows.'],
+            ['9. Array Transformation strategy', 'Must be forcefully converted utilizing `Array.from(collection)` or `[...collection]` spread syntax simply to utilize a `.map()` or `.filter()`.', 'Must also be explicitly converted cleanly using `Array.from(list)` if you wish to deploy a `.map()`, `.filter()`, or `.reduce()` array loop pipeline.'],
+            ['10. Document Global Context triggers', 'Natively returned and captured when you programmatically query the `document.forms` embedded legacy browser collection object.', 'Natively returned and captured when querying the length parameter of a classic `document.querySelectorAll("div.cards")` lookup path.']
+        ]
+    }
+]

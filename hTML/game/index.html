@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Time Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <section id="start-screen" class="screen active">
+        <h1>Reaction Time</h1>
+        <p>Wait for the box to turn <strong>green</strong>, then click it!</p>
+        <button id="start-btn">Start Game</button>
+    </section>
+
+    <section id="game-screen" class="screen">
+        <div class="game-grid">
+            <aside class="scoreboard">
+                <h2>Scoreboard</h2>
+                <p>Round: <span id="round-num">1</span> / 5</p>
+                <p>Last: <span id="last-time">—</span> ms</p>
+                <p>Best: <span id="best-time">—</span> ms</p>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </aside>
+            <div id="reaction-zone" class="zone waiting">
+                <p id="zone-msg">Wait...</p>
+                <p id="zone-time"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gameover-screen" class="screen">
+        <h1>Game Over</h1>
+        <p id="rating">Noice!</p>
+        <div class="stats">
+            <div class="stat"><span>Best</span><strong id="s-best">—</strong></div>
+            <div class="stat"><span>Worst</span><strong id="s-worst">—</strong></div>
+            <div class="stat"><span>Avg</span><strong id="s-avg">—</strong></div>
+        </div>
+        <button id="restart-btn">Play Again</button>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
