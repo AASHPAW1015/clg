@@ -1,0 +1,46 @@
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Carousel slides */
+.carousel-item {
+  height: 450px;
+}
+
+.slide-1 {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.slide-2 {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.slide-3 {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.carousel-caption {
+  z-index: 2;
+}
+
+/* Section scroll offset for fixed navbar */
+section {
+  scroll-margin-top: 60px;
+}
+
+/* Gallery images square */
+.gallery-section img {
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 300px;
+  }
+
+  .carousel-caption h1 {
+    font-size: 1.5rem;
+  }
+}

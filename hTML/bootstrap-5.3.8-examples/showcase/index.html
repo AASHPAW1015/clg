@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap 5.3 Showcase</title>
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="showcase.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <!-- 1. NAVBAR with Dropdowns + Search -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#"><i class="bi bi-bootstrap-fill text-info"></i> Showcase</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="#carousel-section">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Sections</a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#alerts-section">Alerts</a></li>
+              <li><a class="dropdown-item" href="#pricing-section">Pricing</a></li>
+              <li><a class="dropdown-item" href="#gallery-section">Gallery</a></li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="#form-section">Contact</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Components</a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#badges-section">Badges & Buttons</a></li>
+              <li><a class="dropdown-item" href="#tooltips-section">Tooltips & Popovers</a></li>
+              <li><a class="dropdown-item" href="#utilities-section">Utilities</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search..." />
+          <button class="btn btn-outline-info" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 11. OFFCANVAS Sidebar -->
+  <div class="offcanvas offcanvas-start text-bg-dark" id="sidebar">
+    <div class="offcanvas-header">
+      <h5><i class="bi bi-bootstrap-fill text-info me-2"></i>Menu</h5>
+      <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="nav flex-column">
+        <a class="nav-link text-light" href="#carousel-section">Home</a>
+        <a class="nav-link text-light" href="#alerts-section">Alerts</a>
+        <a class="nav-link text-light" href="#pricing-section">Pricing</a>
+        <a class="nav-link text-light" href="#gallery-section">Gallery</a>
+        <a class="nav-link text-light" href="#badges-section">Badges</a>
+        <a class="nav-link text-light" href="#form-section">Contact</a>
+        <a class="nav-link text-light" href="#tooltips-section">Tooltips</a>
+        <a class="nav-link text-light" href="#utilities-section">Utilities</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-shrink-0" style="margin-top:56px">
+
+    <!-- 2. CAROUSEL — 3 Slides with Captions -->
+    <section id="carousel-section">
+      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+          <button data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+          <button data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active slide-1">
+            <div class="container h-100 d-flex align-items-center">
+              <div class="carousel-caption text-start">
+                <h1 class="display-4 fw-bold">Explore Bootstrap 5.3</h1>
+                <p class="lead">Build fast, responsive sites with the world's most popular toolkit.</p>
+                <a class="btn btn-info btn-lg" href="#pricing-section">Get Started</a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item slide-2">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+              <div class="carousel-caption text-center">
+                <h1 class="display-4 fw-bold">Beautiful Components</h1>
+                <p class="lead">Cards, modals, carousels, forms — all in one framework.</p>
+                <a class="btn btn-outline-light btn-lg" href="#gallery-section">View Gallery</a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item slide-3">
+            <div class="container h-100 d-flex align-items-center justify-content-end">
+              <div class="carousel-caption text-end">
+                <h1 class="display-4 fw-bold">Fully Responsive</h1>
+                <p class="lead">Looks amazing on every device.</p>
+                <a class="btn btn-warning btn-lg" href="#form-section">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 8. ALERTS — Success, Info, Warning, Danger -->
+    <section id="alerts-section" class="py-5 bg-body-tertiary">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Alerts</h2>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="alert alert-success alert-dismissible fade show">
+              <i class="bi bi-check-circle-fill me-2"></i><strong>Success!</strong> Changes saved.
+              <button class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="alert alert-info alert-dismissible fade show">
+              <i class="bi bi-info-circle-fill me-2"></i><strong>Info:</strong> New update available.
+              <button class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="alert alert-warning alert-dismissible fade show">
+              <i class="bi bi-exclamation-triangle-fill me-2"></i><strong>Warning!</strong> Session expiring.
+              <button class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="alert alert-danger alert-dismissible fade show">
+              <i class="bi bi-x-octagon-fill me-2"></i><strong>Danger!</strong> Something went wrong.
+              <button class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. PRICING TABLE — Cards + Grid -->
+    <section id="pricing-section" class="py-5">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Pricing Plans</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+          <!-- Free -->
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Free</h4>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h1 class="card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>5 users included</li>
+                  <li>2 GB storage</li>
+                  <li>Email support</li>
+                </ul>
+                <button class="btn btn-outline-primary w-100 mt-auto">Sign up free</button>
+              </div>
+            </div>
+          </div>
+          <!-- Pro -->
+          <div class="col">
+            <div class="card h-100 shadow border-primary">
+              <div class="card-header py-3 text-bg-primary">
+                <h4 class="my-0 fw-bold">Pro <span class="badge bg-warning text-dark">Popular</span></h4>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h1 class="card-title">$15<small class="text-body-secondary fw-light">/mo</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>25 users included</li>
+                  <li>50 GB storage</li>
+                  <li>Priority support</li>
+                </ul>
+                <button class="btn btn-primary w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#signupModal">Get
+                  started</button>
+              </div>
+            </div>
+          </div>
+          <!-- Enterprise -->
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Enterprise</h4>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h1 class="card-title">$49<small class="text-body-secondary fw-light">/mo</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Unlimited users</li>
+                  <li>200 GB storage</li>
+                  <li>Phone & email support</li>
+                </ul>
+                <button class="btn btn-outline-primary w-100 mt-auto">Contact us</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. GALLERY — Responsive Grid -->
+    <section id="gallery-section" class="py-5 bg-body-tertiary">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Photo Gallery</h2>
+        <div class="row g-3">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <img src="images/mountains.png" class="img-fluid rounded shadow-sm w-100" alt="Mountains" />
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <img src="images/city.png" class="img-fluid rounded shadow-sm w-100" alt="City" />
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <img src="images/forest.png" class="img-fluid rounded shadow-sm w-100" alt="Forest" />
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <img src="images/mountains.png" class="img-fluid rounded shadow-sm w-100" alt="Mountains" />
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <img src="images/city.png" class="img-fluid rounded shadow-sm w-100" alt="City" />
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <img src="images/forest.png" class="img-fluid rounded shadow-sm w-100" alt="Forest" />
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <img src="images/mountains.png" class="img-fluid rounded shadow-sm w-100" alt="Mountains" />
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <img src="images/city.png" class="img-fluid rounded shadow-sm w-100" alt="City" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. BADGES & BUTTONS -->
+    <section id="badges-section" class="py-5">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Badges & Buttons</h2>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5>Buttons</h5>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-primary">Primary</button>
+                  <button class="btn btn-secondary">Secondary</button>
+                  <button class="btn btn-success">Success</button>
+                  <button class="btn btn-danger">Danger</button>
+                  <button class="btn btn-warning">Warning</button>
+                  <button class="btn btn-info">Info</button>
+                  <button class="btn btn-dark">Dark</button>
+                </div>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-outline-primary">Outline</button>
+                  <button class="btn btn-outline-success">Outline</button>
+                  <button class="btn btn-outline-danger">Outline</button>
+                </div>
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                  <button class="btn btn-sm btn-primary">Small</button>
+                  <button class="btn btn-primary">Default</button>
+                  <button class="btn btn-lg btn-primary">Large</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5>Badges</h5>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-primary">Primary</span>
+                  <span class="badge bg-secondary">Secondary</span>
+                  <span class="badge bg-success">Success</span>
+                  <span class="badge bg-danger">Danger</span>
+                  <span class="badge bg-warning text-dark">Warning</span>
+                  <span class="badge bg-info text-dark">Info</span>
+                </div>
+                <h6>Pill Badges</h6>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge rounded-pill bg-primary">Primary</span>
+                  <span class="badge rounded-pill bg-success">Success</span>
+                  <span class="badge rounded-pill bg-danger">Danger</span>
+                </div>
+                <h6>Badges in Buttons</h6>
+                <div class="d-flex flex-wrap gap-2">
+                  <button class="btn btn-primary">Notifications <span class="badge bg-danger">4</span></button>
+                  <button class="btn btn-dark">Messages <span class="badge bg-info">New</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. MODAL -->
+    <div class="modal fade" id="signupModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold">Sign up for Pro</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p class="text-body-secondary">Start your 14-day free trial.</p>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="modalName" placeholder="Name" />
+              <label for="modalName">Full Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="modalEmail" placeholder="Email" />
+              <label for="modalEmail">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="modalPassword" placeholder="Password" />
+              <label for="modalPassword">Password</label>
+            </div>
+            <button class="btn btn-primary w-100 btn-lg">Start Free Trial</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. FORM with Validation -->
+    <section id="form-section" class="py-5 bg-body-tertiary">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 class="text-center fw-bold mb-4">Contact Form</h2>
+            <div class="card shadow">
+              <div class="card-body p-4">
+                <form class="needs-validation" novalidate>
+                  <div class="row g-3">
+                    <div class="col-sm-6">
+                      <label class="form-label">First name</label>
+                      <input type="text" class="form-control" required />
+                      <div class="invalid-feedback">Required.</div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label">Last name</label>
+                      <input type="text" class="form-control" required />
+                      <div class="invalid-feedback">Required.</div>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Email</label>
+                      <input type="email" class="form-control" required />
+                      <div class="invalid-feedback">Enter a valid email.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Subject</label>
+                      <select class="form-select" required>
+                        <option value="">Choose...</option>
+                        <option>General Inquiry</option>
+                        <option>Support</option>
+                        <option>Feedback</option>
+                      </select>
+                      <div class="invalid-feedback">Please select a subject.</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Phone <span class="text-body-secondary">(Optional)</span></label>
+                      <input type="tel" class="form-control" />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Message</label>
+                      <textarea class="form-control" rows="3" required></textarea>
+                      <div class="invalid-feedback">Enter a message.</div>
+                    </div>
+                  </div>
+                  <hr class="my-3" />
+                  <!-- Checkboxes -->
+                  <div class="form-check mb-2">
+                    <input type="checkbox" class="form-check-input" id="chkNews" />
+                    <label class="form-check-label" for="chkNews">Subscribe to newsletter</label>
+                  </div>
+                  <div class="form-check mb-2">
+                    <input type="checkbox" class="form-check-input" id="chkTerms" required />
+                    <label class="form-check-label" for="chkTerms">I agree to terms</label>
+                    <div class="invalid-feedback">You must agree.</div>
+                  </div>
+                  <hr class="my-3" />
+                  <!-- Radio Buttons -->
+                  <h6>How did you hear about us?</h6>
+                  <div class="form-check"><input type="radio" class="form-check-input" name="ref" id="r1"
+                      required /><label class="form-check-label" for="r1">Google</label></div>
+                  <div class="form-check"><input type="radio" class="form-check-input" name="ref" id="r2" /><label
+                      class="form-check-label" for="r2">Social Media</label></div>
+                  <div class="form-check"><input type="radio" class="form-check-input" name="ref" id="r3" /><label
+                      class="form-check-label" for="r3">Friend</label></div>
+                  <div class="form-check mb-3"><input type="radio" class="form-check-input" name="ref" id="r4" /><label
+                      class="form-check-label" for="r4">Other</label>
+                    <div class="invalid-feedback">Select one.</div>
+                  </div>
+                  <button class="btn btn-primary btn-lg w-100" type="submit">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. TOOLTIPS & POPOVERS -->
+    <section id="tooltips-section" class="py-5">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Tooltips & Popovers</h2>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                <h5 class="mb-3">Tooltips (Hover)</h5>
+                <button class="btn btn-outline-primary me-1" data-bs-toggle="tooltip" title="Top tooltip"
+                  data-bs-placement="top">Top</button>
+                <button class="btn btn-outline-success me-1" data-bs-toggle="tooltip" title="Right tooltip"
+                  data-bs-placement="right">Right</button>
+                <button class="btn btn-outline-danger me-1" data-bs-toggle="tooltip" title="Bottom tooltip"
+                  data-bs-placement="bottom">Bottom</button>
+                <button class="btn btn-outline-warning" data-bs-toggle="tooltip" title="Left tooltip"
+                  data-bs-placement="left">Left</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                <h5 class="mb-3">Popovers (Click)</h5>
+                <button class="btn btn-primary me-1" data-bs-toggle="popover" title="Info"
+                  data-bs-content="Popover on top!" data-bs-placement="top">Top</button>
+                <button class="btn btn-success me-1" data-bs-toggle="popover" title="Info"
+                  data-bs-content="Popover on right!" data-bs-placement="right">Right</button>
+                <button class="btn btn-danger me-1" data-bs-toggle="popover" title="Info"
+                  data-bs-content="Popover on bottom!" data-bs-placement="bottom">Bottom</button>
+                <button class="btn btn-warning" data-bs-toggle="popover" title="Info" data-bs-content="Popover on left!"
+                  data-bs-placement="left">Left</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. UTILITIES Showcase -->
+    <section id="utilities-section" class="py-5 bg-body-tertiary">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Utilities Showcase</h2>
+        <div class="row g-4">
+          <!-- Text Colors -->
+          <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5>Text Colors</h5>
+                <p class="text-primary mb-1">.text-primary</p>
+                <p class="text-success mb-1">.text-success</p>
+                <p class="text-danger mb-1">.text-danger</p>
+                <p class="text-warning mb-1">.text-warning</p>
+                <p class="text-info mb-0">.text-info</p>
+              </div>
+            </div>
+          </div>
+          <!-- Backgrounds -->
+          <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5>Backgrounds</h5>
+                <div class="p-2 mb-2 bg-primary text-white rounded">.bg-primary</div>
+                <div class="p-2 mb-2 bg-success text-white rounded">.bg-success</div>
+                <div class="p-2 mb-2 bg-danger text-white rounded">.bg-danger</div>
+                <div class="p-2 mb-0 bg-warning text-dark rounded">.bg-warning</div>
+              </div>
+            </div>
+          </div>
+          <!-- Shadows -->
+          <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5>Shadows</h5>
+                <div class="shadow-none p-3 mb-2 bg-body-secondary rounded">No shadow</div>
+                <div class="shadow-sm p-3 mb-2 bg-body rounded">Small</div>
+                <div class="shadow p-3 mb-2 bg-body rounded">Regular</div>
+                <div class="shadow-lg p-3 mb-0 bg-body rounded">Large</div>
+              </div>
+            </div>
+          </div>
+          <!-- Text Alignment -->
+          <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5>Text Alignment</h5>
+                <p class="text-start border-bottom pb-2">.text-start — Left</p>
+                <p class="text-center border-bottom pb-2">.text-center — Center</p>
+                <p class="text-end mb-0">.text-end — Right</p>
+              </div>
+            </div>
+          </div>
+          <!-- Spacing -->
+          <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5>Spacing</h5>
+                <div class="bg-info bg-opacity-25 p-1 mb-1 rounded text-center">p-1</div>
+                <div class="bg-info bg-opacity-25 p-2 mb-2 rounded text-center">p-2</div>
+                <div class="bg-info bg-opacity-25 p-3 mb-3 rounded text-center">p-3</div>
+                <div class="bg-info bg-opacity-25 p-4 mb-0 rounded text-center">p-4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 4. STICKY FOOTER -->
+  <footer class="footer mt-auto py-4 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h6><i class="bi bi-bootstrap-fill text-info me-1"></i> Bootstrap Showcase</h6>
+          <p class="text-white-50 small">All 12 Bootstrap components in one page.</p>
+        </div>
+        <div class="col-6 col-md-2">
+          <h6>Sections</h6>
+          <ul class="list-unstyled small">
+            <li><a href="#carousel-section" class="text-white-50 text-decoration-none">Home</a></li>
+            <li><a href="#pricing-section" class="text-white-50 text-decoration-none">Pricing</a></li>
+            <li><a href="#gallery-section" class="text-white-50 text-decoration-none">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2">
+          <h6>Components</h6>
+          <ul class="list-unstyled small">
+            <li><a href="#alerts-section" class="text-white-50 text-decoration-none">Alerts</a></li>
+            <li><a href="#badges-section" class="text-white-50 text-decoration-none">Badges</a></li>
+            <li><a href="#tooltips-section" class="text-white-50 text-decoration-none">Tooltips</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="#" class="text-white-50 fs-5 me-2"><i class="bi bi-github"></i></a>
+          <a href="#" class="text-white-50 fs-5 me-2"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="text-white-50 fs-5"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <hr class="border-secondary my-2" />
+      <p class="text-center text-white-50 small mb-0">&copy; 2025 Bootstrap Showcase</p>
+    </div>
+  </footer>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="showcase.js"></script>
+</body>
+
+</html>
