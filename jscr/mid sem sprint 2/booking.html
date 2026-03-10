@@ -10,11 +10,10 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <!-- App Styles -->
+    <!-- Our Styles -->
     <link rel="stylesheet" href="index.css" />
 
     <style>
-        /* Allow scrolling on the booking page */
         body {
             overflow-y: auto;
         }
@@ -22,9 +21,9 @@
 </head>
 
 <body>
-    <!-- ========== BOOKING CONTAINER ========== -->
+
     <div class="booking-container">
-        <div class="booking-card glass-panel animate-in">
+        <div class="booking-card">
 
             <!-- Back link -->
             <a href="map.html" style="font-size:.85rem; display:inline-flex; align-items:center; gap:6px;">
@@ -34,14 +33,14 @@
             <!-- Spot Name -->
             <h1 id="bookingSpotName">Loading…</h1>
 
-            <!-- Hold Timer -->
+            <!-- Timer -->
             <div class="timer-display">
                 <div class="timer-value" id="timerValue">05:00</div>
                 <div class="timer-label">Spot held for you – book before time runs out</div>
             </div>
 
             <!-- Pricing Table -->
-            <table class="pricing-table" id="pricingTable">
+            <table class="pricing-table">
                 <tr>
                     <td>Base Rate</td>
                     <td id="cellBase">—</td>
@@ -59,10 +58,10 @@
             <!-- Payment Options -->
             <div>
                 <p
-                    style="font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-secondary); margin-bottom:12px;">
+                    style="font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:#8b949e; margin-bottom:12px;">
                     Payment Method
                 </p>
-                <div class="payment-options" id="paymentOptions">
+                <div class="payment-options">
                     <div class="payment-option" data-method="upi">
                         <i class="fa-solid fa-mobile-screen-button"></i>
                         <span>UPI</span>
@@ -86,7 +85,7 @@
         </div>
     </div>
 
-    <!-- ========== SUCCESS OVERLAY ========== -->
+    <!-- Success Overlay -->
     <div class="success-overlay" id="successOverlay">
         <div class="success-icon"><i class="fa-solid fa-check"></i></div>
         <h2>Booking Confirmed!</h2>
