@@ -1,0 +1,16 @@
+# Compiled executable
+wallet_app
+
+# Build artifacts
+*.o
+*.out
+
+# Internal notes (not for submission)
+REPORT.md
+brainstorm_qa.md
+context.md
+
+# macOS junk
+.DS_Store
+
+~$gital_Wallet_Report.docx

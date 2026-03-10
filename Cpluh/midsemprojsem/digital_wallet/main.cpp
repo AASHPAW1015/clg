@@ -25,7 +25,7 @@ using namespace std;
 map<string, Wallet> wallets;
 Ledger ledger;
 int walletCount = 0;
-string SAVE_FILE = "wallet_data.dat";
+string SAVE_FILE = "data/wallet_data.dat";
 
 // ---- ANSI color codes for terminal styling ----
 const string RESET   = "\033[0m";
