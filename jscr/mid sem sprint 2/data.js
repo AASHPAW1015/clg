@@ -1,20 +1,10 @@
-/* ============================================================
-   ParkPoint – Mock Parking Spots Database
-   ============================================================
-   Each spot object contains:
-     id           : unique identifier
-     name         : human-readable spot name
-     lat, lng     : geographic coordinates (Mumbai area)
-     amenities    : array of amenity strings
-     basePrice    : hourly rate in ₹ (before peak multiplier)
-     sizeLimit    : maximum vehicle size ("Hatchback" | "Sedan" | "SUV")
-     hasEV        : Boolean – has EV charging?
-     hasLargeAccess : Boolean – can large vehicles enter?
-     locality     : area name (used for search)
-     rating       : average user rating out of 5
-   ============================================================ */
+// ============================================================
+// ParkPoint – Parking Spots Data
+// This is our fake database. Just an array of objects.
+// Each object = one parking spot.
+// ============================================================
 
-const parkingSpots = [
+var parkingSpots = [
   {
     id: "spot_001",
     name: "Bandra West Driveway",

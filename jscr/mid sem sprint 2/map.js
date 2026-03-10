@@ -1,241 +1,338 @@
-/* ============================================================
-   ParkPoint – Map Page Logic (map.js)
-   ============================================================
-   Handles:
-     1. Leaflet map initialisation with OpenStreetMap tiles
-     2. Custom CSS markers rendered from parkingSpots (data.js)
-     3. Marker click → populate left panel + right price card
-     4. Filter system (EV, Large Vehicle, Low Price)
-     5. Locality search
-     6. Peak-pricing toggle (1.5× multiplier)
-   ============================================================ */
+// ============================================================
+// ParkPoint – Map Page Logic
+// Plain, simple JavaScript. No fancy stuff.
+// ============================================================
 
-// ── State ────────────────────────────────────────────────────
-let isPeak = false;           // peak pricing flag
-let selectedSpot = null;      // currently selected spot object
-let markerLayer = null;       // Leaflet layer group for markers
-let activeMarkerEl = null;    // the currently highlighted marker DOM element
 
-// ── 1. Map Initialisation ────────────────────────────────────
-const map = L.map('map', {
-    center: [19.076, 72.8777],  // Mumbai centre
+// --- VARIABLES ---
+
+var isPeak = false;          // is peak pricing on?
+var selectedSpot = null;     // which spot did the user click?
+var markerLayer = null;      // leaflet layer that holds all the pins
+var activeMarkerEl = null;   // the DOM element of the currently green pin
+
+
+// --- 1. SET UP THE MAP ---
+
+var map = L.map("map", {
+    center: [19.076, 72.8777],   // Mumbai center
     zoom: 13,
-    zoomControl: false          // we'll reposition it
+    zoomControl: false
 });
 
-// Add zoom control to bottom-left so it doesn't overlap our panels
-L.control.zoom({ position: 'bottomleft' }).addTo(map);
+// Put zoom buttons on bottom-left (so they dont overlap our panels)
+L.control.zoom({ position: "bottomleft" }).addTo(map);
 
-// OpenStreetMap tile layer with dark-style carto tiles
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+// Add the dark map tiles
+L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: '&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://osm.org/copyright">OSM</a>',
     maxZoom: 19
 }).addTo(map);
 
-// ── 2. Helper: Create a custom DivIcon marker ───────────────
-function createMarkerIcon(isActive = false) {
+
+// --- 2. MAKE A PIN ICON ---
+// Returns a Leaflet divIcon. If isActive is true, pin is green.
+
+function createMarkerIcon(isActive) {
+    var className = "custom-marker";
+    if (isActive) {
+        className = "custom-marker active";
+    }
+
+    var html = '<div class="' + className + '">' +
+        '<div class="pin"><div class="pin-inner"></div></div>' +
+        '</div>';
+
     return L.divIcon({
-        className: '',   // prevent Leaflet's default blue-icon class
-        html: `
-      <div class="custom-marker ${isActive ? 'active' : ''}">
-        <div class="pin"><div class="pin-inner"></div></div>
-      </div>`,
+        className: "",
+        html: html,
         iconSize: [30, 38],
         iconAnchor: [15, 38]
     });
 }
 
-// ── 3. Render markers on the map ─────────────────────────────
+
+// --- 3. PUT PINS ON THE MAP ---
+// Takes an array of spots and draws them on the map.
+
 function renderMarkers(spots) {
-    // Remove old layer if it exists
+    // Remove old pins first
     if (markerLayer) {
         map.removeLayer(markerLayer);
     }
+
     markerLayer = L.layerGroup();
 
-    spots.forEach(spot => {
-        const marker = L.marker([spot.lat, spot.lng], {
-            icon: createMarkerIcon(selectedSpot && selectedSpot.id === spot.id)
+    for (var i = 0; i < spots.length; i++) {
+        var spot = spots[i];
+
+        // Check if this spot is the one the user clicked
+        var isActive = false;
+        if (selectedSpot && selectedSpot.id === spot.id) {
+            isActive = true;
+        }
+
+        var marker = L.marker([spot.lat, spot.lng], {
+            icon: createMarkerIcon(isActive)
         });
 
-        marker.on('click', () => selectSpot(spot, marker));
+        // We need a closure here so each click remembers its own spot
+        marker.on("click", makeClickHandler(spot, marker));
+
         markerLayer.addLayer(marker);
-    });
+    }
 
     markerLayer.addTo(map);
 }
 
-// ── 4. Spot Selection ────────────────────────────────────────
+// This function returns a click handler for a specific spot
+function makeClickHandler(spot, marker) {
+    return function () {
+        selectSpot(spot, marker);
+    };
+}
+
+
+// --- 4. WHEN USER CLICKS A PIN ---
+
 function selectSpot(spot, marker) {
     selectedSpot = spot;
 
-    // Reset previous active marker
+    // Un-highlight the old pin
     if (activeMarkerEl) {
-        activeMarkerEl.classList.remove('active');
+        activeMarkerEl.classList.remove("active");
     }
 
-    // Highlight clicked marker
-    const el = marker.getElement();
+    // Highlight the clicked pin (make it green)
+    var el = marker.getElement();
     if (el) {
-        const markerDiv = el.querySelector('.custom-marker');
+        var markerDiv = el.querySelector(".custom-marker");
         if (markerDiv) {
-            markerDiv.classList.add('active');
+            markerDiv.classList.add("active");
             activeMarkerEl = markerDiv;
         }
     }
 
-    // Populate left panel
-    document.getElementById('spotName').textContent = spot.name;
-    document.getElementById('spotLocality').textContent = spot.locality;
-    document.getElementById('spotRating').textContent = spot.rating + ' / 5';
-    document.getElementById('spotSize').textContent = 'Up to ' + spot.sizeLimit;
+    // Fill in the left panel with spot info
+    document.getElementById("spotName").textContent = spot.name;
+    document.getElementById("spotLocality").textContent = spot.locality;
+    document.getElementById("spotRating").textContent = spot.rating + " / 5";
+    document.getElementById("spotSize").textContent = "Up to " + spot.sizeLimit;
 
-    // Amenities
-    const tagsContainer = document.getElementById('spotAmenities');
-    tagsContainer.innerHTML = '';
-    spot.amenities.forEach(a => {
-        const badge = document.createElement('span');
-        badge.className = 'badge';
-        badge.innerHTML = amenityIcon(a) + ' ' + a;
+    // Show the amenities as badges
+    var tagsContainer = document.getElementById("spotAmenities");
+    tagsContainer.innerHTML = "";
+
+    for (var i = 0; i < spot.amenities.length; i++) {
+        var amenity = spot.amenities[i];
+        var badge = document.createElement("span");
+        badge.className = "badge";
+        badge.innerHTML = getAmenityIcon(amenity) + " " + amenity;
         tagsContainer.appendChild(badge);
-    });
-
-    // Google Maps link
-    document.getElementById('spotGmaps').href =
-        `https://www.google.com/maps?q=${spot.lat},${spot.lng}`;
-
-    // Book button
-    document.getElementById('bookBtn').href =
-        `booking.html?spotId=${spot.id}&isPeak=${isPeak ? 1 : 0}`;
-
-    // Show panel
-    document.getElementById('panelLeft').classList.remove('hidden');
-
-    // Update price card
-    updatePriceCard(spot);
-}
-
-// Small helper: icon per amenity type
-function amenityIcon(name) {
-    const icons = {
-        'EV Charging': '<i class="fa-solid fa-bolt text-green"></i>',
-        'CCTV': '<i class="fa-solid fa-video"></i>',
-        'Restroom': '<i class="fa-solid fa-restroom"></i>',
-        'Covered Parking': '<i class="fa-solid fa-warehouse"></i>',
-        '24/7 Access': '<i class="fa-solid fa-clock"></i>',
-        'Valet': '<i class="fa-solid fa-user-tie"></i>'
-    };
-    return icons[name] || '<i class="fa-solid fa-check"></i>';
-}
-
-// ── 5. Price Card ────────────────────────────────────────────
-function updatePriceCard(spot) {
-    const price = calculatePrice(spot.basePrice);
-    document.getElementById('priceValue').textContent = '₹' + price;
-
-    // Peak label
-    const peakLabel = document.getElementById('peakLabel');
-    if (isPeak) {
-        peakLabel.classList.add('visible');
-    } else {
-        peakLabel.classList.remove('visible');
     }
 
-    document.getElementById('priceCard').classList.remove('hidden');
+    // Set the Google Maps link
+    document.getElementById("spotGmaps").href =
+        "https://www.google.com/maps?q=" + spot.lat + "," + spot.lng;
+
+    // Set the Book button link
+    var peakValue = 0;
+    if (isPeak) {
+        peakValue = 1;
+    }
+    document.getElementById("bookBtn").href =
+        "booking.html?spotId=" + spot.id + "&isPeak=" + peakValue;
+
+    // Show the left panel (remove the "hidden" class)
+    document.getElementById("panelLeft").classList.remove("hidden");
+
+    // Update the price card on the right
+    showPriceCard(spot);
 }
 
-// ── 6. Peak Pricing Algorithm ────────────────────────────────
-// FinalPrice = BaseRate × (isPeak ? 1.5 : 1.0)
+
+// --- 5. GET ICON HTML FOR AN AMENITY ---
+
+function getAmenityIcon(name) {
+    if (name === "EV Charging") {
+        return '<i class="fa-solid fa-bolt text-green"></i>';
+    } else if (name === "CCTV") {
+        return '<i class="fa-solid fa-video"></i>';
+    } else if (name === "Restroom") {
+        return '<i class="fa-solid fa-restroom"></i>';
+    } else if (name === "Covered Parking") {
+        return '<i class="fa-solid fa-warehouse"></i>';
+    } else if (name === "24/7 Access") {
+        return '<i class="fa-solid fa-clock"></i>';
+    } else if (name === "Valet") {
+        return '<i class="fa-solid fa-user-tie"></i>';
+    } else {
+        return '<i class="fa-solid fa-check"></i>';
+    }
+}
+
+
+// --- 6. SHOW THE PRICE CARD ---
+
+function showPriceCard(spot) {
+    // Calculate price using peak pricing formula
+    var price = calculatePrice(spot.basePrice);
+
+    document.getElementById("priceValue").textContent = "₹" + price;
+
+    // Show or hide the "Dynamic Pricing Active" label
+    var peakLabel = document.getElementById("peakLabel");
+    if (isPeak) {
+        peakLabel.classList.add("visible");
+    } else {
+        peakLabel.classList.remove("visible");
+    }
+
+    // Make the card visible
+    document.getElementById("priceCard").classList.remove("hidden");
+}
+
+
+// --- 7. PEAK PRICING FORMULA ---
+// FinalPrice = BaseRate × 1.5  (if peak is on)
+// FinalPrice = BaseRate × 1.0  (if peak is off)
+
 function calculatePrice(baseRate) {
-    return Math.round(baseRate * (isPeak ? 1.5 : 1.0));
+    if (isPeak) {
+        return Math.round(baseRate * 1.5);
+    } else {
+        return baseRate;
+    }
 }
 
-// ── 7. Peak Toggle Handler ──────────────────────────────────
-document.getElementById('peakToggle').addEventListener('change', function () {
-    isPeak = this.checked;
 
-    // If a spot is selected, update its price card immediately
+// --- 8. PEAK TOGGLE ---
+// When the user flips the switch, turn peak pricing on/off
+
+var peakToggle = document.getElementById("peakToggle");
+
+peakToggle.addEventListener("change", function () {
+    isPeak = peakToggle.checked;
+
+    // If a spot is already selected, update its price right away
     if (selectedSpot) {
-        updatePriceCard(selectedSpot);
-        // Also update the booking link with the new isPeak value
-        document.getElementById('bookBtn').href =
-            `booking.html?spotId=${selectedSpot.id}&isPeak=${isPeak ? 1 : 0}`;
+        showPriceCard(selectedSpot);
+
+        // Also update the booking link
+        var peakValue = 0;
+        if (isPeak) {
+            peakValue = 1;
+        }
+        document.getElementById("bookBtn").href =
+            "booking.html?spotId=" + selectedSpot.id + "&isPeak=" + peakValue;
     }
 });
 
-// ── 8. Filter System ─────────────────────────────────────────
-const chkEV = document.getElementById('chkEV');
-const chkLarge = document.getElementById('chkLarge');
-const chkLowPrice = document.getElementById('chkLowPrice');
-const searchInput = document.getElementById('searchInput');
 
+// --- 9. FILTER SYSTEM ---
+
+var chkEV = document.getElementById("chkEV");
+var chkLarge = document.getElementById("chkLarge");
+var chkLowPrice = document.getElementById("chkLowPrice");
+var searchInput = document.getElementById("searchInput");
+
+// This function looks at which boxes are checked and what search text is entered,
+// then returns only the spots that match.
 function getFilteredSpots() {
-    let filtered = parkingSpots;
+    var results = [];
 
-    if (chkEV.checked) {
-        filtered = filtered.filter(s => s.hasEV === true);
-    }
-    if (chkLarge.checked) {
-        filtered = filtered.filter(s => s.hasLargeAccess === true);
-    }
-    if (chkLowPrice.checked) {
-        filtered = filtered.filter(s => s.basePrice <= 100);
+    for (var i = 0; i < parkingSpots.length; i++) {
+        var spot = parkingSpots[i];
+        var show = true;  // assume we show it, then check each filter
+
+        // Filter: EV Friendly
+        if (chkEV.checked && spot.hasEV === false) {
+            show = false;
+        }
+
+        // Filter: Large Vehicle Access
+        if (chkLarge.checked && spot.hasLargeAccess === false) {
+            show = false;
+        }
+
+        // Filter: Low Price (100 or less)
+        if (chkLowPrice.checked && spot.basePrice > 100) {
+            show = false;
+        }
+
+        // Filter: Search text
+        var query = searchInput.value.trim().toLowerCase();
+        if (query.length > 0) {
+            var matchesLocality = spot.locality.toLowerCase().indexOf(query) !== -1;
+            var matchesName = spot.name.toLowerCase().indexOf(query) !== -1;
+            if (!matchesLocality && !matchesName) {
+                show = false;
+            }
+        }
+
+        if (show) {
+            results.push(spot);
+        }
     }
 
-    // Search by locality
-    const query = searchInput.value.trim().toLowerCase();
-    if (query.length > 0) {
-        filtered = filtered.filter(s =>
-            s.locality.toLowerCase().includes(query) ||
-            s.name.toLowerCase().includes(query)
-        );
-    }
-
-    return filtered;
+    return results;
 }
 
+// Re-draw the markers whenever a filter changes
 function applyFilters() {
-    const spots = getFilteredSpots();
+    var spots = getFilteredSpots();
     renderMarkers(spots);
 }
 
-// Attach event listeners
-[chkEV, chkLarge, chkLowPrice].forEach(cb => {
-    cb.addEventListener('change', applyFilters);
-});
+// Listen for checkbox changes
+chkEV.addEventListener("change", applyFilters);
+chkLarge.addEventListener("change", applyFilters);
+chkLowPrice.addEventListener("change", applyFilters);
 
-searchInput.addEventListener('input', applyFilters);
+// Listen for typing in the search box
+searchInput.addEventListener("input", applyFilters);
 
-// ── 9. Filter Dropdown Toggle ────────────────────────────────
-const filterToggleBtn = document.getElementById('filterToggleBtn');
-const filterMenu = document.getElementById('filterMenu');
 
-filterToggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isOpen = filterMenu.classList.toggle('open');
-    filterToggleBtn.setAttribute('aria-expanded', isOpen);
-});
+// --- 10. OPEN/CLOSE THE FILTER DROPDOWN ---
 
-// Close dropdown when clicking outside
-document.addEventListener('click', (e) => {
-    if (!filterMenu.contains(e.target) && !filterToggleBtn.contains(e.target)) {
-        filterMenu.classList.remove('open');
-        filterToggleBtn.setAttribute('aria-expanded', 'false');
+var filterToggleBtn = document.getElementById("filterToggleBtn");
+var filterMenu = document.getElementById("filterMenu");
+
+filterToggleBtn.addEventListener("click", function (e) {
+    e.stopPropagation();  // dont let the click bubble up
+
+    // Toggle the dropdown open/closed
+    if (filterMenu.classList.contains("open")) {
+        filterMenu.classList.remove("open");
+    } else {
+        filterMenu.classList.add("open");
     }
 });
 
-// ── 10. Panel Close Button ──────────────────────────────────
-document.getElementById('panelClose').addEventListener('click', () => {
-    document.getElementById('panelLeft').classList.add('hidden');
-    document.getElementById('priceCard').classList.add('hidden');
+// Click anywhere else on the page = close the dropdown
+document.addEventListener("click", function (e) {
+    if (!filterMenu.contains(e.target) && !filterToggleBtn.contains(e.target)) {
+        filterMenu.classList.remove("open");
+    }
+});
 
-    // Reset active marker
+
+// --- 11. CLOSE BUTTON ON THE LEFT PANEL ---
+
+document.getElementById("panelClose").addEventListener("click", function () {
+    document.getElementById("panelLeft").classList.add("hidden");
+    document.getElementById("priceCard").classList.add("hidden");
+
+    // Un-highlight the pin
     if (activeMarkerEl) {
-        activeMarkerEl.classList.remove('active');
+        activeMarkerEl.classList.remove("active");
         activeMarkerEl = null;
     }
     selectedSpot = null;
 });
 
-// ── 11. Initial Render ──────────────────────────────────────
+
+// --- 12. START THE APP ---
+// Draw all markers when the page first loads
+
 renderMarkers(parkingSpots);
