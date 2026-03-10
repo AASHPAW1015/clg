@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ParkPoint – Find Driveway Parking</title>
+  <meta name="description" content="Locate, filter, and book private driveway parking spaces in real-time across Mumbai." />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- App Styles -->
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <!-- ========== MAP CONTAINER ========== -->
+  <div id="map"></div>
+
+  <!-- ========== TOP PILL BAR (Search + Filters) ========== -->
+  <header class="top-bar pill-bar" id="topBar">
+    <!-- Filter Dropdown (Left) -->
+    <div class="dropdown" id="filterDropdown">
+      <button class="dropdown-toggle" id="filterToggleBtn" aria-haspopup="true" aria-expanded="false">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Filters</span>
+        <i class="fa-solid fa-chevron-down" style="font-size:.7rem;"></i>
+      </button>
+      <div class="dropdown-menu" id="filterMenu" role="menu">
+        <label class="dropdown-item" id="filterEV">
+          <input type="checkbox" id="chkEV" />
+          <i class="fa-solid fa-bolt text-green"></i>
+          <span>EV Friendly</span>
+        </label>
+        <label class="dropdown-item" id="filterLarge">
+          <input type="checkbox" id="chkLarge" />
+          <i class="fa-solid fa-truck text-amber"></i>
+          <span>Large Vehicle Access</span>
+        </label>
+        <label class="dropdown-item" id="filterLowPrice">
+          <input type="checkbox" id="chkLowPrice" />
+          <i class="fa-solid fa-tag text-green"></i>
+          <span>Low Price (≤ ₹100/hr)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div style="width:1px; height:24px; background:var(--border-color);"></div>
+
+    <!-- Search Input (Right) -->
+    <div style="display:flex; align-items:center; gap:8px; flex:1;">
+      <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted);"></i>
+      <input
+        type="text"
+        class="input-field"
+        id="searchInput"
+        placeholder="Search locality…"
+        style="border:none; background:transparent; padding:6px 0; flex:1;"
+      />
+    </div>
+  </header>
+
+  <!-- ========== LEFT PANEL (Spot Details) ========== -->
+  <aside class="panel-left glass-panel hidden" id="panelLeft">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+      <h2 id="spotName" style="font-size:1.2rem; font-weight:700;">—</h2>
+      <button id="panelClose" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1.1rem;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <p id="spotLocality" class="text-muted" style="font-size:.85rem; margin-top:2px;"></p>
+
+    <!-- Rating -->
+    <div class="detail-row" style="margin-top:14px;">
+      <i class="fa-solid fa-star" style="color:var(--accent-amber);"></i>
+      <span id="spotRating">—</span>
+      <span class="text-muted" style="margin-left:auto; font-size:.8rem;" id="spotSize"></span>
+    </div>
+
+    <!-- Amenities -->
+    <div style="margin-top:14px;">
+      <span class="text-muted" style="font-size:.75rem; text-transform:uppercase; letter-spacing:1px;">Specialities</span>
+      <div class="amenity-tags" id="spotAmenities"></div>
+    </div>
+
+    <!-- Google Maps link -->
+    <div class="detail-row" style="margin-top:14px;">
+      <i class="fa-solid fa-map-location-dot"></i>
+      <a id="spotGmaps" href="#" target="_blank" rel="noopener">Open in Google Maps</a>
+    </div>
+
+    <!-- Book Spot button -->
+    <a class="btn btn-primary" id="bookBtn" href="#" style="margin-top:20px; width:100%; text-align:center;">
+      <i class="fa-solid fa-calendar-check"></i>
+      Book Spot
+    </a>
+  </aside>
+
+  <!-- ========== RIGHT PRICE CARD ========== -->
+  <div class="price-card glass-panel hidden" id="priceCard">
+    <div class="price-value" id="priceValue">—</div>
+    <div class="price-unit">/hr</div>
+    <div class="peak-label" id="peakLabel">⚡ Dynamic Pricing Active (Peak)</div>
+  </div>
+
+  <!-- ========== PEAK TOGGLE (Bottom Right) ========== -->
+  <div class="peak-toggle-box glass-panel" id="peakBox">
+    <div class="toggle-wrapper">
+      <span class="toggle-label">Peak Hours</span>
+      <input type="checkbox" class="toggle" id="peakToggle" />
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>

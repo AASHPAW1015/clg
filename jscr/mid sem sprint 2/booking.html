@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParkPoint – Confirm Booking</title>
+    <meta name="description" content="Confirm your driveway parking reservation before time runs out." />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- App Styles -->
+    <link rel="stylesheet" href="index.css" />
+
+    <style>
+        /* Allow scrolling on the booking page */
+        body {
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========== BOOKING CONTAINER ========== -->
+    <div class="booking-container">
+        <div class="booking-card glass-panel animate-in">
+
+            <!-- Back link -->
+            <a href="map.html" style="font-size:.85rem; display:inline-flex; align-items:center; gap:6px;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Map
+            </a>
+
+            <!-- Spot Name -->
+            <h1 id="bookingSpotName">Loading…</h1>
+
+            <!-- Hold Timer -->
+            <div class="timer-display">
+                <div class="timer-value" id="timerValue">05:00</div>
+                <div class="timer-label">Spot held for you – book before time runs out</div>
+            </div>
+
+            <!-- Pricing Table -->
+            <table class="pricing-table" id="pricingTable">
+                <tr>
+                    <td>Base Rate</td>
+                    <td id="cellBase">—</td>
+                </tr>
+                <tr>
+                    <td>Peak Multiplier</td>
+                    <td id="cellMultiplier">—</td>
+                </tr>
+                <tr class="total-row">
+                    <td>Total</td>
+                    <td id="cellTotal">—</td>
+                </tr>
+            </table>
+
+            <!-- Payment Options -->
+            <div>
+                <p
+                    style="font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-secondary); margin-bottom:12px;">
+                    Payment Method
+                </p>
+                <div class="payment-options" id="paymentOptions">
+                    <div class="payment-option" data-method="upi">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                        <span>UPI</span>
+                    </div>
+                    <div class="payment-option" data-method="card">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <span>Card</span>
+                    </div>
+                    <div class="payment-option" data-method="fastag">
+                        <i class="fa-solid fa-road"></i>
+                        <span>FASTag</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Confirm Button -->
+            <button class="btn btn-primary" id="confirmBtn" style="width:100%;" disabled>
+                <i class="fa-solid fa-lock"></i>
+                Confirm Booking
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== SUCCESS OVERLAY ========== -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+        <h2>Booking Confirmed!</h2>
+        <p id="successMsg">Your spot has been reserved.</p>
+        <a href="map.html" class="btn btn-secondary" style="margin-top:8px;">
+            <i class="fa-solid fa-map"></i> Back to Map
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="booking.js"></script>
+</body>
+
+</html>

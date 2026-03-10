@@ -1,0 +1,583 @@
+/* ============================================================
+   ParkPoint – Design System & Global Styles
+   ============================================================ */
+
+/* ---------- Google Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  /* Core palette */
+  --bg-primary:    #0d1117;
+  --bg-secondary:  #161b22;
+  --bg-card:       #1c2333;
+  --bg-glass:      rgba(22, 27, 34, 0.75);
+
+  /* Accent colours */
+  --accent-green:  #00e676;
+  --accent-amber:  #ffab00;
+  --accent-red:    #ff5252;
+  --accent-blue:   #448aff;
+  --accent-purple: #b388ff;
+
+  /* Text */
+  --text-primary:  #e6edf3;
+  --text-secondary:#8b949e;
+  --text-muted:    #484f58;
+
+  /* Borders & shadows */
+  --border-color:  rgba(255,255,255,0.08);
+  --shadow-sm:     0 2px  8px rgba(0,0,0,.25);
+  --shadow-md:     0 4px 20px rgba(0,0,0,.40);
+  --shadow-lg:     0 8px 40px rgba(0,0,0,.55);
+  --shadow-glow:   0 0 20px rgba(0,230,118,.25);
+
+  /* Radii */
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  22px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(.4,0,.2,1);
+  --transition-base: 300ms cubic-bezier(.4,0,.2,1);
+  --transition-slow: 500ms cubic-bezier(.4,0,.2,1);
+
+  /* Typography */
+  --font-ui:   'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Z-layers */
+  --z-map:     1;
+  --z-panels:  400;
+  --z-overlay: 500;
+  --z-modal:   600;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;           /* map pages are viewport-locked */
+}
+
+a { color: var(--accent-blue); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--accent-green); }
+
+img { max-width: 100%; display: block; }
+button, input, select { font-family: inherit; font-size: inherit; }
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: var(--radius-pill); }
+
+/* ---------- Utility Classes ---------- */
+.text-green  { color: var(--accent-green);  }
+.text-amber  { color: var(--accent-amber);  }
+.text-red    { color: var(--accent-red);    }
+.text-muted  { color: var(--text-secondary);}
+.font-mono   { font-family: var(--font-mono); }
+
+/* ---------- Glassmorphism Panel ---------- */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Pill-shaped bar ---------- */
+.pill-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--accent-green);
+  color: var(--bg-primary);
+}
+.btn-primary:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: var(--accent-green);
+}
+
+.btn-danger {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+/* ---------- Inputs ---------- */
+.input-field {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+  padding: 10px 18px;
+  transition: border-color var(--transition-fast);
+}
+.input-field::placeholder { color: var(--text-muted); }
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(0,230,118,.15);
+}
+
+/* ---------- Toggle Switch ---------- */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toggle-label { font-size: .85rem; font-weight: 600; }
+.toggle {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--text-muted);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.toggle::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+.toggle:checked {
+  background: var(--accent-green);
+}
+.toggle:checked::before {
+  transform: translateX(24px);
+}
+
+/* ---------- Badge / Tag ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: .75rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-color);
+}
+
+/* ---------- Dropdown ---------- */
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+.dropdown-toggle:hover { background: rgba(255,255,255,0.06); }
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  padding: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: var(--z-overlay);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: all var(--transition-fast);
+}
+.dropdown-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  font-size: .9rem;
+}
+.dropdown-item:hover { background: rgba(255,255,255,0.06); }
+.dropdown-item input[type="checkbox"] {
+  accent-color: var(--accent-green);
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Map-page Layout ---------- */
+#map {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-map);
+}
+
+/* Top pill bar */
+.top-bar {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-panels);
+  width: min(94vw, 700px);
+}
+
+/* Left overview panel */
+.panel-left {
+  position: fixed;
+  top: 90px;
+  left: 18px;
+  width: 320px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  padding: 24px;
+  z-index: var(--z-panels);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+.panel-left.hidden {
+  transform: translateX(-340px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Right price card */
+.price-card {
+  position: fixed;
+  bottom: 100px;
+  right: 18px;
+  width: 200px;
+  padding: 22px;
+  text-align: center;
+  z-index: var(--z-panels);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+.price-card.hidden {
+  transform: translateX(220px);
+  opacity: 0;
+  pointer-events: none;
+}
+.price-card .price-value {
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+  line-height: 1.1;
+}
+.price-card .price-unit {
+  font-size: .85rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+.price-card .peak-label {
+  display: none;
+  margin-top: 10px;
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--accent-red);
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.price-card .peak-label.visible { display: block; }
+
+/* Peak toggle (bottom right) */
+.peak-toggle-box {
+  position: fixed;
+  bottom: 24px;
+  right: 18px;
+  z-index: var(--z-panels);
+  padding: 14px 20px;
+}
+
+/* ---------- Custom Leaflet Marker ---------- */
+.custom-marker {
+  width: 30px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.custom-marker .pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--text-secondary);
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+.custom-marker .pin .pin-inner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transform: rotate(45deg);
+}
+.custom-marker.active .pin {
+  background: var(--accent-green);
+  box-shadow: 0 0 14px rgba(0,230,118,.5);
+}
+
+/* ---------- Panel Detail Items ---------- */
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.detail-row:last-child { border-bottom: none; }
+.detail-row i { color: var(--accent-green); width: 20px; text-align: center; }
+
+.amenity-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+/* ---------- Booking Page ---------- */
+.booking-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  overflow-y: auto;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(0,230,118,.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(68,138,255,.06) 0%, transparent 50%),
+    var(--bg-primary);
+}
+
+.booking-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.booking-card h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Timer */
+.timer-display {
+  text-align: center;
+}
+.timer-display .timer-value {
+  font-family: var(--font-mono);
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  letter-spacing: 4px;
+  transition: color var(--transition-fast);
+}
+.timer-display .timer-value.warning { color: var(--accent-amber); }
+.timer-display .timer-value.danger  { color: var(--accent-red); }
+.timer-display .timer-label {
+  font-size: .8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Pricing Table */
+.pricing-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+.pricing-table tr td {
+  padding: 10px 16px;
+  background: rgba(255,255,255,0.03);
+}
+.pricing-table tr td:first-child {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.pricing-table tr td:last-child {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+.pricing-table tr.total-row td {
+  background: rgba(0,230,118,0.08);
+  font-size: 1.1rem;
+}
+.pricing-table tr.total-row td:last-child {
+  color: var(--accent-green);
+  font-weight: 700;
+}
+
+/* Payment Options */
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.payment-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 8px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.03);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+.payment-option i { font-size: 1.5rem; color: var(--text-secondary); transition: color var(--transition-fast); }
+.payment-option span { font-size: .8rem; font-weight: 600; color: var(--text-secondary); transition: color var(--transition-fast); }
+.payment-option:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+}
+.payment-option.selected {
+  border-color: var(--accent-green);
+  background: rgba(0,230,118,0.06);
+}
+.payment-option.selected i,
+.payment-option.selected span { color: var(--accent-green); }
+
+/* Success overlay */
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,17,23,0.92);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: var(--z-modal);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+.success-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.success-overlay .success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  color: var(--bg-primary);
+  animation: pop .4s cubic-bezier(.34,1.56,.64,1);
+}
+.success-overlay h2 { font-size: 1.6rem; }
+.success-overlay p  { color: var(--text-secondary); }
+
+/* ---------- Animations ---------- */
+@keyframes pop {
+  0%   { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-in {
+  animation: fadeInUp .45s var(--transition-base) both;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .panel-left {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 45vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .panel-left.hidden { transform: translateY(100%); }
+  .price-card { bottom: 50%; right: 10px; width: 160px; }
+  .top-bar { width: 96vw; }
+  .payment-options { grid-template-columns: 1fr; }
+  .booking-card { padding: 24px; }
+}
