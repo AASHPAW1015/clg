@@ -1,6 +1,6 @@
 // ============================================================
 // ParkPoint – Parking Spots Data
-// This is our fake database. Just an array of objects.
+// This is ze fake database. Just an array of objects.
 // Each object = one parking spot.
 // ============================================================
 
