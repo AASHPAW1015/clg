@@ -1,0 +1,11 @@
+.buttonMainContainer{
+    display: flex;
+    max-width: fit-content;
+}
+
+.buttonComponent{
+    border: 2px solid blue;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    margin: .5rem;
+}
