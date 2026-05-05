@@ -5,6 +5,8 @@ import Call from './components/Call.jsx'
 import EffectHook from './components/EffectHook.jsx'
 import ThemeProvider from './components/ContextHook/ThemeProvider.jsx'
 import Navbar from './components/Navbar.jsx'
+import FocusInput from './components/UseRef.jsx'
+import FocsInput from './components/Test.jsx'
 
 function App() {
 
@@ -15,7 +17,11 @@ function App() {
         <Practical/>
         <Call/>
         <EffectHook/>
+        <FocusInput/>
       </ThemeProvider>
+      <FocsInput/>
+
+
 
 
     </>
