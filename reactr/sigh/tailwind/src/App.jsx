@@ -7,6 +7,8 @@ import ThemeProvider from './components/ContextHook/ThemeProvider.jsx'
 import Navbar from './components/Navbar.jsx'
 import FocusInput from './components/UseRef.jsx'
 import FocsInput from './components/Test.jsx'
+import CustomHookUse from './components/CustomHook/CustomHookUse.jsx'
+import Input from './components/CustomHook/Input.jsx'
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
         <FocusInput/>
       </ThemeProvider>
       <FocsInput/>
+      <CustomHookUse/>
+      <Input />
 
 
 
