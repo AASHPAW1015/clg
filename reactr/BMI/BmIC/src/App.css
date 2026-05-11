@@ -47,6 +47,15 @@
   transition: color 0.4s ease;
 }
 
+.bmi-label {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  min-height: 24px;
+  transition: opacity 0.3s ease;
+}
+
 /* ── Gauge wrapper ── */
 .gauge-wrapper {
   margin-bottom: 12px;

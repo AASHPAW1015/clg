@@ -17,6 +17,9 @@ const TopDisplay = () => {
 
   return (
     <div className="bmi-display" style={{ color: displayColor }}>
+      <div className="bmi-label">
+        {category ? category.label : ""}
+      </div>
       {BMI !== null ? BMI : "--"}
     </div>
   );

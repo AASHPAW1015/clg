@@ -4,14 +4,19 @@ const Sidebar = () => {
   const [kg, setKg] = useState("");
   const [lbs, setLbs] = useState("");
   const [result, setResult] = useState(null);
+  const [copyVal, setCopyVal] = useState("");
   const [mode, setMode] = useState("kgToLbs");
   const [open, setOpen] = useState(false);
 
   function handleConvert() {
     if (mode === "kgToLbs" && kg) {
-      setResult((parseFloat(kg) * 2.20462).toFixed(2) + " lbs");
+      const val = (parseFloat(kg) * 2.20462).toFixed(2);
+      setResult(val + " lbs");
+      setCopyVal(val);
     } else if (mode === "lbsToKg" && lbs) {
-      setResult((parseFloat(lbs) / 2.20462).toFixed(2) + " kg");
+      const val = (parseFloat(lbs) / 2.20462).toFixed(2);
+      setResult(val + " kg");
+      setCopyVal(val);
     }
   }
 
@@ -29,7 +34,6 @@ const Sidebar = () => {
         transition: "right 0.4s ease",
       }}
     >
-      {/* tab handle — always visible */}
       <button
         className="sidebar-tab"
         onClick={() => setOpen(!open)}
@@ -41,8 +45,6 @@ const Sidebar = () => {
       >
         {open ? "CLOSE" : "WEIGHT"}
       </button>
-
-      {/* panel — 160px fixed width */}
       <div className="sidebar-panel">
         <div className="sidebar-content">
           <button
@@ -71,7 +73,7 @@ const Sidebar = () => {
               <div className="result">{result}</div>
               <button
                 className="copy-btn"
-                onClick={() => navigator.clipboard.writeText(result)}
+                onClick={() => navigator.clipboard.writeText(copyVal)}
               >
                 Copy
               </button>
