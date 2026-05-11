@@ -1,0 +1,3 @@
+.arrow path {
+  fill: var(--arrow-color, #1a1a1a);
+}

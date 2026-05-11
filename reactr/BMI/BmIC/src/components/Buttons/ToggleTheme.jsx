@@ -1,7 +1,9 @@
-const ToggleTheme = () => {
+const ToggleTheme = ({ theme, toggleTheme }) => {
   return (
-    <div></div>
-  )
-}
+    <button onClick={toggleTheme}>
+      {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+    </button>
+  );
+};
 
-export default ToggleTheme
+export default ToggleTheme;
