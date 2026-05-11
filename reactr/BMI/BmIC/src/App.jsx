@@ -75,7 +75,7 @@ function AppContent() {
       <Redirect
         position="right"
         text="DOCS"
-        link="your-github-link"
+        link="https://github.com/AASHPAW1015/clg/tree/main/reactr/BMI/BmIC"
         hoverText="GitHub"
       />
     </>
