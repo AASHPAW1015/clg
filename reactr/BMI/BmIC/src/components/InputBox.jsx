@@ -10,53 +10,49 @@ const InputBox = ({ field, unit, onChange }) => {
     onChange(e.target.value);
   }
 
+  // imperial height — ft and in side by side
   if (field === "height" && unit === "imperial") {
     return (
-      <div>
-        <label>ft</label>
+      <div className="input-row">
+        <label>Height</label>
         <input
           type="number"
+          placeholder="ft"
           value={ft}
           onChange={(e) => {
             setFt(e.target.value);
             onChange(Number(e.target.value) * 12 + Number(inches));
           }}
         />
-        <label>in</label>
+        <span className="sub-label">ft</span>
         <input
           type="number"
+          placeholder="in"
           value={inches}
           onChange={(e) => {
             setInches(e.target.value);
             onChange(Number(ft) * 12 + Number(e.target.value));
           }}
         />
+        <span className="sub-label">in</span>
       </div>
     );
   }
 
+  // standard single input
+  const placeholders = {
+    metric: { weight: "kg", height: "cm", age: "yrs" },
+    imperial: { weight: "lbs", age: "yrs" },
+  };
+
   return (
-    <div>
+    <div className="input-row">
       <label>{field}</label>
       <input
         type="number"
         value={value}
         onChange={handleChange}
-        placeholder={
-          unit === "imperial"
-            ? field === "weight"
-              ? "lbs"
-              : field === "age"
-                ? "yrs"
-                : ""
-            : field === "weight"
-              ? "kg"
-              : field === "height"
-                ? "cm"
-                : field === "age"
-                  ? "yrs"
-                  : ""
-        }
+        placeholder={placeholders[unit]?.[field] || ""}
       />
     </div>
   );

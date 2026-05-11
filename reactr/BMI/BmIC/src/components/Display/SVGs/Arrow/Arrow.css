@@ -1,3 +1,6 @@
-.arrow path {
-  fill: var(--arrow-color, #1a1a1a);
+/* Arrow fill — handled by theme in App.css */
+/* .app.light .arrow path and .app.dark .arrow path are in App.css */
+
+.arrow {
+  pointer-events: none;
 }

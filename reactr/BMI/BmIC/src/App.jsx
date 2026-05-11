@@ -28,8 +28,15 @@ function AppContent() {
 
   return (
     <>
-      <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+      {/* theme toggle — fixed top right */}
+      <div style={{ position: "fixed", top: "16px", right: "16px", zIndex: 10 }}>
+        <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
+      </div>
+
+      {/* bmi number */}
       <TopDisplay />
+
+      {/* gauge */}
       <div
         className="gauge-wrapper"
         style={{
@@ -42,22 +49,34 @@ function AppContent() {
         <Arc />
         <Arrow />
       </div>
-      <div className="input-panel" style={{ position: "relative" }}>
-        <UnitToggle />
-        {unit === "imperial" ? <Imperial /> : <Metric />}
-        <Sidebar />
+
+      {/* input section */}
+      <div style={{ width: "563px", marginTop: "12px" }}>
+        {/* tabs sit on top of panel */}
+        <div className="unit-toggle">
+          <UnitToggle />
+        </div>
+        {/* panel body */}
+        <div className="panel-body">
+          {unit === "imperial" ? <Imperial /> : <Metric />}
+        </div>
       </div>
+
+      {/* weight converter — slides from right edge */}
+      <Sidebar />
+
+      {/* footer */}
       <Redirect
         position="left"
         text="© AASHPAW"
-        link="your-license-link"
+        link="https://opensource.org/licenses/MIT"
         hoverText="License"
       />
       <Redirect
         position="right"
         text="DOCS"
         link="your-github-link"
-        hoverText="GitHub Documentation"
+        hoverText="GitHub"
       />
     </>
   );

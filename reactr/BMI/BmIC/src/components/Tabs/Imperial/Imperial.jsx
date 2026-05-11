@@ -11,13 +11,6 @@ const Imperial = () => {
   const { handleCalculate } = useContext(CalcContext);
 
   function onCalculate() {
-    console.log("weight:", weight);
-    console.log("height:", height);
-    console.log("age:", age);
-    handleCalculate(weight, height, "imperial", age);
-  }
-
-  function onCalculate() {
     handleCalculate(weight, height, "imperial", age);
   }
 
