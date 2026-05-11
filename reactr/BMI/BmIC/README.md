@@ -12,8 +12,11 @@ https://unbenignant-dottily-thurman.ngrok-free.dev/
 ---
 
 ## Screenshots
+<img width="1510" height="934" alt="image" src="https://github.com/user-attachments/assets/fe7111d7-c5ec-477f-88dc-d9d0a9ab2289" />
 
+<img width="1510" height="934" alt="image" src="https://github.com/user-attachments/assets/6d748fed-7fe0-477c-b093-cdd2a58d45f8" />
 
+<img width="1510" height="934" alt="image" src="https://github.com/user-attachments/assets/9a4e9d6f-cfe8-4d2d-a5ce-9b79b46f79c0" />
 
 ---
 
