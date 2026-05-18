@@ -29,7 +29,9 @@ function AppContent() {
   return (
     <>
       {/* theme toggle — fixed top right */}
-      <div style={{ position: "fixed", top: "16px", right: "16px", zIndex: 10 }}>
+      <div
+        style={{ position: "fixed", top: "16px", right: "16px", zIndex: 10 }}
+      >
         <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
       </div>
 
@@ -74,7 +76,7 @@ function AppContent() {
       />
       <Redirect
         position="right"
-        text="DOCS"
+        text="↗DOCS"
         link="https://github.com/AASHPAW1015/clg/tree/main/reactr/BMI/BmIC"
         hoverText="GitHub"
       />
