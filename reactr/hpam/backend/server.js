@@ -1,14 +1,19 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const Razorpay = require("razorpay");
 
-const MONGODB_URI =
-  "mongodb+srv://arpitpepcoding_db_user:yk4gPm1Cz1dV9BEw@cluster0.c7j3uay.mongodb.net/?appName=Cluster0";
-const RAZORPAY_KEY_ID = "rzp_test_SpznTpYNfwaPgW";
-const RAZORPAY_KEY_SECRET = "pBmA9XDT4zT0l3MufZqihZWx";
-const APP_NAME = "MyShop";
-const PORT = 3001;
+const MONGODB_URI = process.env.MONGODB_URI;
+const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID;
+const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET;
+const APP_NAME = process.env.APP_NAME || "MyShop";
+const PORT = process.env.PORT || 3001;
+
+if (!MONGODB_URI || !RAZORPAY_KEY_ID || !RAZORPAY_KEY_SECRET) {
+  console.error("ERROR: Missing required environment variables. Check your .env file.");
+  process.exit(1);
+}
 
 const razorpay = new Razorpay({
   key_id: RAZORPAY_KEY_ID,
