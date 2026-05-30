@@ -1,0 +1,39 @@
+.work-intro p {
+  font-size: clamp(15px, 1.8vw, 19px); line-height: 1.7;
+  max-width: 680px; color: #2c2620; margin-bottom: 44px;
+}
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.project {
+  position: relative; background: var(--card); border: 1px solid var(--line);
+  border-radius: 6px; padding: 30px 28px 26px; overflow: hidden;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+.project:hover { transform: translateY(-4px); border-color: var(--c); box-shadow: 0 14px 30px -18px var(--c); }
+.project-bar { position: absolute; top: 0; left: 0; height: 5px; width: 100%; background: var(--c); }
+.project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.project-name {
+  font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 21px;
+  letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.wip {
+  font-family: 'JetBrains Mono'; font-size: 10px; font-weight: 500; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 100px; background: var(--c); color: #fff; letter-spacing: 0.05em;
+}
+.project-year { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.project-tagline { color: var(--c); font-weight: 500; font-size: 14px; margin-bottom: 14px; }
+.project-body { font-size: 14px; line-height: 1.65; color: #43392f; margin-bottom: 20px; }
+.project-foot { display: flex; flex-direction: column; gap: 16px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tech {
+  font-size: 11px; padding: 5px 10px; border-radius: 3px;
+  background: var(--bg); border: 1px solid var(--line); color: var(--muted);
+}
+.project-link {
+  align-self: flex-start; font-size: 13px; font-weight: 500; color: var(--c);
+  border-bottom: 1.5px solid transparent; transition: border-color .15s;
+}
+.project-link:hover { border-color: var(--c); }
+.also { margin-top: 30px; font-size: 13.5px; color: var(--muted); text-align: center; }
+.no-ai { margin-top: 14px; font-size: 13px; color: var(--red); text-align: center; letter-spacing: 0.01em; }
+
+@media (max-width: 820px) { .projects { grid-template-columns: 1fr; } }

@@ -1,0 +1,43 @@
+.tech-scroller {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  overflow: hidden;
+}
+
+.tech-scroller__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 clamp(20px, 5vw, 72px);
+  margin-bottom: 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tech-scroller__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Let brand colors shine through */
+.tech-scroller .logoloop__node {
+  opacity: 0.7;
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.25s ease;
+  filter: drop-shadow(0 0 0px transparent);
+}
+
+.tech-scroller .logoloop__item:hover .logoloop__node {
+  opacity: 1;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* Override the svg display:block rule from global styles */
+.tech-scroller .logoloop__node svg {
+  display: inline-block;
+}
