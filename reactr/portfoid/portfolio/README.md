@@ -85,23 +85,6 @@ npm run preview    # preview the built output locally
 
 ---
 
-## Make the Contact Form Send Real Email
-
-The site is static, so it uses **Web3Forms** (free, no backend) to deliver messages to your inbox.
-
-1. Go to **https://web3forms.com**
-2. Enter your email address
-3. They email you an **Access Key**
-4. Open `src/pages/Contact.jsx` and paste it in:
-
-```js
-const ACCESS_KEY = "PASTE_YOUR_WEB3FORMS_ACCESS_KEY_HERE";
-```
-
-Until then, the form runs in harmless **demo mode** and won't send anything.
-
----
-
 ## Editing Content
 
 | What | File | Where |
