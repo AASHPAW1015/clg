@@ -4,6 +4,8 @@ A multi-page React portfolio: Home / Work / About / Contact.
 Vibrant light theme, smooth scrolling (Lenis), a custom cursor, a pixel-art cat
 that follows your pointer, and a contact form that sends real email.
 
+**Live site:** [aashpawportfoilo.vercel.app](https://aashpawportfoilo.vercel.app/#/)
+
 ---
 
 ## Tech Stack
