@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  /* Turbo AI: near-black space background, electric purple accent. */
+  --background: #000000;
+  --foreground: #ffffff;
+  --brand: #6823ff;
+  --brand-soft: rgba(104, 35, 255, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---- Space / starfield background ----
+   A fixed layer behind all content: scattered stars (SVG tile) plus a faint
+   teal + purple nebula glow, the way the real turbo.ai night-sky backdrop reads. */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #000;
+  background-image:
+    radial-gradient(60% 50% at 50% 38%, rgba(20, 70, 60, 0.18) 0%, transparent 70%),
+    radial-gradient(50% 40% at 85% 12%, rgba(104, 35, 255, 0.12) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='226.7' cy='105.6' r='1.2' opacity='0.28'/%3E%3Ccircle cx='574.9' cy='65.9' r='1.0' opacity='0.28'/%3E%3Ccircle cx='355.2' cy='26.2' r='0.8' opacity='0.5'/%3E%3Ccircle cx='168.5' cy='385.7' r='0.5' opacity='0.75'/%3E%3Ccircle cx='86.7' cy='156.3' r='1.2' opacity='0.6'/%3E%3Ccircle cx='43.3' cy='409.9' r='0.5' opacity='0.84'/%3E%3Ccircle cx='32.6' cy='600.9' r='0.7' opacity='0.5'/%3E%3Ccircle cx='378.5' cy='399.6' r='1.0' opacity='0.74'/%3E%3Ccircle cx='126.5' cy='407.1' r='1.2' opacity='0.36'/%3E%3Ccircle cx='68.2' cy='498.5' r='1.0' opacity='0.29'/%3E%3Ccircle cx='144.2' cy='476.3' r='0.8' opacity='0.72'/%3E%3Ccircle cx='325.9' cy='646.4' r='0.7' opacity='0.43'/%3E%3Ccircle cx='556.1' cy='489.3' r='0.6' opacity='0.3'/%3E%3Ccircle cx='210.2' cy='346.6' r='0.7' opacity='0.69'/%3E%3Ccircle cx='201.6' cy='686.1' r='0.5' opacity='0.56'/%3E%3Ccircle cx='115.5' cy='239.4' r='0.8' opacity='0.5'/%3E%3Ccircle cx='673.4' cy='54.3' r='1.0' opacity='0.59'/%3E%3Ccircle cx='612.8' cy='219.6' r='1.2' opacity='0.46'/%3E%3Ccircle cx='347.7' cy='557.8' r='0.5' opacity='0.75'/%3E%3Ccircle cx='661.3' cy='331.9' r='1.2' opacity='0.29'/%3E%3Ccircle cx='511.8' cy='216.7' r='1.0' opacity='0.85'/%3E%3Ccircle cx='575.3' cy='199.2' r='0.8' opacity='0.78'/%3E%3Ccircle cx='242.9' cy='658.5' r='0.7' opacity='0.35'/%3E%3Ccircle cx='82.0' cy='41.3' r='0.7' opacity='0.33'/%3E%3Ccircle cx='173.3' cy='273.7' r='0.8' opacity='0.3'/%3E%3Ccircle cx='314.4' cy='384.6' r='0.6' opacity='0.74'/%3E%3Ccircle cx='604.8' cy='194.9' r='0.8' opacity='0.84'/%3E%3Ccircle cx='477.9' cy='266.3' r='0.6' opacity='0.34'/%3E%3Ccircle cx='123.4' cy='162.4' r='0.6' opacity='0.26'/%3E%3Ccircle cx='581.8' cy='127.6' r='0.7' opacity='0.25'/%3E%3Ccircle cx='293.3' cy='258.5' r='1.0' opacity='0.44'/%3E%3Ccircle cx='87.8' cy='601.4' r='1.0' opacity='0.64'/%3E%3Ccircle cx='517.8' cy='319.7' r='1.2' opacity='0.73'/%3E%3Ccircle cx='274.7' cy='279.3' r='0.5' opacity='0.54'/%3E%3Ccircle cx='280.3' cy='133.4' r='0.6' opacity='0.51'/%3E%3Ccircle cx='76.9' cy='420.5' r='0.5' opacity='0.25'/%3E%3Ccircle cx='105.9' cy='71.0' r='0.7' opacity='0.62'/%3E%3Ccircle cx='49.2' cy='145.6' r='0.8' opacity='0.34'/%3E%3Ccircle cx='176.6' cy='243.2' r='0.7' opacity='0.53'/%3E%3Ccircle cx='80.7' cy='341.6' r='0.8' opacity='0.54'/%3E%3Ccircle cx='218.3' cy='100.9' r='1.2' opacity='0.46'/%3E%3Ccircle cx='185.3' cy='580.2' r='0.6' opacity='0.56'/%3E%3Ccircle cx='143.7' cy='666.4' r='0.7' opacity='0.34'/%3E%3Ccircle cx='380.2' cy='18.9' r='1.0' opacity='0.43'/%3E%3Ccircle cx='450.0' cy='63.7' r='0.7' opacity='0.56'/%3E%3Ccircle cx='635.8' cy='249.0' r='0.6' opacity='0.57'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover, cover, 700px 700px;
+  background-repeat: no-repeat, no-repeat, repeat;
+}
+
+/* Card gradient used across feature/testimonial cards. */
+.card-grad {
+  background: linear-gradient(
+    135deg,
+    rgba(104, 35, 255, 0.08) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+/* Purple highlight behind key phrases in testimonials. */
+.hl {
+  position: relative;
+  display: inline-block;
+}
+.hl > span:first-child {
+  position: relative;
+  z-index: 10;
+  padding: 0 2px;
+  color: #fff;
+}
+.hl > span:last-child {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background-color: var(--brand);
+  transform: rotate(-1deg);
+}
+
+/* ---- Infinite logo marquee ---- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
