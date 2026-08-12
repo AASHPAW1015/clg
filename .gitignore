@@ -1,6 +1,55 @@
+# OS
 .DS_Store
 **/.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+.pnpm-debug.log*
+
+# Build output
+dist/
+build/
+.vite/
+.next/
+.cache/
+coverage/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# C / C++ / Java
 *.o
 *.out
-tp/
+*.obj
+*.exe
+*.class
+a.out
 
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Local
+tp/
+*.log

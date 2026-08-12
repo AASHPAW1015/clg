@@ -12,6 +12,19 @@ const Employees = () => {
         setEmployees(data); //array of objects{ }
       });
   }
+  function handleDelete(id) {
+    fetch(`${API_BASE_URL}/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        loadEmployeeData();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   useEffect(() => {
     loadEmployeeData();
@@ -29,8 +42,10 @@ const Employees = () => {
             <th>Department</th>
             <th>Role</th>
             <th>Salary</th>
+            <th>DELETE</th>
           </tr>
         </thead>
+
         <tbody>
           {employees &&
             employees.map((e) => (
@@ -43,6 +58,9 @@ const Employees = () => {
                 <td>{e.department}</td>
                 <td>{e.role}</td>
                 <td>{e.salary}</td>
+                <td>
+                  <button onClick={() => handleDelete(e.id)}>DELETE</button>
+                </td>
               </tr>
             ))}
         </tbody>

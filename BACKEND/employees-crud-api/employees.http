@@ -1,0 +1,67 @@
+@baseUrl = http://localhost:4000
+@employeeId = 2
+
+### Get all employees
+GET {{baseUrl}}/employee
+
+### Get one employee by id
+GET {{baseUrl}}/employee/{{employeeId}}
+
+### Get employee that does not exist -> 404
+GET {{baseUrl}}/employee/999
+
+### Create employee
+POST {{baseUrl}}/employee
+Content-Type: application/json
+
+{
+  "name": "New Person",
+  "username": "newperson",
+  "email": "newperson@example.com",
+  "password": "new@123",
+  "department": "IT",
+  "role": "Developer",
+  "salary": 50000
+}
+
+### Create employee missing a field -> 400
+POST {{baseUrl}}/employee
+Content-Type: application/json
+
+{
+  "name": "Only Name"
+}
+
+### Update employee
+PUT {{baseUrl}}/employee/{{employeeId}}
+Content-Type: application/json
+
+{
+  "name": "Rahul Sharma",
+  "username": "rahul",
+  "email": "rahul@example.com",
+  "password": "Rahul@123",
+  "department": "Sales",
+  "role": "Senior Sales Executive",
+  "salary": 45000
+}
+
+### Update employee that does not exist -> 404
+PUT {{baseUrl}}/employee/999
+Content-Type: application/json
+
+{
+  "name": "Ghost",
+  "username": "ghost",
+  "email": "ghost@example.com",
+  "password": "ghost@123",
+  "department": "IT",
+  "role": "Developer",
+  "salary": 1000
+}
+
+### Delete employee
+DELETE {{baseUrl}}/employee/{{employeeId}}
+
+### Delete employee that does not exist -> 404
+DELETE {{baseUrl}}/employee/999
