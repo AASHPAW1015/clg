@@ -1,0 +1,136 @@
+@baseUrl = http://localhost:4000
+
+# kulala: put cursor inside a block, run <leader>Rs
+# fill @hospitalId by hand after running "create hospital"
+@hospitalId = PASTE_AN_ID_HERE
+
+### welcome route
+GET {{baseUrl}}/
+
+### register — happy path
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "username": "another test",
+  "email": "aaaaaash@test.com",
+  "password": "secret123"
+}
+
+### register — duplicate username, expect 400
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "username": "aash",
+  "email": "different@test.com",
+  "password": "secret123"
+}
+
+### register — missing password, expect 400
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "username": "nopass",
+  "email": "nopass@test.com"
+}
+
+### login — happy path, expect 200
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "username": "aash",
+  "password": "secret123"
+}
+
+### login — wrong password, expect 401
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "username": "aash",
+  "password": "wrongpassword"
+}
+
+### login — unknown user, expect 401
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "username": "ghost",
+  "password": "secret123"
+}
+
+### login — no password, passport says "Missing credentials"
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "username": "aash"
+}
+
+### create hospital, expect 201 — copy _id into @hospitalId above
+POST {{baseUrl}}/hospitals
+Content-Type: application/json
+
+{
+  "name": "Apollo",
+  "city": "Indore",
+  "totalBeds": 100,
+  "availableBeds": 12
+}
+
+### create hospital — zero free beds, for the /available test
+POST {{baseUrl}}/hospitals
+Content-Type: application/json
+
+{
+  "name": "City Care",
+  "city": "Bhopal",
+  "totalBeds": 50,
+  "availableBeds": 0
+}
+
+### create hospital — missing city, expect 400
+POST {{baseUrl}}/hospitals
+Content-Type: application/json
+
+{
+  "name": "Broken Hospital",
+  "totalBeds": 10,
+  "availableBeds": 5
+}
+
+### all hospitals, expect 200
+GET {{baseUrl}}/hospitals
+
+### only hospitals with free beds — City Care must NOT appear
+GET {{baseUrl}}/hospitals/available
+
+### hospital by id, expect 200
+GET {{baseUrl}}/hospitals/{{hospitalId}}
+
+### valid ObjectId shape but no such doc, expect 404
+GET {{baseUrl}}/hospitals/507f1f77bcf86cd799439011
+
+### garbage id — this is the CastError case
+GET {{baseUrl}}/hospitals/notarealid
+
+### update hospital, expect 200 with NEW values
+PUT {{baseUrl}}/hospitals/{{hospitalId}}
+Content-Type: application/json
+
+{
+  "name": "Apollo",
+  "city": "Indore",
+  "totalBeds": 120,
+  "availableBeds": 30
+}
+
+### delete hospital, expect 200
+DELETE {{baseUrl}}/hospitals/{{hospitalId}}
+
+### delete same id again, expect 404
+DELETE {{baseUrl}}/hospitals/{{hospitalId}}

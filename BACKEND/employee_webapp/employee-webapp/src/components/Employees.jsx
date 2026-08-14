@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../api";
 
 const Employees = () => {
   const [employees, setEmployees] = useState([]);
+  const navigate = useNavigate();
 
   function loadEmployeeData() {
     fetch(`${API_BASE_URL}/`)
@@ -24,6 +26,10 @@ const Employees = () => {
       .catch((error) => {
         console.log(error);
       });
+  }
+
+  function routethatshit() {
+    navigate("/add-employee");
   }
 
   useEffect(() => {
@@ -65,6 +71,8 @@ const Employees = () => {
             ))}
         </tbody>
       </table>
+      <br />
+      <button onClick={routethatshit}>ADD</button>
     </>
   );
 };

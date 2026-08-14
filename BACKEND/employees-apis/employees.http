@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:4000
+@employeeId = PASTE_ID_HERE
+
+### Get all employees
+GET {{baseUrl}}/employees
+
+### Create employee
+# @name createEmployee
+POST {{baseUrl}}/employees
+Content-Type: application/json
+
+{
+  "name": "Aash Paw",
+  "email": "aash@example.com",
+  "department": "Engineering",
+  "role": "Backend Developer",
+  "salary": "60000"
+}
+
+### Update employee (replace employeeId above, or use the id from the create response)
+PUT {{baseUrl}}/employees/{{employeeId}}
+Content-Type: application/json
+
+{
+  "department": "Platform",
+  "role": "Senior Backend Developer",
+  "salary": "85000"
+}
+
+### Delete employee
+DELETE {{baseUrl}}/employees/{{employeeId}}
+
+### Update using id captured from the create request above
+PUT {{baseUrl}}/employees/{{createEmployee.response.body.employee._id}}
+Content-Type: application/json
+
+{
+  "salary": "90000"
+}
+
+### Delete using id captured from the create request above
+DELETE {{baseUrl}}/employees/{{createEmployee.response.body.employee._id}}
+
+### Error case: missing required fields -> 500
+POST {{baseUrl}}/employees
+Content-Type: application/json
+
+{
+  "name": "No Email Person"
+}
