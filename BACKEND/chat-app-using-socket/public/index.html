@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <h1>Chat App</h1>
+
+    <h2>Live Users: <span id="usersCount">0</span></h2>
+
+    <div id="login-box">
+      Enter Username: <input id="username" />
+      <button onclick="joinChat()">JOIN CHATTTT!!</button>
+    </div>
+
+    <div id="chat-box">
+      Enter Your Message:
+      <input
+        type="text"
+        onfocus="startTyping()"
+        onblur="stopTyping()"
+        id="message"
+      />
+      <button onclick="sendMessage()">Send Message</button>
+    </div>
+
+    <div id="typing"></div>
+
+    <div id="message-box"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      const socket = io();
+
+      document.getElementById("login-box").style.display = "block";
+      document.getElementById("chat-box").style.display = "none";
+
+      socket.on("users-count", (count) => {
+        document.getElementById("usersCount").innerHTML = count;
+      });
+
+      function joinChat() {
+        let username = document.getElementById("username").value;
+        socket.emit("new-user-joined", username);
+        document.getElementById("login-box").style.display = "none";
+        document.getElementById("chat-box").style.display = "block";
+      }
+
+      function sendMessage() {
+        let message = document.getElementById("message").value;
+        socket.emit("send-message", message);
+        document.getElementById("message").value = "";
+      }
+
+      function startTyping() {
+        socket.emit("start-typing");
+      }
+
+      socket.on("typing", (username) => {
+        document.getElementById("typing").innerHTML = `${username} is typing...`;
+      });
+
+      function stopTyping() {
+        socket.emit("stop-typing");
+      }
+
+      socket.on("typing-stop", () => {
+        document.getElementById("typing").innerHTML = "";
+      });
+
+
+
+      socket.on("receive-message", (data) => {
+        let p = document.createElement("p");
+        p.innerText = `${data.username} ----> ${data.message}`;
+        document.getElementById("message-box").appendChild(p);
+      });
+    </script>
+  </body>
+</html>

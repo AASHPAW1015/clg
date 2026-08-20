@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users CRUD App</title>
+  </head>
+  <body>
+    <h1>Users CRUD App Using Socket</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody id="result"></tbody>
+    </table>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      const socket = io();
+
+      socket.on("users", (users) => {
+        document.getElementById("result").innerHTML = "";
+        users.find((user) => {
+          document.getElementById("result").innerHTML += `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.password}</td>
+                </tr>
+                `;
+        });
+      });
+    </script>
+  </body>
+</html>

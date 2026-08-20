@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stop Watch</title>
+  </head>
+  <body>
+    <h1>Stop Watch</h1>
+
+    <h2><span id="time">00:00:00</span></h2>
+
+    <div>
+      <button onClick="start()">Start</button>
+      <button onClick="stop()">Stop</button>
+      <button onClick="reset()">Reset</button>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      const socket = io();
+
+      socket.on("timer", (data) => {
+        document.getElementById("time").innerHTML =
+          `${data.hours}:${data.minutes}:${data.seconds}`;
+      });
+
+      function start() {
+        socket.emit("timerStart");
+      }
+
+      function stop() {
+        socket.emit("timerStop");
+      }
+
+      function reset() {
+        socket.emit("timerReset");
+      }
+    </script>
+  </body>
+</html>

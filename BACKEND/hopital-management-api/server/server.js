@@ -1,10 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const db = require("./config/db");
 const passport = require("./config/passport");
 const authRouter = require("./router/authThang");
+const hospitalRouter = require("./router/hospitalThang");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.use((request, response, next) => {
@@ -19,6 +22,7 @@ app.get("/", (request, response) => {
 });
 
 app.use("/", authRouter);
+app.use("/hospitals", hospitalRouter);
 
 app.listen(4000, () => {
   console.log("server is running on port 4000!!");
