@@ -1,0 +1,48 @@
+body {
+    font-family: monospace;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+h1, h2 {
+    font-size: 18px;
+}
+
+input, button {
+    font-family: monospace;
+    font-size: 14px;
+    padding: 4px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    margin: 10px 0;
+}
+
+.cell {
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 12px;
+}
+
+th, td {
+    border: 1px solid #000;
+    padding: 4px;
+    text-align: left;
+}
