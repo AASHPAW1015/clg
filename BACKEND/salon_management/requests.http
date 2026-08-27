@@ -1,0 +1,110 @@
+@host = http://localhost:4000
+
+### Welcome
+GET {{host}}/
+
+### Register
+POST {{host}}/register
+Content-Type: application/json
+
+{
+  "username": "ashutosh",
+  "email": "ashu@test.com",
+  "password": "secret123"
+}
+
+### Login -- copy the token from the response into @token below
+# @name login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+  "email": "ashu@test.com",
+  "password": "secret123"
+}
+
+@token = {{login.response.body.token}}
+
+### Get all salons
+GET {{host}}/salons
+
+### Top 5 salons by rating
+GET {{host}}/salons/top
+
+### Salons in a city
+GET {{host}}/salons/city/pune
+
+### Create salon (protected)
+# @name createSalon
+POST {{host}}/salons
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Glow Studio",
+  "city": "Pune",
+  "address": "FC Road",
+  "rating": 4.6
+}
+
+@salonId = {{createSalon.response.body.salon.id}}
+
+### Get salon by id
+GET {{host}}/salons/{{salonId}}
+
+### Update salon (protected)
+PUT {{host}}/salons/{{salonId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "rating": 4.9
+}
+
+### Services of a salon
+GET {{host}}/salons/{{salonId}}/services
+
+### Add service (protected)
+# @name createService
+POST {{host}}/salons/{{salonId}}/services
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "serviceName": "Haircut",
+  "price": 350,
+  "duration": "40 min",
+  "isAvailable": true
+}
+
+@serviceId = {{createService.response.body.service.id}}
+
+### All available services
+GET {{host}}/services/available
+
+### Update service (protected)
+PUT {{host}}/services/{{serviceId}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "price": 400,
+  "isAvailable": false
+}
+
+### Delete service (protected)
+DELETE {{host}}/services/{{serviceId}}
+Authorization: Bearer {{token}}
+
+### Delete salon (protected)
+DELETE {{host}}/salons/{{salonId}}
+Authorization: Bearer {{token}}
+
+### No token -- should be 401
+POST {{host}}/salons
+Content-Type: application/json
+
+{
+  "name": "Nope",
+  "city": "Nowhere"
+}

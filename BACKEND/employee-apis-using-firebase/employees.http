@@ -1,0 +1,52 @@
+@baseUrl = http://localhost:4000
+### Register user
+POST {{baseUrl}}/users/register
+Content-Type: application/json
+
+{
+  "name": "ashutosh",
+  "username": "AASHPAW",
+  "email": "aaaaa@a.com",
+  "password": "ghuyhgjkhjkiuh"
+}
+
+### Login
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "username": "AASHPAW",
+  "password": "ghuyhgjkhjkiuh"
+}
+
+### Get all employees
+GET {{baseUrl}}/employees
+token: {{token}}
+
+### Get employee by id
+GET {{baseUrl}}/employees/REPLACE_WITH_ID
+token: {{token}}
+
+### Create employes
+POST {{baseUrl}}/employees
+Content-Type: application/json
+token: {{token}}
+
+{
+  "name": "Test Employee",
+  "role": "Dev"
+}
+
+### Update employee
+PUT {{baseUrl}}/employees/REPLACE_WITH_ID
+Content-Type: application/json
+token: {{token}}
+
+{
+  "name": "Updated Name",
+  "role": "Lead Dev"
+}
+
+### Delete employee
+DELETE {{baseUrl}}/employees/REPLACE_WITH_ID
+token: {{token}}

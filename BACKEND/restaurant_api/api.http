@@ -1,0 +1,250 @@
+# Restaurant Management API
+# kulala.nvim -- <leader>Rs runs the request under the cursor
+#
+# run these three first, in order, then everything else resolves:
+#   1. @login            -> stores {{authToken}}
+#   2. @createRestaurant -> stores {{restaurantId}}
+#   3. @createMenuItem   -> stores {{menuItemId}}
+#
+# each one saves what the next needs via a post-request script (the "> {% ... %}"
+# block). kulala keeps client.global values across runs, so you can send requests
+# one at a time. NOTE: the {{name.response.body.$.field}} style does NOT work on
+# kulala-core 0.30.0 -- it silently resolves to an empty string.
+
+@host = http://localhost:3000
+@contentType = application/json
+
+@username = aash
+@email = aash@test.com
+@password = pass123
+
+### welcome route
+GET {{host}}/
+Accept: application/json
+
+### register a new user
+# @name register
+POST {{host}}/register
+Content-Type: {{contentType}}
+
+{
+  "username": "{{username}}",
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### register again -> 400 duplicate
+POST {{host}}/register
+Content-Type: {{contentType}}
+
+{
+  "username": "{{username}}",
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### register missing password -> 400
+POST {{host}}/register
+Content-Type: {{contentType}}
+
+{
+  "username": "nopass",
+  "email": "nopass@test.com"
+}
+
+### login -- RUN THIS FIRST, everything protected below reuses its token
+# @name login
+POST {{host}}/login
+Content-Type: {{contentType}}
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+> {%
+client.global.set("authToken", response.body.token);
+%}
+
+### login with wrong password -> 401
+POST {{host}}/login
+Content-Type: {{contentType}}
+
+{
+  "email": "{{email}}",
+  "password": "wrongpassword"
+}
+
+### list all restaurants
+GET {{host}}/restaurants
+Accept: application/json
+
+### top 5 by rating
+GET {{host}}/restaurants/top
+Accept: application/json
+
+### create restaurant -- RUN THIS SECOND
+# @name createRestaurant
+POST {{host}}/restaurants
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Spice Route",
+  "city": "Delhi",
+  "address": "CP Block A",
+  "cuisine": "North Indian",
+  "rating": 4.7
+}
+
+> {%
+client.global.set("restaurantId", response.body.restaurant._id);
+%}
+
+### create without token -> 401
+POST {{host}}/restaurants
+Content-Type: {{contentType}}
+
+{
+  "name": "No Auth Diner",
+  "city": "Delhi",
+  "address": "Nowhere",
+  "cuisine": "Fusion",
+  "rating": 3.5
+}
+
+### create with a garbage token -> 401
+POST {{host}}/restaurants
+Content-Type: {{contentType}}
+Authorization: Bearer garbage.token.here
+
+{
+  "name": "Bad Token Cafe",
+  "city": "Delhi",
+  "address": "Nowhere",
+  "cuisine": "Fusion",
+  "rating": 3.5
+}
+
+### create with rating 9 -> 400
+POST {{host}}/restaurants
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Overrated",
+  "city": "Delhi",
+  "address": "Somewhere",
+  "cuisine": "Fusion",
+  "rating": 9
+}
+
+### get restaurant by id
+GET {{host}}/restaurants/{{restaurantId}}
+Accept: application/json
+
+### get with a malformed id -> 400
+GET {{host}}/restaurants/notavalidid
+Accept: application/json
+
+### get a valid but nonexistent id -> 404
+GET {{host}}/restaurants/6a8697690645c4116cc22000
+Accept: application/json
+
+### update restaurant
+PUT {{host}}/restaurants/{{restaurantId}}
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Spice Route Deluxe",
+  "city": "Delhi",
+  "address": "CP Block A",
+  "cuisine": "North Indian",
+  "rating": 4.9
+}
+
+### add menu item -- RUN THIS THIRD
+# @name createMenuItem
+POST {{host}}/restaurants/{{restaurantId}}/menu
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Butter Chicken",
+  "price": 420,
+  "isAvailable": true
+}
+
+> {%
+client.global.set("menuItemId", response.body.menuItem._id);
+%}
+
+### add another one
+POST {{host}}/restaurants/{{restaurantId}}/menu
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Garlic Naan",
+  "price": 80
+}
+
+### add menu item without token -> 401
+POST {{host}}/restaurants/{{restaurantId}}/menu
+Content-Type: {{contentType}}
+
+{
+  "name": "Sneaky Dish",
+  "price": 100
+}
+
+### add to a nonexistent restaurant -> 404
+POST {{host}}/restaurants/6a8697690645c4116cc22000/menu
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Ghost Dish",
+  "price": 100
+}
+
+### add with a negative price -> 400
+POST {{host}}/restaurants/{{restaurantId}}/menu
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Free Lunch",
+  "price": -50
+}
+
+### get the menu for this restaurant (public)
+GET {{host}}/restaurants/{{restaurantId}}/menu
+Accept: application/json
+
+### update menu item
+PUT {{host}}/menu/{{menuItemId}}
+Content-Type: {{contentType}}
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "Butter Chicken (Large)",
+  "price": 520,
+  "isAvailable": true
+}
+
+### delete menu item without token -> 401
+DELETE {{host}}/menu/{{menuItemId}}
+
+### delete menu item
+DELETE {{host}}/menu/{{menuItemId}}
+Authorization: Bearer {{authToken}}
+
+### delete restaurant (its menu items go too)
+DELETE {{host}}/restaurants/{{restaurantId}}
+Authorization: Bearer {{authToken}}
+
+### unknown route -> 404
+GET {{host}}/nonsense
+Accept: application/json

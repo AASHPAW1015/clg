@@ -1,0 +1,8 @@
+this proj uses:
+-- express
+-- jwt, middleware token
+-- bcryptjs
+-- mongodb (compass)
+-- foreign key (dont know if it is applied properly.)
+
+
