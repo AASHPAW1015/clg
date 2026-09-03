@@ -49,6 +49,7 @@ a.out
 .vscode/
 .idea/
 *.swp
+.claude/
 
 # Local
 tp/
