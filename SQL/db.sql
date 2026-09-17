@@ -21,4 +21,4 @@ CREATE TABLE orders (
 
 alter table outlet add column outlet_name varchar(100) not null;
 
-
+select * from users;
