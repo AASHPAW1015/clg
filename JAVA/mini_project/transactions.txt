@@ -2,3 +2,6 @@ TYPE            AMOUNT (Rs.)
 ----------------------------
 Deposit             34567.00
 Withdrawal           3457.00
+Deposit               123.00
+Deposit            123123.00
+Deposit            123123.00

@@ -33,7 +33,7 @@ class Customer {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
+     }
 }
 
 
@@ -279,6 +279,8 @@ class BankManager {
         accountNumbers = new HashSet<>();
         sortedAccounts = new TreeMap<>();
         accountArray = new AccountArray(100);
+
+        loadFromFile();
     }
 
     public boolean addAccount(Account account) {
@@ -348,13 +350,77 @@ class BankManager {
         // Accounts are current state, not a history, so the file is
         // rewritten with the full list every time. Appending here would
         // stack up a stale copy of an account on every balance change.
+        //
+        // Each account is saved as one line with commas between the
+        // values, for example:
+        //     101,Ashutosh Pawar,9876543210,Savings,7500.0
+        // The table from getAllAccounts() is nice to look at but hard to
+        // read back, because names can contain spaces. Commas are easy
+        // to split on, which is what loadFromFile() needs.
         try (FileWriter writer = new FileWriter("accounts.txt")) {
 
-            writer.write(getAllAccounts());
+            for (Account account : sortedAccounts.values()) {
+
+                writer.write(
+                        account.getAccountNumber() + "," +
+                        account.getCustomer().getName() + "," +
+                        account.getCustomer().getPhone() + "," +
+                        account.getAccountType() + "," +
+                        account.getBalance() + "\n"
+                );
+            }
 
         } catch (IOException e) {
 
             System.out.println("Error while writing accounts file.");
+        }
+    }
+
+    public void loadFromFile() {
+
+        try (Scanner sc = new Scanner(new File("accounts.txt"))) {
+
+            while (sc.hasNextLine()) {
+
+                String line = sc.nextLine();
+
+                // "101,Ashutosh Pawar,9876543210,Savings,7500.0"
+                // becomes ["101", "Ashutosh Pawar", "9876543210",
+                //          "Savings", "7500.0"]
+                String[] parts = line.split(",");
+
+                if (parts.length != 5) {
+                    continue;
+                }
+
+                try {
+
+                    int accountNumber = Integer.parseInt(parts[0]);
+                    String name = parts[1];
+                    String phone = parts[2];
+                    String type = parts[3];
+                    double balance = Double.parseDouble(parts[4]);
+
+                    Customer customer = new Customer(name, phone);
+
+                    addAccount(new Account(
+                            accountNumber,
+                            type,
+                            balance,
+                            customer
+                    ));
+
+                } catch (NumberFormatException e) {
+
+                    // A damaged line is skipped so one bad row does not
+                    // stop every other account from loading.
+                    System.out.println("Skipped bad line: " + line);
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+
+            // First run, nothing saved yet. Start with no accounts.
         }
     }
 
@@ -598,6 +664,16 @@ public class BankAccountManagementSystem extends JFrame
                     return;
                 }
 
+                if (name.contains(",") || phone.contains(",")) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Name and phone cannot contain commas."
+                    );
+
+                    return;
+                }
+
                 if (bank.isFull()) {
 
                     JOptionPane.showMessageDialog(
@@ -820,6 +896,16 @@ public class BankAccountManagementSystem extends JFrame
 
                 String type =
                         accountType.getSelectedItem().toString();
+
+                if (name.contains(",") || phone.contains(",")) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Name and phone cannot contain commas."
+                    );
+
+                    return;
+                }
 
                 if (bank.updateAccount(
                         accountNumber,
