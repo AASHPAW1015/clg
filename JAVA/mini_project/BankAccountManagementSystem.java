@@ -185,6 +185,8 @@ class TransactionManager {
     public TransactionManager() {
         transactions = new LinkedList<>();
         savedCount = 0;
+
+        loadFromFile();
     }
 
     public void addTransaction(String type, double amount) {
@@ -240,6 +242,45 @@ class TransactionManager {
 
             System.out.println("Error while writing file.");
         }
+    }
+
+    public void loadFromFile() {
+
+        try (Scanner sc = new Scanner(new File("transactions.txt"))) {
+
+            while (sc.hasNextLine()) {
+
+                String line = sc.nextLine();
+
+                // "Deposit             15000.50" becomes
+                // ["Deposit", "15000.50"]. "\\s+" means "one or more
+                // spaces", so all the padding counts as a single gap.
+                String[] parts = line.trim().split("\\s+");
+
+                // The header line has 3 words and the dashes line has 1,
+                // so keeping only 2-word lines skips both.
+                if (parts.length != 2) {
+                    continue;
+                }
+
+                try {
+
+                    addTransaction(parts[0], Double.parseDouble(parts[1]));
+
+                } catch (NumberFormatException e) {
+
+                    System.out.println("Skipped bad line: " + line);
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+
+            // First run, nothing saved yet. Start with no transactions.
+        }
+
+        // Everything just loaded is already in the file, so the next
+        // save must not write it a second time.
+        savedCount = transactions.size();
     }
 
     public String readFromFile() {
