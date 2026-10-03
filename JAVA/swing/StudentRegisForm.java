@@ -85,7 +85,7 @@ public class StudentRegisForm {
 
       // roll number must be digits only
       try {
-        Integer.parseInt(roll);
+        Long.parseLong(roll);
       } catch (NumberFormatException ex) {
         JOptionPane.showMessageDialog(
           frame,

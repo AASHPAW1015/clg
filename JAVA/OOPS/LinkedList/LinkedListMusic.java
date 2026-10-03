@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class LinkedListDemo {
+public class LinkedListMusic {
     public static void main(String[] args) {
         LinkedList<String> playlist = new LinkedList<>();
 

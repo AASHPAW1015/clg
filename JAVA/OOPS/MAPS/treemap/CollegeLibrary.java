@@ -7,7 +7,7 @@ public class CollegeLibrary {
     //value = book name 
     TreeMap<Integer, String> books = new TreeMap<>();
 
-    // add da books
+    // add the books
     books.put(106,"Java Programming");
     books.put(102,"Data Structures");
     books.put(105,"Operating Systems");
@@ -17,7 +17,7 @@ public class CollegeLibrary {
 
     //display all books in a sorted order
     
-    System.out.println("=====COLLEHE LIBRARY=====");
+    System.out.println("=====COLLEGE LIBRARY=====");
     System.out.println("All books:");
 
     for (Integer bookID : books.keySet()){
@@ -44,7 +44,7 @@ public class CollegeLibrary {
       System.out.println(bookID + " -> " + books.get(bookID));
     }
 
-    // search for a specific boob 
+    // search for a specific book
     int searchID = 104;
 
     System.out.println("\nSearching for Book ID: " + searchID);
@@ -56,7 +56,7 @@ public class CollegeLibrary {
       System.out.println("Book not found with the id: " + searchID + " !!!!");
     }
 
-    //remove a boob
+    //remove a book
     int removeID = 102;
 
     System.out.println("\nRemoving Book ID: " + removeID);

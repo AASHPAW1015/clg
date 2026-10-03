@@ -1,0 +1,5 @@
+Java is an object oriented programming language.
+Swing is used to build GUI applications in Java.
+A HashMap stores data as key and value pairs.
+File handling lets a program read and write files.
+Exceptions are handled using try and catch blocks.

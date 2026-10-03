@@ -49,6 +49,40 @@ public class ATM {
     frame.add(interestButton);
     frame.add(outputScroll);
 
+    depositButton.addActionListener(e->{
+      String name = accField.getText();
+      double balance = Double.parseDouble(balField.getText());
+      double amount = Double.parseDouble(amountField.getText());
+
+      balance = balance + amount;
+      balField.setText(String.valueOf(balance));
+      outputArea.append(name + " deposited " + amount + "\n");
+      outputArea.append("Balance: " + balance + "\n\n");
+    });
+
+    withdrawButton.addActionListener(e->{
+      String name = accField.getText();
+      double balance = Double.parseDouble(balField.getText());
+      double amount = Double.parseDouble(amountField.getText());
+
+      if (amount > balance) {
+        outputArea.append("Insufficient balance. Available: " + balance + "\n\n");
+      } else {
+        balance = balance - amount;
+        balField.setText(String.valueOf(balance));
+        outputArea.append(name + " withdrew " + amount + "\n");
+        outputArea.append("Balance: " + balance + "\n\n");
+      }
+    });
+
+    interestButton.addActionListener(e->{
+      double balance = Double.parseDouble(balField.getText());
+
+      // 5% interest on the current balance
+      double interest = balance * 0.05;
+      outputArea.append("Interest (5%): " + interest + "\n\n");
+    });
+
     frame.setSize(670,330);
     frame.setLayout(null);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,7 +1,7 @@
 import java.awt.event.*;
 import javax.swing.*;
 
-public class MouseShit {
+public class MouseEvents {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Mouse Example");
 
