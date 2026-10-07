@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maintenance</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>Maintenance Schedule</h1>
+
+    <div id="nav"></div>
+
+    <h3>Coming Up</h3>
+    <ul id="alerts"></ul>
+
+    <div id="schedule-form" hidden>
+      <h3>Schedule a Service</h3>
+      <label for="vehicle">Vehicle : </label>
+      <select id="vehicle"></select>
+      <label for="type">Type : </label>
+      <select id="type">
+        <option value="oil_change">Oil change (every 10,000 km)</option>
+        <option value="tire_rotation">Tire rotation (every 8,000 km)</option>
+        <option value="brake_inspection">Brake inspection (every 20,000 km)</option>
+        <option value="general_service">General service (every 15,000 km)</option>
+      </select>
+      <label for="dueAtKm">Due at km : </label>
+      <input type="number" id="dueAtKm" placeholder="blank = auto" />
+      <button onclick="schedule()">SCHEDULE</button>
+    </div>
+
+    <br />
+
+    <div>
+      <label for="status">Status : </label>
+      <select id="status" onchange="loadMaintenance()">
+        <option value="scheduled">Scheduled</option>
+        <option value="completed">Completed</option>
+        <option value="">All</option>
+      </select>
+      <span id="count"></span>
+    </div>
+
+    <br />
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Vehicle</th>
+          <th>Type</th>
+          <th>Due At (km)</th>
+          <th>Km Left</th>
+          <th>Days Left</th>
+          <th>Alert</th>
+          <th>Status</th>
+          <th>Cost</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody id="maintenance-rows"></tbody>
+    </table>
+
+    <script>
+      let user = null;
+
+      function loadMaintenance() {
+        const status = document.getElementById("status").value;
+        const query = status ? `?status=${status}` : "";
+
+        callApi(`/maintenance${query}`)
+          .then(({ response, data }) => {
+            console.log(data);
+            if (handleUnauthorized(response, data)) return;
+
+            const alerts = document.getElementById("alerts");
+            alerts.innerHTML = "";
+            data.alerts.forEach((alert) => {
+              const li = document.createElement("li");
+              li.textContent = alert;
+              alerts.appendChild(li);
+            });
+
+            document.getElementById("count").textContent = `${data.count} record(s)`;
+
+            const rows = document.getElementById("maintenance-rows");
+            rows.innerHTML = "";
+            data.maintenance.forEach((record) => {
+              const tr = document.createElement("tr");
+              addCells(tr, [
+                record.vehicle.plateNumber,
+                label(record.type),
+                record.dueAtKm,
+                record.forecast.kmLeft ?? "-",
+                record.forecast.daysLeft ?? "-",
+                record.forecast.alert,
+                record.status,
+                record.status === "completed" ? money(record.cost) : "-",
+              ]);
+
+              const td = document.createElement("td");
+              if (user.role !== "driver" && record.status === "scheduled") {
+                td.appendChild(makeButton("COMPLETE", () => complete(record)));
+              }
+              tr.appendChild(td);
+              rows.appendChild(tr);
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            showError("could not reach the server!");
+          });
+      }
+
+      function schedule() {
+        const body = {
+          vehicle: document.getElementById("vehicle").value,
+          type: document.getElementById("type").value,
+        };
+        const dueAtKm = document.getElementById("dueAtKm").value;
+        if (dueAtKm) body.dueAtKm = Number(dueAtKm);
+
+        runAction("/maintenance", "POST", body, "service scheduled", () => {
+          document.getElementById("dueAtKm").value = "";
+          loadMaintenance();
+        });
+      }
+
+      function complete(record) {
+        Swal.fire({
+          title: `${record.vehicle.plateNumber} ${label(record.type)} done`,
+          input: "number",
+          inputLabel: "Cost (₹)",
+          inputValue: 0,
+          showCancelButton: true,
+          confirmButtonText: "Mark completed",
+        }).then((result) => {
+          if (!result.isConfirmed) return;
+          const body = { status: "completed", cost: Number(result.value) };
+          runAction(
+            `/maintenance/${record._id}`,
+            "PUT",
+            body,
+            "completed, next service booked",
+            loadMaintenance,
+          );
+        });
+      }
+
+      requireUser().then((current) => {
+        if (!current) return;
+        user = current;
+        if (user.role !== "driver") {
+          document.getElementById("schedule-form").hidden = false;
+          fillVehicleSelect("vehicle");
+        }
+        loadMaintenance();
+      });
+    </script>
+  </body>
+</html>

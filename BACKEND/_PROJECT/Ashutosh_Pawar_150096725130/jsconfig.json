@@ -1,0 +1,1 @@
+{"exclude": ["node_modules"], "include": ["**/*"], "compilerOptions": {"jsx": "react-jsx", "module": "es2020", "baseUrl": ".", "moduleResolution": "bundler"}}

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repairs</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>Repairs</h1>
+
+    <div id="nav"></div>
+
+    <h3>Report an Issue</h3>
+    <div>
+      <label for="vehicle">Vehicle : </label>
+      <select id="vehicle"></select>
+      <label for="issue">Issue : </label>
+      <input type="text" id="issue" placeholder="e.g. Brake noise when stopping" size="40" />
+      <label for="severity">Severity : </label>
+      <select id="severity">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button onclick="reportIssue()">REPORT</button>
+    </div>
+
+    <br />
+
+    <div>
+      <label for="status">Status : </label>
+      <select id="status" onchange="loadRepairs()">
+        <option value="">All</option>
+        <option value="reported">Reported</option>
+        <option value="scheduled">Scheduled</option>
+        <option value="in_progress">In progress</option>
+        <option value="completed">Completed</option>
+      </select>
+      <span id="count"></span>
+    </div>
+
+    <br />
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Vehicle</th>
+          <th>Issue</th>
+          <th>Severity</th>
+          <th>Status</th>
+          <th>Reported By</th>
+          <th>Reported At</th>
+          <th>Mechanic</th>
+          <th>Slot</th>
+          <th>Downtime</th>
+          <th>Cost</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody id="repair-rows"></tbody>
+    </table>
+
+    <script>
+      let user = null;
+      let parts = [];
+      let mechanics = [];
+
+      function loadRepairs() {
+        const status = document.getElementById("status").value;
+        const query = status ? `?status=${status}` : "";
+
+        callApi(`/repairs${query}`)
+          .then(({ response, data }) => {
+            console.log(data);
+            if (handleUnauthorized(response, data)) return;
+
+            document.getElementById("count").textContent = `${data.count} repair(s)`;
+
+            const rows = document.getElementById("repair-rows");
+            rows.innerHTML = "";
+            data.repairs.forEach((repair) => {
+              const tr = document.createElement("tr");
+              addCells(tr, [
+                repair.vehicle ? repair.vehicle.plateNumber : "-",
+                repair.issue,
+                repair.severity,
+                label(repair.status),
+                repair.reportedBy ? repair.reportedBy.name : "-",
+                formatDate(repair.reportedAt),
+                repair.mechanic ? repair.mechanic.name : "-",
+                formatDate(repair.scheduledAt),
+                `${repair.downtimeHours} h`,
+                money(repair.totalCost),
+              ]);
+
+              const td = document.createElement("td");
+              if (user.role !== "driver" && repair.status !== "completed") {
+                if (user.role === "admin") {
+                  td.appendChild(makeButton("ASSIGN", () => assign(repair)));
+                }
+                td.appendChild(makeButton("SCHEDULE", () => schedule(repair)));
+                if (repair.status !== "in_progress") {
+                  td.appendChild(makeButton("START", () => start(repair)));
+                }
+                td.appendChild(makeButton("COMPLETE", () => complete(repair)));
+              }
+              tr.appendChild(td);
+              rows.appendChild(tr);
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            showError("could not reach the server!");
+          });
+      }
+
+      function update(repair, body, successText, after) {
+        runAction(`/repairs/${repair._id}`, "PUT", body, successText, after || loadRepairs);
+      }
+
+      function reportIssue() {
+        const body = {
+          vehicle: document.getElementById("vehicle").value,
+          issue: document.getElementById("issue").value,
+          severity: document.getElementById("severity").value,
+        };
+        runAction("/repairs", "POST", body, "issue reported, mechanics are notified", () => {
+          document.getElementById("issue").value = "";
+          loadRepairs();
+        });
+      }
+
+      function assign(repair) {
+        const options = {};
+        mechanics.forEach((mechanic) => {
+          options[mechanic._id] = mechanic.name;
+        });
+        Swal.fire({
+          title: "Assign a mechanic",
+          input: "select",
+          inputOptions: options,
+          showCancelButton: true,
+        }).then((result) => {
+          if (!result.isConfirmed) return;
+          update(repair, { mechanic: result.value }, "mechanic assigned");
+        });
+      }
+
+      function schedule(repair) {
+        Swal.fire({
+          title: `Repair slot for ${repair.vehicle.plateNumber}`,
+          input: "datetime-local",
+          showCancelButton: true,
+        }).then((result) => {
+          if (!result.isConfirmed || !result.value) return;
+          const scheduledAt = new Date(result.value).toISOString();
+          update(repair, { scheduledAt }, "slot booked, driver is notified");
+        });
+      }
+
+      function start(repair) {
+        update(repair, { status: "in_progress" }, "repair started, vehicle is off the road");
+      }
+
+      function complete(repair) {
+        const options = parts
+          .map((part) => `<option value="${part._id}">${part.name} (${part.quantity} left)</option>`)
+          .join("");
+
+        Swal.fire({
+          title: `Complete: ${repair.issue}`,
+          html: `
+            <div><label>Labor cost (₹) : </label><input type="number" id="laborCost" value="0" /></div>
+            <br />
+            <div><label>Part used : </label>
+              <select id="part"><option value="">none</option>${options}</select></div>
+            <br />
+            <div><label>Quantity : </label><input type="number" id="quantity" value="1" min="1" /></div>`,
+          showCancelButton: true,
+          confirmButtonText: "Complete",
+          preConfirm: () => ({
+            laborCost: Number(document.getElementById("laborCost").value),
+            part: document.getElementById("part").value,
+            quantity: Number(document.getElementById("quantity").value),
+          }),
+        }).then((result) => {
+          if (!result.isConfirmed) return;
+          const body = { status: "completed", laborCost: result.value.laborCost };
+          if (result.value.part) {
+            body.partsUsed = [{ part: result.value.part, quantity: result.value.quantity }];
+          }
+          update(repair, body, "repair completed, vehicle back on the road", () => {
+            loadRepairs();
+            loadParts();
+          });
+        });
+      }
+
+      function loadParts() {
+        callApi("/parts").then(({ data }) => {
+          parts = data.parts;
+        });
+      }
+
+      requireUser().then((current) => {
+        if (!current) return;
+        user = current;
+        fillVehicleSelect("vehicle");
+        if (user.role !== "driver") {
+          loadParts();
+          callApi("/auth/mechanics").then(({ data }) => {
+            mechanics = data.mechanics;
+          });
+        }
+        onLive(loadRepairs);
+        loadRepairs();
+      });
+    </script>
+  </body>
+</html>

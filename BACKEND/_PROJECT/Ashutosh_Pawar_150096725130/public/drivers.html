@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drivers</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>Drivers</h1>
+
+    <div id="nav"></div>
+
+    <div id="driver-form" hidden>
+      <h3>Add a Driver</h3>
+      <label for="name">Name : </label>
+      <input type="text" id="name" />
+      <label for="phone">Phone : </label>
+      <input type="text" id="phone" size="10" />
+      <label for="licenseNumber">License No : </label>
+      <input type="text" id="licenseNumber" />
+      <label for="licenseExpiry">License Expiry : </label>
+      <input type="date" id="licenseExpiry" />
+      <label for="vehicle">Vehicle : </label>
+      <select id="vehicle"></select>
+      <button onclick="addDriver()">ADD</button>
+    </div>
+
+    <br />
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>License No</th>
+          <th>License Expiry</th>
+          <th>Vehicle</th>
+          <th>Login</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody id="driver-rows"></tbody>
+    </table>
+
+    <script>
+      let user = null;
+      let vehicles = [];
+
+      function loadDrivers() {
+        callApi("/drivers")
+          .then(({ response, data }) => {
+            console.log(data);
+            if (handleUnauthorized(response, data)) return;
+
+            const rows = document.getElementById("driver-rows");
+            rows.innerHTML = "";
+            data.drivers.forEach((driver) => {
+              const tr = document.createElement("tr");
+              addCells(tr, [
+                driver.name,
+                driver.phone,
+                driver.licenseNumber,
+                driver.licenseExpiry ? new Date(driver.licenseExpiry).toLocaleDateString() : "-",
+                driver.vehicle ? driver.vehicle.plateNumber : "not assigned",
+                driver.user ? driver.user.email : "-",
+              ]);
+
+              const td = document.createElement("td");
+              if (user.role === "admin") {
+                td.appendChild(makeButton("CHANGE VEHICLE", () => changeVehicle(driver)));
+              }
+              tr.appendChild(td);
+              rows.appendChild(tr);
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            showError("could not reach the server!");
+          });
+      }
+
+      function addDriver() {
+        const body = {
+          name: document.getElementById("name").value,
+          phone: document.getElementById("phone").value,
+          licenseNumber: document.getElementById("licenseNumber").value,
+          licenseExpiry: document.getElementById("licenseExpiry").value,
+          vehicle: document.getElementById("vehicle").value,
+        };
+        runAction("/drivers", "POST", body, "driver added", loadDrivers);
+      }
+
+      function changeVehicle(driver) {
+        const options = { "": "no vehicle" };
+        vehicles.forEach((vehicle) => {
+          options[vehicle._id] = vehicle.plateNumber;
+        });
+        Swal.fire({
+          title: `Vehicle for ${driver.name}`,
+          input: "select",
+          inputOptions: options,
+          inputValue: driver.vehicle ? driver.vehicle._id : "",
+          showCancelButton: true,
+        }).then((result) => {
+          if (!result.isConfirmed) return;
+          runAction(`/drivers/${driver._id}`, "PUT", { vehicle: result.value }, "vehicle changed", loadDrivers);
+        });
+      }
+
+      requireUser(["admin", "mechanic"]).then((current) => {
+        if (!current) return;
+        user = current;
+        if (user.role === "admin") {
+          document.getElementById("driver-form").hidden = false;
+          fillVehicleSelect("vehicle");
+          callApi("/vehicles").then(({ data }) => {
+            vehicles = data.vehicles;
+          });
+        }
+        loadDrivers();
+      });
+    </script>
+  </body>
+</html>

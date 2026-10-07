@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicles</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>FleetGuard - Vehicles</h1>
+
+    <div id="nav"></div>
+
+    <br />
+
+    <div>
+      <label for="status">Status : </label>
+      <select id="status" onchange="loadVehicles()">
+        <option value="">All</option>
+        <option value="active">Active</option>
+        <option value="in_service">In service</option>
+        <option value="out_of_service">Out of service</option>
+      </select>
+      <button id="add" hidden onclick="location.href = 'vehicle-form.html'">ADD VEHICLE</button>
+      <span id="count"></span>
+    </div>
+
+    <br />
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Plate</th>
+          <th>Vehicle</th>
+          <th>Year</th>
+          <th>Mileage (km)</th>
+          <th>Km / Day</th>
+          <th>Status</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody id="vehicle-rows"></tbody>
+    </table>
+
+    <script>
+      let user = null;
+
+      function loadVehicles() {
+        const status = document.getElementById("status").value;
+        const query = status ? `?status=${status}` : "";
+
+        callApi(`/vehicles${query}`)
+          .then(({ response, data }) => {
+            console.log(data);
+            if (handleUnauthorized(response, data)) return;
+
+            document.getElementById("count").textContent = `${data.count} vehicle(s)`;
+
+            const rows = document.getElementById("vehicle-rows");
+            rows.innerHTML = "";
+
+            data.vehicles.forEach((vehicle) => {
+              const tr = document.createElement("tr");
+              addCells(tr, [
+                vehicle.plateNumber,
+                `${vehicle.make} ${vehicle.model}`,
+                vehicle.year || "-",
+                vehicle.mileage,
+                vehicle.avgKmPerDay,
+                label(vehicle.status),
+              ]);
+
+              const td = document.createElement("td");
+              td.appendChild(
+                makeButton("VIEW", () => {
+                  location.href = `vehicle.html?id=${vehicle._id}`;
+                }),
+              );
+              if (user.role === "admin") {
+                td.appendChild(
+                  makeButton("EDIT", () => {
+                    location.href = `vehicle-form.html?id=${vehicle._id}`;
+                  }),
+                );
+                td.appendChild(makeButton("DELETE", () => remove(vehicle._id)));
+              }
+              tr.appendChild(td);
+              rows.appendChild(tr);
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            showError("could not reach the server!");
+          });
+      }
+
+      function remove(id) {
+        Swal.fire({
+          icon: "warning",
+          title: "Are you sure?",
+          text: "the vehicle and all its service and repair records will be deleted",
+          showCancelButton: true,
+          confirmButtonText: "Yes, delete it",
+        }).then((result) => {
+          if (!result.isConfirmed) return;
+          runAction(`/vehicles/${id}`, "DELETE", null, "vehicle deleted", loadVehicles);
+        });
+      }
+
+      requireUser().then((current) => {
+        if (!current) return;
+        user = current;
+        document.getElementById("add").hidden = user.role !== "admin";
+        loadVehicles();
+      });
+    </script>
+  </body>
+</html>

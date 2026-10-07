@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>FleetGuard Login</h1>
+
+    <div>
+      <label for="email">Enter Email : </label>
+      <input type="email" id="email" />
+    </div>
+
+    <div>
+      <label for="password">Enter Password : </label>
+      <input type="password" id="password" />
+    </div>
+
+    <br />
+
+    <div>
+      <button onclick="handleSubmit()">Submit</button>
+      <button onclick="location.href = 'register.html'">Register</button>
+    </div>
+
+    <p>demo logins (password123): admin@fleetguard.com, mechanic@fleetguard.com, driver@fleetguard.com</p>
+
+    <script>
+      function handleSubmit() {
+        const body = {
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        };
+
+        callApi("/auth/login", "POST", body)
+          .then(({ response, data }) => {
+            console.log(data);
+
+            if (response.status === 200) {
+              localStorage.setItem("token", data.token);
+              showSuccess(`logged in as ${data.user.name}`).then(() => {
+                location.href = "index.html";
+              });
+            } else {
+              showError(data.message || "invalid credentials!");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            showError("could not reach the server!");
+          });
+      }
+    </script>
+  </body>
+</html>

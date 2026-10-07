@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>Reports</h1>
+
+    <div id="nav"></div>
+
+    <h3>Maintenance Cost</h3>
+    <p id="cost-summary"></p>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Vehicle</th>
+          <th>Mileage (km)</th>
+          <th>Maintenance</th>
+          <th>Repairs</th>
+          <th>Total</th>
+          <th>Cost / km</th>
+        </tr>
+      </thead>
+      <tbody id="cost-rows"></tbody>
+    </table>
+
+    <h3>Downtime</h3>
+    <p id="downtime-summary"></p>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Vehicle</th>
+          <th>Status</th>
+          <th>Repairs</th>
+          <th>Downtime (hours)</th>
+          <th>Off Road Now (hours)</th>
+        </tr>
+      </thead>
+      <tbody id="downtime-rows"></tbody>
+    </table>
+
+    <h3>Breakdown Risk</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Vehicle</th>
+          <th>Mileage (km)</th>
+          <th>Score</th>
+          <th>Risk</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody id="risk-rows"></tbody>
+    </table>
+
+    <script>
+      function fillTable(id, rows) {
+        const body = document.getElementById(id);
+        body.innerHTML = "";
+        rows.forEach((values) => {
+          const tr = document.createElement("tr");
+          addCells(tr, values);
+          body.appendChild(tr);
+        });
+      }
+
+      function loadReports() {
+        callApi("/reports/cost").then(({ data }) => {
+          document.getElementById("cost-summary").textContent =
+            `Fleet spent ${money(data.fleet.totalCost)} over ${data.fleet.totalKm} km = ` +
+            `${money(data.fleet.avgCostPerKm)} per km on average`;
+          fillTable(
+            "cost-rows",
+            data.vehicles.map((row) => [
+              row.vehicle,
+              row.mileage,
+              money(row.maintenanceCost),
+              money(row.repairCost),
+              money(row.totalCost),
+              money(row.costPerKm),
+            ]),
+          );
+        });
+
+        callApi("/reports/downtime").then(({ data }) => {
+          document.getElementById("downtime-summary").textContent =
+            `${data.fleet.totalDowntimeHours} hours lost to repairs, ` +
+            `${data.fleet.vehiclesOffRoad} vehicle(s) off the road right now`;
+          fillTable(
+            "downtime-rows",
+            data.vehicles.map((row) => [
+              row.vehicle,
+              label(row.status),
+              row.repairs,
+              row.downtimeHours,
+              row.currentDowntimeHours,
+            ]),
+          );
+        });
+
+        callApi("/reports/breakdown-risk").then(({ data }) => {
+          fillTable(
+            "risk-rows",
+            data.vehicles.map((row) => [
+              row.vehicle,
+              row.mileage,
+              row.score,
+              row.risk.toUpperCase(),
+              row.reasons.join(", ") || "-",
+            ]),
+          );
+        });
+      }
+
+      requireUser(["admin"]).then((user) => {
+        if (!user) return;
+        loadReports();
+      });
+    </script>
+  </body>
+</html>

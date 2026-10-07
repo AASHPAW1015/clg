@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1 id="heading">Vehicle</h1>
+
+    <div id="nav"></div>
+
+    <p id="details"></p>
+    <p id="driver"></p>
+
+    <h3>Log Odometer</h3>
+    <div>
+      <label for="mileage">Current mileage (km) : </label>
+      <input type="number" id="mileage" min="0" />
+      <button onclick="updateMileage()">UPDATE</button>
+    </div>
+
+    <h3>Report an Issue</h3>
+    <div>
+      <label for="issue">Issue : </label>
+      <input type="text" id="issue" placeholder="e.g. Brake noise when stopping" size="40" />
+      <label for="severity">Severity : </label>
+      <select id="severity">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button onclick="reportIssue()">REPORT</button>
+    </div>
+
+    <h3>Maintenance Schedule</h3>
+    <ul id="alerts"></ul>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Due At (km)</th>
+          <th>Km Left</th>
+          <th>Days Left</th>
+          <th>Alert</th>
+          <th>Status</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody id="maintenance-rows"></tbody>
+    </table>
+
+    <h3>Repairs</h3>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Issue</th>
+          <th>Severity</th>
+          <th>Status</th>
+          <th>Reported</th>
+          <th>Mechanic</th>
+          <th>Slot</th>
+          <th>Downtime</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody id="repair-rows"></tbody>
+    </table>
+
+    <script>
+      const vehicleId = new URLSearchParams(location.search).get("id");
+
+      function loadVehicle() {
+        callApi(`/vehicles/${vehicleId}`).then(({ response, data }) => {
+          if (response.status !== 200) {
+            showError(data.message || "could not load vehicle!");
+            return;
+          }
+          const vehicle = data.vehicle;
+          document.getElementById("heading").textContent = vehicle.plateNumber;
+          document.getElementById("details").textContent =
+            `${vehicle.make} ${vehicle.model} (${vehicle.year || "-"}) | ${vehicle.mileage} km | ` +
+            `about ${vehicle.avgKmPerDay} km/day | ${label(vehicle.status)}`;
+          document.getElementById("driver").textContent = data.driver
+            ? `Driver: ${data.driver.name} (${data.driver.phone})`
+            : "Driver: not assigned";
+          document.getElementById("mileage").value = vehicle.mileage;
+        });
+      }
+
+      function loadMaintenance() {
+        callApi(`/maintenance/vehicle/${vehicleId}`).then(({ data }) => {
+          const alerts = document.getElementById("alerts");
+          alerts.innerHTML = "";
+          data.alerts.forEach((alert) => {
+            const li = document.createElement("li");
+            li.textContent = alert;
+            alerts.appendChild(li);
+          });
+
+          const rows = document.getElementById("maintenance-rows");
+          rows.innerHTML = "";
+          data.maintenance.forEach((record) => {
+            const tr = document.createElement("tr");
+            addCells(tr, [
+              label(record.type),
+              record.dueAtKm,
+              record.forecast.kmLeft ?? "-",
+              record.forecast.daysLeft ?? "-",
+              record.forecast.alert,
+              record.status,
+              record.status === "completed" ? money(record.cost) : "-",
+            ]);
+            rows.appendChild(tr);
+          });
+        });
+      }
+
+      function loadRepairs() {
+        callApi(`/repairs/vehicle/${vehicleId}`).then(({ data }) => {
+          const rows = document.getElementById("repair-rows");
+          rows.innerHTML = "";
+          data.repairs.forEach((repair) => {
+            const tr = document.createElement("tr");
+            addCells(tr, [
+              repair.issue,
+              repair.severity,
+              label(repair.status),
+              formatDate(repair.reportedAt),
+              repair.mechanic ? repair.mechanic.name : "-",
+              formatDate(repair.scheduledAt),
+              `${repair.downtimeHours} h`,
+              money(repair.totalCost),
+            ]);
+            rows.appendChild(tr);
+          });
+        });
+      }
+
+      function loadAll() {
+        loadVehicle();
+        loadMaintenance();
+        loadRepairs();
+      }
+
+      function updateMileage() {
+        const mileage = Number(document.getElementById("mileage").value);
+        runAction(`/vehicles/${vehicleId}`, "PUT", { mileage }, "mileage updated", loadAll);
+      }
+
+      function reportIssue() {
+        const body = {
+          vehicle: vehicleId,
+          issue: document.getElementById("issue").value,
+          severity: document.getElementById("severity").value,
+        };
+        runAction("/repairs", "POST", body, "issue reported, mechanics are notified", () => {
+          document.getElementById("issue").value = "";
+          loadRepairs();
+        });
+      }
+
+      requireUser().then((user) => {
+        if (!user) return;
+        loadAll();
+      });
+    </script>
+  </body>
+</html>

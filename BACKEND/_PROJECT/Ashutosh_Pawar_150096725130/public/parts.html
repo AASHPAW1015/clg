@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parts</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>Parts Inventory</h1>
+
+    <div id="nav"></div>
+
+    <div id="part-form" hidden>
+      <h3>Add a Part</h3>
+      <label for="name">Name : </label>
+      <input type="text" id="name" />
+      <label for="partNumber">Part No : </label>
+      <input type="text" id="partNumber" size="8" />
+      <label for="category">Category : </label>
+      <input type="text" id="category" size="8" />
+      <label for="quantity">Qty : </label>
+      <input type="number" id="quantity" min="0" style="width: 60px" />
+      <label for="unitPrice">Price (₹) : </label>
+      <input type="number" id="unitPrice" min="0" style="width: 80px" />
+      <label for="reorderLevel">Reorder at : </label>
+      <input type="number" id="reorderLevel" min="0" value="5" style="width: 60px" />
+      <button onclick="addPart()">ADD</button>
+    </div>
+
+    <br />
+
+    <div>
+      <input type="checkbox" id="lowStock" onchange="loadParts()" />
+      <label for="lowStock">only low stock</label>
+      <span id="count"></span>
+    </div>
+
+    <br />
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Part No</th>
+          <th>Category</th>
+          <th>Qty</th>
+          <th>Unit Price</th>
+          <th>Reorder At</th>
+          <th>Stock</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody id="part-rows"></tbody>
+    </table>
+
+    <script>
+      let user = null;
+      const fields = ["name", "partNumber", "category", "quantity", "unitPrice", "reorderLevel"];
+
+      function loadParts() {
+        const lowStock = document.getElementById("lowStock").checked;
+
+        callApi(`/parts${lowStock ? "?lowStock=true" : ""}`)
+          .then(({ response, data }) => {
+            console.log(data);
+            if (handleUnauthorized(response, data)) return;
+
+            document.getElementById("count").textContent = `${data.count} part(s)`;
+
+            const rows = document.getElementById("part-rows");
+            rows.innerHTML = "";
+            data.parts.forEach((part) => {
+              const tr = document.createElement("tr");
+              addCells(tr, [
+                part.name,
+                part.partNumber,
+                part.category,
+                part.quantity,
+                money(part.unitPrice),
+                part.reorderLevel,
+                part.lowStock ? "LOW - reorder" : "ok",
+              ]);
+
+              const td = document.createElement("td");
+              if (user.role === "admin") {
+                td.appendChild(makeButton("RESTOCK", () => restock(part)));
+              }
+              tr.appendChild(td);
+              rows.appendChild(tr);
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            showError("could not reach the server!");
+          });
+      }
+
+      function addPart() {
+        const body = {};
+        fields.forEach((field) => {
+          body[field] = document.getElementById(field).value;
+        });
+        runAction("/parts", "POST", body, "part added", () => {
+          fields.forEach((field) => {
+            document.getElementById(field).value = field === "reorderLevel" ? 5 : "";
+          });
+          loadParts();
+        });
+      }
+
+      function restock(part) {
+        Swal.fire({
+          title: `Restock ${part.name}`,
+          input: "number",
+          inputLabel: `how many arrived? (now ${part.quantity})`,
+          inputValue: 10,
+          showCancelButton: true,
+        }).then((result) => {
+          if (!result.isConfirmed) return;
+          const quantity = part.quantity + Number(result.value);
+          runAction(`/parts/${part._id}`, "PUT", { quantity }, "stock updated", loadParts);
+        });
+      }
+
+      requireUser(["admin", "mechanic"]).then((current) => {
+        if (!current) return;
+        user = current;
+        document.getElementById("part-form").hidden = user.role !== "admin";
+        loadParts();
+      });
+    </script>
+  </body>
+</html>

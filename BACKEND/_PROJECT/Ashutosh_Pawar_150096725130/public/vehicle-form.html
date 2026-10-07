@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1 id="heading">Add Vehicle</h1>
+
+    <div id="nav"></div>
+
+    <br />
+
+    <div>
+      <label for="plateNumber">Plate Number : </label>
+      <input type="text" id="plateNumber" placeholder="e.g. TR-456" />
+    </div>
+
+    <div>
+      <label for="make">Make : </label>
+      <input type="text" id="make" placeholder="e.g. Tata" />
+    </div>
+
+    <div>
+      <label for="model">Model : </label>
+      <input type="text" id="model" placeholder="e.g. Prima 4028" />
+    </div>
+
+    <div>
+      <label for="year">Year : </label>
+      <input type="number" id="year" />
+    </div>
+
+    <div>
+      <label for="mileage">Mileage (km) : </label>
+      <input type="number" id="mileage" min="0" value="0" />
+    </div>
+
+    <div>
+      <label for="avgKmPerDay">Average km per day : </label>
+      <input type="number" id="avgKmPerDay" min="1" value="150" />
+    </div>
+
+    <div>
+      <label for="status">Status : </label>
+      <select id="status">
+        <option value="active">Active</option>
+        <option value="in_service">In service</option>
+        <option value="out_of_service">Out of service</option>
+      </select>
+    </div>
+
+    <br />
+
+    <div>
+      <button onclick="handleSubmit()">Save</button>
+      <button onclick="location.href = 'index.html'">Back</button>
+    </div>
+
+    <script>
+      const vehicleId = new URLSearchParams(location.search).get("id");
+      const fields = ["plateNumber", "make", "model", "year", "mileage", "avgKmPerDay", "status"];
+
+      function loadVehicle() {
+        callApi(`/vehicles/${vehicleId}`)
+          .then(({ response, data }) => {
+            if (response.status !== 200) {
+              showError(data.message || "could not load vehicle!");
+              return;
+            }
+            fields.forEach((field) => {
+              document.getElementById(field).value = data.vehicle[field] ?? "";
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            showError("could not reach the server!");
+          });
+      }
+
+      function handleSubmit() {
+        const body = {};
+        fields.forEach((field) => {
+          const value = document.getElementById(field).value;
+          if (value !== "") body[field] = value;
+        });
+
+        const path = vehicleId ? `/vehicles/${vehicleId}` : "/vehicles";
+        const method = vehicleId ? "PUT" : "POST";
+        runAction(path, method, body, vehicleId ? "vehicle updated" : "vehicle added", () => {
+          location.href = "index.html";
+        });
+      }
+
+      requireUser(["admin"]).then((user) => {
+        if (!user) return;
+        if (vehicleId) {
+          document.getElementById("heading").textContent = "Edit Vehicle";
+          loadVehicle();
+        }
+      });
+    </script>
+  </body>
+</html>

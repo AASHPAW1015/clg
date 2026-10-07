@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <h1>Notifications</h1>
+
+    <div id="nav"></div>
+
+    <div id="send-form" hidden>
+      <h3>Send a Push Notification</h3>
+      <label for="title">Title : </label>
+      <input type="text" id="title" />
+      <label for="body">Message : </label>
+      <input type="text" id="body" size="40" />
+      <label for="audience">To : </label>
+      <select id="audience">
+        <option value="all">Everyone</option>
+        <option value="drivers">Drivers</option>
+        <option value="mechanics">Mechanics</option>
+        <option value="admins">Admins</option>
+      </select>
+      <button onclick="send()">SEND</button>
+    </div>
+
+    <br />
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>To</th>
+          <th>Title</th>
+          <th>Message</th>
+          <th>From</th>
+          <th>Firebase Push</th>
+        </tr>
+      </thead>
+      <tbody id="notification-rows"></tbody>
+    </table>
+
+    <script>
+      function loadNotifications() {
+        callApi("/notifications")
+          .then(({ response, data }) => {
+            console.log(data);
+            if (handleUnauthorized(response, data)) return;
+
+            const rows = document.getElementById("notification-rows");
+            rows.innerHTML = "";
+            data.notifications.forEach((notification) => {
+              const tr = document.createElement("tr");
+              addCells(tr, [
+                formatDate(notification.createdAt),
+                notification.audience,
+                notification.title,
+                notification.body,
+                notification.sentBy ? notification.sentBy.name : "-",
+                notification.pushed ? "sent" : notification.pushError ? "failed" : "off",
+              ]);
+              rows.appendChild(tr);
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+            showError("could not reach the server!");
+          });
+      }
+
+      function send() {
+        const body = {
+          title: document.getElementById("title").value,
+          body: document.getElementById("body").value,
+          audience: document.getElementById("audience").value,
+        };
+        runAction("/notifications/send", "POST", body, "notification sent", () => {
+          document.getElementById("title").value = "";
+          document.getElementById("body").value = "";
+        });
+      }
+
+      requireUser().then((user) => {
+        if (!user) return;
+        document.getElementById("send-form").hidden = user.role !== "admin";
+        onLive(loadNotifications);
+        loadNotifications();
+      });
+    </script>
+  </body>
+</html>

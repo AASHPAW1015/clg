@@ -1,0 +1,234 @@
+# Run `npm run seed` first. Login, then paste the token below.
+# Ids: copy them from GET /api/vehicles, /api/parts, /api/repairs
+@base = http://localhost:3000/api
+@token = PASTE_TOKEN_HERE
+
+### Register (driver or mechanic)
+POST {{base}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Amit Shinde",
+  "email": "amit@fleetguard.com",
+  "password": "password123",
+  "role": "driver"
+}
+
+### Login as admin (also: mechanic@fleetguard.com, driver@fleetguard.com)
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@fleetguard.com",
+  "password": "password123"
+}
+
+### Firebase login: send a Firebase ID token, get our JWT back
+POST {{base}}/auth/firebase
+Content-Type: application/json
+
+{
+  "idToken": "FIREBASE_ID_TOKEN"
+}
+
+### Who am I
+GET {{base}}/auth/me
+Authorization: Bearer {{token}}
+
+### All vehicles (filter: ?status=in_service)
+GET {{base}}/vehicles
+Authorization: Bearer {{token}}
+
+### One vehicle with its driver
+GET {{base}}/vehicles/PUT_VEHICLE_ID_HERE
+Authorization: Bearer {{token}}
+
+### Add a vehicle (admin)
+POST {{base}}/vehicles
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "plateNumber": "TR-555",
+  "make": "Tata",
+  "model": "Signa 4825",
+  "year": 2024,
+  "mileage": 5000,
+  "avgKmPerDay": 220
+}
+
+### Log the odometer (driver) - passing a due point sends a "service due" alert
+PUT {{base}}/vehicles/PUT_VEHICLE_ID_HERE
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "mileage": 50200
+}
+
+### Delete a vehicle (admin)
+DELETE {{base}}/vehicles/PUT_VEHICLE_ID_HERE
+Authorization: Bearer {{token}}
+
+### 1. Maintenance for TR-456 -> "oil change due now at 50000 km"
+GET {{base}}/maintenance/vehicle/PUT_VEHICLE_ID_HERE
+Authorization: Bearer {{token}}
+
+### 5. All schedules with predictions -> "TR-789 tire rotation due in 13 days"
+GET {{base}}/maintenance?status=scheduled
+Authorization: Bearer {{token}}
+
+### Schedule a service (admin, mechanic) - leave out dueAtKm to use the interval
+POST {{base}}/maintenance
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehicle": "PUT_VEHICLE_ID_HERE",
+  "type": "oil_change"
+}
+
+### Complete a service -> next one is booked automatically
+PUT {{base}}/maintenance/PUT_MAINTENANCE_ID_HERE
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "completed",
+  "cost": 4800
+}
+
+### 2. Driver logs an issue
+POST {{base}}/repairs
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "vehicle": "PUT_VEHICLE_ID_HERE",
+  "issue": "Brake noise when stopping",
+  "severity": "high"
+}
+
+### Repairs (drivers only see their own)
+GET {{base}}/repairs
+Authorization: Bearer {{token}}
+
+### Repairs of one vehicle
+GET {{base}}/repairs/vehicle/PUT_VEHICLE_ID_HERE
+Authorization: Bearer {{token}}
+
+### 3. Mechanic books the 2 PM slot
+PUT {{base}}/repairs/PUT_REPAIR_ID_HERE
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "scheduledAt": "2026-10-08T14:00:00+05:30"
+}
+
+### Start the repair (vehicle goes off the road)
+PUT {{base}}/repairs/PUT_REPAIR_ID_HERE
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "in_progress"
+}
+
+### Complete it with parts used
+PUT {{base}}/repairs/PUT_REPAIR_ID_HERE
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "completed",
+  "laborCost": 1200,
+  "partsUsed": [{ "part": "PUT_PART_ID_HERE", "quantity": 1 }]
+}
+
+### Parts (?lowStock=true)
+GET {{base}}/parts
+Authorization: Bearer {{token}}
+
+### One part
+GET {{base}}/parts/PUT_PART_ID_HERE
+Authorization: Bearer {{token}}
+
+### Add a part (admin)
+POST {{base}}/parts
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Clutch Plate",
+  "partNumber": "CP-500",
+  "category": "transmission",
+  "quantity": 4,
+  "unitPrice": 7800
+}
+
+### Restock a part (admin)
+PUT {{base}}/parts/PUT_PART_ID_HERE
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "quantity": 20
+}
+
+### Drivers
+GET {{base}}/drivers
+Authorization: Bearer {{token}}
+
+### One driver
+GET {{base}}/drivers/PUT_DRIVER_ID_HERE
+Authorization: Bearer {{token}}
+
+### Add a driver (admin)
+POST {{base}}/drivers
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Prakash Jadhav",
+  "phone": "9811122233",
+  "licenseNumber": "MH1420220009999",
+  "licenseExpiry": "2032-03-01",
+  "vehicle": "PUT_VEHICLE_ID_HERE"
+}
+
+### Update a driver (admin) - "vehicle": "" unassigns
+PUT {{base}}/drivers/PUT_DRIVER_ID_HERE
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "phone": "9800000000"
+}
+
+### 4. Cost report (admin)
+GET {{base}}/reports/cost
+Authorization: Bearer {{token}}
+
+### Downtime report (admin)
+GET {{base}}/reports/downtime
+Authorization: Bearer {{token}}
+
+### Breakdown risk (admin)
+GET {{base}}/reports/breakdown-risk
+Authorization: Bearer {{token}}
+
+### Send a push notification (admin)
+POST {{base}}/notifications/send
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "title": "Service day",
+  "body": "All trucks report to the depot on Monday",
+  "audience": "drivers"
+}
+
+### Notifications for my role
+GET {{base}}/notifications
+Authorization: Bearer {{token}}
