@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wheel of Impossible Destiny</title>
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#07050f;color:#fff;font-family:"Segoe UI",system-ui,sans-serif;overflow:hidden;user-select:none;-webkit-user-select:none}
+body.invert{filter:invert(1) hue-rotate(180deg)}
+body.glitch #c{animation:gl .15s steps(2) infinite}
+body.rainbow #c{animation:rb 1.2s linear infinite}
+@keyframes gl{0%{transform:translate(-6px,3px) skewX(4deg);filter:hue-rotate(90deg)}100%{transform:translate(7px,-4px) skewX(-5deg);filter:hue-rotate(-90deg)}}
+@keyframes rb{to{filter:hue-rotate(360deg)}}
+@keyframes pop{0%{transform:translate(-50%,0) scale(.2);opacity:0}60%{transform:translate(-50%,0) scale(1.15);opacity:1}100%{transform:translate(-50%,0) scale(1);opacity:1}}
+#c{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+header{position:fixed;top:0;left:0;right:0;padding:12px;text-align:center;font-weight:800;letter-spacing:.2em;font-size:clamp(12px,2.6vw,19px);color:#00f0ff;text-shadow:0 0 8px #00f0ff,0 0 28px #00f0ff;pointer-events:none}
+#res{position:fixed;left:50%;top:9%;transform:translate(-50%,0);max-width:92vw;text-align:center;font-weight:900;font-size:clamp(20px,5vw,44px);opacity:0;pointer-events:none}
+#res.show{animation:pop .5s ease-out forwards}
+#log{position:fixed;left:14px;top:48px;font-size:13px;line-height:1.5;color:#b9b4d6;pointer-events:none;max-width:40vw}
+#hud{position:fixed;bottom:18px;left:0;right:0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+button{background:#0b0818;color:#fff;border:2px solid #ff2bd6;border-radius:12px;padding:12px 20px;font:700 15px "Segoe UI",sans-serif;cursor:pointer;box-shadow:0 0 14px #ff2bd655;transition:transform .12s,box-shadow .12s}
+button:hover{box-shadow:0 0 26px #ff2bd6}
+button:active{transform:scale(.9)}
+button:focus-visible{outline:3px solid #ffe600;outline-offset:2px}
+#spin{border-color:#00f0ff;box-shadow:0 0 18px #00f0ff77;font-size:18px;padding:12px 34px}
+#hint{position:fixed;bottom:76px;width:100%;text-align:center;font-size:12px;color:#7a74a0;pointer-events:none}
+</style>
+</head>
+<body>
+<header id="hdr"></header>
+<div id="res"></div>
+<div id="log">Spins: 0</div>
+<canvas id="c"></canvas>
+<div id="hint">Drag the wheel to fling it. Or press Space. The middle looks pokeable.</div>
+<div id="hud">
+  <button id="spin">SPIN</button>
+  <button id="chaos">Chaos: off</button>
+  <button id="mute">Sound: on</button>
+</div>
+<script>
+const STUDENT_NO = "00"; // CHANGE THIS to your assigned number (01-50)
+document.getElementById("hdr").textContent = "Created by Student #" + STUDENT_NO;
+
+const SEGS = [
+  ["Free pizza (imaginary)", "#00f0ff", "confetti"],
+  ["Your WiFi becomes sentient", "#ff2bd6", "glitch"],
+  ["You must talk like a pirate", "#b6ff00", "shake"],
+  ["Gravity takes a day off", "#ffe600", "antigrav"],
+  ["Homework eaten by a dragon", "#ff6a00", "shake"],
+  ["Instant legend status", "#9d4dff", "rainbow"],
+  ["Your socks swap feet", "#00ff9d", "glitch"],
+  ["A llama moves in", "#ff2b5e", "confetti"],
+  ["Time runs backwards 3 sec", "#3d7bff", "invert"],
+  ["Nothing. At all.", "#ffffff", "shake"]
+];
+const N = SEGS.length, TAU = Math.PI * 2, STEP = TAU / N;
+
+// ---------- audio ----------
+let AC = null, muted = false;
+function ac() {
+  if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} }
+  if (AC && AC.state === "suspended") AC.resume();
+  return AC;
+}
+function beep(f, d, type = "square", v = .08, to) {
+  const a = ac(); if (!a || muted) return;
+  const o = a.createOscillator(), g = a.createGain(), t = a.currentTime;
+  o.type = type; o.frequency.setValueAtTime(f, t);
+  if (to) o.frequency.exponentialRampToValueAtTime(to, t + d);
+  g.gain.setValueAtTime(v, t); g.gain.exponentialRampToValueAtTime(.0001, t + d);
+  o.connect(g).connect(a.destination); o.start(); o.stop(t + d);
+}
+const sfx = {
+  tick: s => beep(500 + Math.min(s, 20) * 30, .04, "square", .05),
+  whoosh: () => beep(200, .6, "sawtooth", .06, 1200),
+  boom: () => { beep(120, .7, "sine", .25, 25); beep(60, .5, "sawtooth", .1, 20); },
+  glitch: () => { for (let i = 0; i < 8; i++) setTimeout(() => beep(100 + Math.random() * 1800, .06, "square", .06), i * 45); },
+  win: () => [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => beep(f, .18, "triangle", .1), i * 90))
+};
+
+// ---------- state ----------
+const cv = document.getElementById("c"), g = cv.getContext("2d");
+let W, H, R, cx, cy, dpr;
+function resize() {
+  dpr = window.devicePixelRatio || 1; W = innerWidth; H = innerHeight;
+  cv.width = W * dpr; cv.height = H * dpr;
+  R = Math.min(W, H * .82) * .38; cx = W / 2; cy = H / 2 + 10;
+}
+addEventListener("resize", resize); resize();
+
+let rot = 0, om = 0, spinning = false, dragging = false;
+let pAng = 0, pVel = 0, lastIdx = -1, shake = 0, grav = 1, chaos = false;
+let spins = 0, t0 = 0, flipped = false, hub = 0, hubT;
+const parts = [], rings = [], log = [];
+
+// Which slice sits under the pointer at the top of the wheel? (-1 = invalid input)
+function segmentAt(r, n) {
+  if (!Number.isFinite(r) || !(n > 0)) return -1;
+  const step = TAU / n;
+  const a = (((-Math.PI / 2 - r) % TAU) + TAU) % TAU;
+  return Math.floor(a / step) % n;
+}
+
+// ---------- effects ----------
+function burst(x, y, n, cols, sp = 9) {
+  for (let i = 0; i < n && parts.length < 1800; i++) {
+    const a = Math.random() * TAU, s = Math.random() * sp + 1;
+    parts.push({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, l: 1, d: .008 + Math.random() * .015,
+      c: Array.isArray(cols) ? cols[i % cols.length] : cols, r: 1 + Math.random() * 3 });
+  }
+}
+function ring(x, y, c) { rings.push({ x, y, r: 10, c, l: 1 }); }
+
+function fx(type, col) {
+  burst(cx, cy, 260, [col, "#fff", "#00f0ff", "#ff2bd6"], 12);
+  ring(cx, cy, col); ring(cx, cy, "#fff");
+  shake = Math.max(shake, 16); sfx.boom();
+  const b = document.body;
+  if (type === "glitch") { b.classList.add("glitch"); sfx.glitch(); setTimeout(() => b.classList.remove("glitch"), 1100); }
+  if (type === "invert") { b.classList.add("invert"); setTimeout(() => b.classList.remove("invert"), 1500); }
+  if (type === "rainbow") { b.classList.add("rainbow"); setTimeout(() => b.classList.remove("rainbow"), 3000); }
+  if (type === "shake") shake = 40;
+  if (type === "antigrav") {
+    grav = -1; setTimeout(() => grav = 1, 5000);
+    for (let i = 0; i < 8; i++) setTimeout(() => burst(Math.random() * W, H, 60, col, 3), i * 350);
+  }
+}
+
+function announce(s) {
+  spins++; fx(s[2], s[1]); sfx.win();
+  const el = document.getElementById("res");
+  el.textContent = s[0]; el.style.color = s[1];
+  el.style.textShadow = "0 0 12px " + s[1] + ",0 0 40px " + s[1];
+  el.classList.remove("show"); void el.offsetWidth; el.classList.add("show");
+  log.unshift(s[0]); log.length = Math.min(log.length, 5);
+  document.getElementById("log").innerHTML = "Spins: " + spins + "<br>" + log.map(x => "&bull; " + x).join("<br>");
+}
+
+// ---------- physics ----------
+// TODO (Task 3): paste your "explain like I am 10" analogy as a comment right here!
+function update(dt) {
+  if (spinning && !dragging) {
+    rot += om * dt; t0 += dt;
+    om *= Math.exp(-.45 * dt); om -= Math.sign(om) * .25 * dt;          // friction
+    if (chaos && Math.random() < dt * 1.5) om += (Math.random() - .5) * 14; // chaos kicks
+    if (!flipped && t0 > 1.6 && Math.abs(om) > 6 && Math.random() < dt * .6) { // the wheel changes its mind
+      flipped = true; om = -om * .9; shake = 18; sfx.glitch(); ring(cx, cy, "#ff2bd6");
+    }
+    if (Math.abs(om) < .12) { om = 0; spinning = false; announce(SEGS[segmentAt(rot, N)]); }
+  } else if (!dragging) rot += .08 * dt; // lazy idle drift
+
+  const idx = segmentAt(rot, N);
+  if (idx !== lastIdx) {
+    if (lastIdx !== -1 && (spinning || dragging)) {
+      sfx.tick(Math.abs(om));
+      pVel += Math.sign(om || 1) * Math.min(Math.abs(om), 14) * 1.2;
+      om *= .997; // peg drag
+    }
+    lastIdx = idx;
+  }
+  pVel += (-80 * pAng - 6 * pVel) * dt; pAng += pVel * dt;
+  pAng = Math.max(-.7, Math.min(.7, pAng));
+
+  for (const p of parts) { p.x += p.vx; p.y += p.vy; p.vy += .15 * grav; p.vx *= .99; p.l -= p.d; }
+  for (let i = parts.length - 1; i >= 0; i--) if (parts[i].l <= 0) parts.splice(i, 1);
+  for (const r of rings) { r.r += 14; r.l -= .025; }
+  for (let i = rings.length - 1; i >= 0; i--) if (rings[i].l <= 0) rings.splice(i, 1);
+  shake *= .9; if (shake < .2) shake = 0;
+}
+
+// ---------- drawing ----------
+function draw() {
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  g.fillStyle = "rgba(7,5,15,.35)"; g.fillRect(0, 0, W, H);
+  g.save(); g.translate((Math.random() - .5) * shake, (Math.random() - .5) * shake);
+
+  g.save(); g.translate(cx, cy); g.rotate(rot);
+  for (let i = 0; i < N; i++) {
+    const a0 = i * STEP, c = SEGS[i][1];
+    g.beginPath(); g.moveTo(0, 0); g.arc(0, 0, R, a0, a0 + STEP); g.closePath();
+    g.fillStyle = c + "33"; g.fill();
+    g.lineWidth = 3; g.strokeStyle = c; g.shadowColor = c; g.shadowBlur = 18; g.stroke(); g.shadowBlur = 0;
+    g.save(); g.rotate(a0 + STEP / 2); g.fillStyle = "#fff";
+    g.font = "700 " + Math.max(9, R * .05) + "px Segoe UI,sans-serif";
+    g.textAlign = "right"; g.textBaseline = "middle"; g.fillText(SEGS[i][0], R * .92, 0); g.restore();
+  }
+  g.beginPath(); g.arc(0, 0, R, 0, TAU); g.lineWidth = 6; g.strokeStyle = "#fff";
+  g.shadowColor = "#00f0ff"; g.shadowBlur = 25; g.stroke(); g.shadowBlur = 0;
+  for (let i = 0; i < N; i++) {
+    g.beginPath(); g.arc(Math.cos(i * STEP) * R, Math.sin(i * STEP) * R, R * .025, 0, TAU);
+    g.fillStyle = "#ffe600"; g.fill();
+  }
+  g.beginPath(); g.arc(0, 0, R * .15, 0, TAU); g.fillStyle = "#07050f"; g.fill();
+  g.lineWidth = 4; g.strokeStyle = "#ff2bd6"; g.shadowColor = "#ff2bd6"; g.shadowBlur = 20; g.stroke(); g.shadowBlur = 0;
+  g.restore();
+
+  g.fillStyle = "#fff"; g.font = "800 " + R * .12 + "px Segoe UI,sans-serif";
+  g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("?", cx, cy + 2);
+
+  g.save(); g.translate(cx, cy - R - 4); g.rotate(pAng);
+  g.beginPath(); g.moveTo(-13, -18); g.lineTo(13, -18); g.lineTo(0, 24); g.closePath();
+  g.fillStyle = "#ff2b5e"; g.shadowColor = "#ff2b5e"; g.shadowBlur = 20; g.fill(); g.restore();
+
+  g.globalCompositeOperation = "lighter";
+  for (const p of parts) { g.globalAlpha = Math.max(0, p.l); g.fillStyle = p.c; g.fillRect(p.x, p.y, p.r, p.r); }
+  for (const r of rings) {
+    g.globalAlpha = Math.max(0, r.l); g.lineWidth = 4; g.strokeStyle = r.c;
+    g.beginPath(); g.arc(r.x, r.y, r.r, 0, TAU); g.stroke();
+  }
+  g.globalAlpha = 1; g.globalCompositeOperation = "source-over"; g.restore();
+}
+
+let last = performance.now();
+function loop(t) {
+  const dt = Math.min(.033, (t - last) / 1000); last = t;
+  update(dt); draw(); requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+// ---------- input ----------
+function spin() {
+  ac();
+  if (spinning) { om += Math.sign(om || 1) * 6; sfx.whoosh(); return; } // extra shove
+  om = 14 + Math.random() * 16; spinning = true; t0 = 0; flipped = false;
+  sfx.whoosh(); burst(cx, cy, 40, "#00f0ff", 6);
+}
+function hubClick() {
+  hub++; beep(300 + hub * 80, .08, "square", .08); burst(cx, cy, 20, "#fff", 4);
+  clearTimeout(hubT); hubT = setTimeout(() => hub = 0, 1500);
+  if (hub >= 7) { hub = 0; announce(["The wheel files a complaint about you", "#ffd700", "rainbow"]); }
+}
+const ang = e => Math.atan2(e.clientY - cy, e.clientX - cx);
+let la = 0, lt = 0;
+cv.addEventListener("pointerdown", e => {
+  ac();
+  const d = Math.hypot(e.clientX - cx, e.clientY - cy);
+  if (d < R * .16) { hubClick(); return; }
+  if (d < R * 1.1) { dragging = true; spinning = false; om = 0; la = ang(e); lt = performance.now(); cv.setPointerCapture(e.pointerId); }
+});
+cv.addEventListener("pointermove", e => {
+  if (!dragging) return;
+  const a = ang(e); let d = a - la;
+  if (d > Math.PI) d -= TAU; if (d < -Math.PI) d += TAU;
+  const n = performance.now(), dt = Math.max(.001, (n - lt) / 1000);
+  rot += d; om = om * .6 + (d / dt) * .4; la = a; lt = n;
+});
+function release() {
+  if (!dragging) return; dragging = false;
+  if (performance.now() - lt > 120) om = 0; // held still = no fling
+  if (Math.abs(om) > 1.5) { om = Math.max(-30, Math.min(30, om)); spinning = true; t0 = 0; flipped = false; sfx.whoosh(); }
+  else om = 0;
+}
+cv.addEventListener("pointerup", release); cv.addEventListener("pointercancel", release);
+
+const bC = document.getElementById("chaos"), bM = document.getElementById("mute");
+function syncBtns() { bC.textContent = "Chaos: " + (chaos ? "ON" : "off"); bM.textContent = "Sound: " + (muted ? "off" : "on"); }
+document.getElementById("spin").onclick = spin;
+bC.onclick = () => { chaos = !chaos; syncBtns(); };
+bM.onclick = () => { muted = !muted; syncBtns(); ac(); };
+
+const K = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+let ki = 0;
+addEventListener("keydown", e => {
+  if (e.key === " ") { e.preventDefault(); spin(); return; }
+  const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+  ki = k === K[ki] ? ki + 1 : (k === K[0] ? 1 : 0);
+  if (ki === K.length) {
+    ki = 0; chaos = true; syncBtns(); om = 40; spinning = true; t0 = 0; flipped = false;
+    announce(["IMPOSSIBLE MODE UNLOCKED", "#ff00ff", "antigrav"]);
+  }
+});
+
+// ---------- unit tests (Task 4) ----------
+console.assert(segmentAt(-Math.PI / 2, 10) === 0, "normal value failed");
+console.assert(segmentAt(0, 10) === 7, "zero rotation failed");
+console.assert(segmentAt(-123.4, 10) >= 0 && segmentAt(-123.4, 10) < 10 && segmentAt(NaN, 10) === -1 && segmentAt(5, 0) === -1, "negative/empty failed");
+</script>
+</body>
+</html>
