@@ -23,6 +23,24 @@ Node *createNode(Data data) {
   return newnode;
 }
 
+string garbageCollect(Node *head) {
+  Node *temp = head;
+  Node *temppt;
+
+  if (head->next == nullptr) {
+    delete temp;
+    return "The head was deleted, the only node in the linked list was the "
+           "head.";
+  }
+  while (temp->next != nullptr) {
+    temp->next = temppt;
+    delete temp;
+    temp = temppt;
+  }
+  delete temp;
+  return "The linked list was removed from the computer's memory!";
+}
+
 Node *insertBeginning(Node *head, Data data) {
   Node *newnode = createNode(data);
   newnode->next = head;
@@ -61,8 +79,26 @@ Node *insertPosition(Node *head, Data data, int position) {
       temp = temp->next;
       newnode->next = temp;
       temp->next = newnode;
+      return head;
     }
   }
 }
+// TODO insertPosition
 
-int main() {}
+Node *deleteID(Node *head) {}
+
+int main() {
+  Data info;
+
+  cout << "Please input the student ID";
+  cin >> info.studentID;
+
+  cout << "Please input the name of the studnet";
+  cin >> info.name;
+
+  Node *head = nullptr;
+  Node a = insertBeginning(head, data);
+
+  for (Data i : a) {
+  }
+}
